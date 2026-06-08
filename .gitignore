@@ -38,6 +38,10 @@ pip-delete-this-directory.txt
 
 # Local exercise materials
 *.pdf
+docs/decision-log.md
+runs/
+state/
+runtime-state/
 
 # Unit test / coverage reports
 htmlcov/

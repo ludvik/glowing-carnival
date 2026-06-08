@@ -56,3 +56,44 @@ That produces 306 scored issues and 224 unscored issues:
 The `documentation` and `other` classes are intentionally retained, but their
 sample sizes are too small for strong per-class claims. Treat their metrics as
 qualitative signals unless more labels are added.
+
+## Run the eval engine
+
+The eval engine calls DigitalOcean Serverless Inference through its
+OpenAI-compatible chat completions API. Set a model access key or DigitalOcean
+token before running:
+
+```bash
+export DIGITALOCEAN_SI_API_KEY=...
+```
+
+Run a cost-controlled smoke eval:
+
+```bash
+uv run python scripts/run_eval.py \
+  --prompt config/prompts/classification_template.txt \
+  --models mistral-3-14b,gpt-oss-20b \
+  --limit 3 \
+  --concurrency 2
+```
+
+Run the full corpus explicitly:
+
+```bash
+uv run python scripts/run_eval.py \
+  --prompt config/prompts/classification_template.txt \
+  --models mistral-3-14b,gpt-oss-20b \
+  --all \
+  --concurrency 8
+```
+
+The engine writes runtime artifacts to `runs/{run_id}/` by default:
+
+```text
+runs/{run_id}/
+  run.json
+  results/{model_id}.json
+```
+
+`runs/` is gitignored. Use `EVAL_OUTPUT_DIR` or `--output-dir` to write results
+to a mounted volume in deployed environments.

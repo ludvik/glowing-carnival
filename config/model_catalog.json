@@ -1,0 +1,38 @@
+{
+  "pricing_source": "DigitalOcean Inference pricing, validated 2026-06-04",
+  "pricing_url": "https://docs.digitalocean.com/products/inference/details/pricing/",
+  "models": {
+    "mistral-3-14b": {
+      "display_name": "Ministral 3 14B Instruct",
+      "provider": "digitalocean_si",
+      "provider_model": "mistral-3-14B",
+      "input_price_per_1m_tokens": 0.2,
+      "output_price_per_1m_tokens": 0.2,
+      "pricing_source": "config/model_catalog.json"
+    },
+    "llama-3.3-70b": {
+      "display_name": "Llama 3.3 Instruct 70B",
+      "provider": "digitalocean_si",
+      "provider_model": "llama3.3-70b-instruct",
+      "input_price_per_1m_tokens": 0.65,
+      "output_price_per_1m_tokens": 0.65,
+      "pricing_source": "config/model_catalog.json"
+    },
+    "gpt-oss-20b": {
+      "display_name": "gpt-oss 20B",
+      "provider": "digitalocean_si",
+      "provider_model": "openai-gpt-oss-20b",
+      "input_price_per_1m_tokens": 0.05,
+      "output_price_per_1m_tokens": 0.45,
+      "pricing_source": "config/model_catalog.json"
+    },
+    "gpt-oss-120b": {
+      "display_name": "gpt-oss 120B",
+      "provider": "digitalocean_si",
+      "provider_model": "openai-gpt-oss-120b",
+      "input_price_per_1m_tokens": 0.1,
+      "output_price_per_1m_tokens": 0.7,
+      "pricing_source": "config/model_catalog.json"
+    }
+  }
+}
