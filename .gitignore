@@ -36,6 +36,9 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Local exercise materials
+*.pdf
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -151,6 +154,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.uv-cache
 env/
 venv/
 ENV/

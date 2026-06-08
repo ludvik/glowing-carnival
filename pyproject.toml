@@ -1,0 +1,14 @@
+[project]
+name = "glowing-carnival"
+version = "0.1.0"
+description = "Evaluation harness for GitHub issue classification with language models."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = []
+
+[tool.uv]
+package = false
+cache-dir = ".uv-cache"

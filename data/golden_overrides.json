@@ -1,0 +1,26 @@
+{
+  "1106": {
+    "ground_truth_label": "other",
+    "rationale": "Maintainer marked the issue as duplicate; the customer schema says duplicates should be classified as other."
+  },
+  "1156": {
+    "ground_truth_label": "documentation",
+    "rationale": "The request is primarily for documentation examples and clearer command output."
+  },
+  "1190": {
+    "ground_truth_label": "documentation",
+    "rationale": "The request asks DigitalOcean to publish a JSON Schema in documentation."
+  },
+  "1723": {
+    "ground_truth_label": "bug",
+    "rationale": "The report describes a previously working registry workflow now failing with an API error."
+  },
+  "853": {
+    "ground_truth_label": "bug",
+    "rationale": "The primary complaint is a flag form that appears accepted but does not affect the setting; documentation is secondary."
+  },
+  "876": {
+    "ground_truth_label": "bug",
+    "rationale": "The issue reports a reproducible command failure; the suggestion label is secondary to the failure mode."
+  }
+}
