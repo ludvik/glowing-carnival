@@ -530,6 +530,15 @@ uv run python scripts/run_eval.py \
   --output-dir runs
 ```
 
+Sweep concurrency on a fixed dataset slice:
+
+```bash
+uv run python scripts/sweep_concurrency.py \
+  --model llama-8b \
+  --limit 50 \
+  --concurrency-values 1,2,4,8
+```
+
 ## Design Principles
 
 - One issue-model pair produces one persisted call result.

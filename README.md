@@ -97,3 +97,22 @@ runs/{run_id}/
 
 `runs/` is gitignored. Use `EVAL_OUTPUT_DIR` or `--output-dir` to write results
 to a mounted volume in deployed environments.
+
+Retry retryable failed calls from a prior model resultset:
+
+```bash
+uv run python scripts/run_eval.py \
+  --retry-failed runs/{run_id}/results/{model_id}.json
+```
+
+Run a small concurrency sweep before choosing a production default:
+
+```bash
+uv run python scripts/sweep_concurrency.py \
+  --model mistral-3-14b \
+  --limit 20 \
+  --concurrency-values 1,2,4,8
+```
+
+Each model resultset includes wall-clock time and sustained throughput in
+`operational_summary.throughput`.

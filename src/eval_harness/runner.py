@@ -44,6 +44,7 @@ async def run_model(
     ]
     results = await asyncio.gather(*tasks)
     completed = utc_now()
+    wall_clock_ms = round((time.perf_counter() - wall_start) * 1000, 3)
 
     return {
         "run_id": config.run_id,
@@ -51,10 +52,10 @@ async def run_model(
         "provider_model": model["provider_model"],
         "created_at": isoformat(started),
         "completed_at": isoformat(completed),
-        "wall_clock_ms": round((time.perf_counter() - wall_start) * 1000, 3),
+        "wall_clock_ms": wall_clock_ms,
         "result_count": len(results),
         "results": results,
-        "operational_summary": summarize_results(results),
+        "operational_summary": summarize_results(results, wall_clock_ms, config.concurrency),
     }
 
 
@@ -207,7 +208,11 @@ async def run_call(
         }
 
 
-def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
+def summarize_results(
+    results: list[dict[str, Any]],
+    wall_clock_ms: float | None = None,
+    concurrency: int | None = None,
+) -> dict[str, Any]:
     ok_results = [result for result in results if result["status"] == "ok"]
     latency_values = [
         result["timing"]["total_latency_ms"]
@@ -233,12 +238,22 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         "latency_ms": {
             "p50": percentile(latency_values, 50),
             "p95": percentile(latency_values, 95),
+            "avg": round(sum(latency_values) / len(latency_values), 3)
+            if latency_values
+            else None,
         },
         "cost": {
             "total_cost_usd": sum(total_costs) if total_costs else None,
             "avg_cost_per_ok_call_usd": (
                 sum(total_costs) / len(total_costs) if total_costs else None
             ),
+        },
+        "throughput": {
+            "wall_clock_ms": wall_clock_ms,
+            "concurrency": concurrency,
+            "requests_per_second": round(len(results) / (wall_clock_ms / 1000), 3)
+            if wall_clock_ms and wall_clock_ms > 0
+            else None,
         },
     }
 
