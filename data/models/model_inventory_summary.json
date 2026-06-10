@@ -1,0 +1,73 @@
+{
+  "base_url": "https://inference.do-ai.run",
+  "cost_ready_count": 16,
+  "eligible_count": 51,
+  "endpoint": "https://inference.do-ai.run/v1/models",
+  "excluded_count": 13,
+  "exclusion_reason_counts": {
+    "excluded_id_pattern:all-mini-lm": 1,
+    "excluded_id_pattern:bge-": 1,
+    "excluded_id_pattern:e5-": 1,
+    "excluded_id_pattern:embedding": 1,
+    "excluded_id_pattern:gte-": 1,
+    "excluded_id_pattern:image": 3,
+    "excluded_id_pattern:multi-qa": 1,
+    "excluded_id_pattern:rerank": 1,
+    "excluded_id_pattern:tts": 1,
+    "non_text_modality:image": 1,
+    "non_text_modality:video": 1
+  },
+  "family_counts": {
+    "claude": 11,
+    "deepseek": 3,
+    "digitalocean-hosted": 11,
+    "gemma": 1,
+    "glm": 1,
+    "gpt-4o": 1,
+    "gpt-5": 2,
+    "gpt-oss": 2,
+    "kimi": 2,
+    "llama": 3,
+    "minimax": 1,
+    "mistral": 1,
+    "nemotron": 4,
+    "openai": 18,
+    "qwen": 5,
+    "rerank": 1,
+    "trinity": 1
+  },
+  "fetched_at_utc": "2026-06-10T21:01:37.812921Z",
+  "metadata_file": "config/model_metadata.json",
+  "missing_pricing_count": 52,
+  "modality_counts": {
+    "audio": 1,
+    "embedding": 6,
+    "image": 4,
+    "rerank": 1,
+    "text": 55,
+    "video": 1
+  },
+  "needs_metadata_review_count": 4,
+  "notes": [
+    "Snapshot reflects models visible to the configured DigitalOcean Serverless Inference key at fetch time.",
+    "API key and Authorization header are never persisted.",
+    "Pricing comes from local metadata; missing pricing is allowed for smoke testing but must be filled before cost/pilot/final evaluation."
+  ],
+  "pricing_needed_count": 35,
+  "provider_counts": {
+    "Alibaba/Qwen": 2,
+    "Anthropic": 11,
+    "Arcee": 1,
+    "DeepSeek": 2,
+    "DigitalOcean-hosted": 24,
+    "Meta": 2,
+    "Mistral AI": 1,
+    "Moonshot AI": 1,
+    "NVIDIA": 1,
+    "OpenAI": 23
+  },
+  "raw_response_sha256": "5d87363e8569c2f9b5d2591ae03a3a99332732020f665400caf5200b34efb5ac",
+  "smoke_eligible_count": 51,
+  "smoke_eligible_needs_pricing_count": 35,
+  "total_visible_models": 68
+}

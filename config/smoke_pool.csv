@@ -1,0 +1,17 @@
+model_id,pool_tier,why_included,expected_role
+openai-gpt-oss-20b,cost_efficient,Very low-cost open-weight model; tests whether small OSS is enough for issue classification,cheap_default_candidate
+openai-gpt-5-nano,cost_efficient,Very low-cost commercial model; useful cheap baseline,cheap_default_candidate
+deepseek-4-flash,cost_efficient,Fast low-cost DigitalOcean-hosted model with attractive token pricing,cheap_default_candidate
+mistral-3-14B,cost_efficient,Small instruct model; tests small-model quality floor,cheap_default_candidate
+alibaba-qwen3-32b,cost_efficient,Cost-efficient Qwen model; different provider family from OpenAI/Mistral/DeepSeek,cheap_default_candidate
+openai-gpt-oss-120b,balanced,Larger OSS model from same gpt-oss family; useful comparison against 20B,balanced_candidate
+llama3.3-70b-instruct,balanced,Classic 70B instruct baseline; strong open model reference,balanced_candidate
+llama-4-maverick,balanced,Modern Llama candidate with larger context and moderate pricing,balanced_candidate
+nvidia-nemotron-3-super-120b,balanced,Large DigitalOcean-hosted NVIDIA model with moderate price,balanced_candidate
+kimi-k2.5,balanced,Large DigitalOcean-hosted model from a different provider family,balanced_candidate
+qwen3.5-397b-a17b,large,High-capability Qwen-family model; quality-oriented non-frontier candidate,quality_candidate
+deepseek-3.2,large,Large DeepSeek model; quality-oriented DO-hosted candidate,quality_candidate
+arcee-trinity-large-thinking,large_reasoning,Thinking-style model; validates whether reasoning-style behavior helps or hurts strict classification,quality_candidate
+openai-gpt-4o-mini,frontier_reference,Low-cost commercial reference widely used for classification-like workloads,reference
+openai-gpt-5-mini,frontier_reference,Commercial higher-capability mini model; reference for quality uplift,reference
+anthropic-claude-haiku-4.5,frontier_reference,Anthropic low-latency/cost reference; provider diversity against OpenAI,reference
