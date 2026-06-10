@@ -20,7 +20,7 @@ The engine is responsible for:
 The engine is not responsible for:
 
 - Deciding how ground truth is certified.
-- Mutating the checked-in golden dataset during deployed runtime.
+- Mutating checked-in label artifacts during deployed runtime.
 - Computing final model recommendations.
 - Rendering the UI.
 - Hiding failures from scoring or presentation.
@@ -154,7 +154,7 @@ Run config is passed by CLI flags and environment variables.
   "temperature": 0,
   "max_output_tokens": 64,
   "streaming": false,
-  "dataset_path": "data/eval_dataset.json",
+  "dataset_path": "data/labels/classification_corpus.jsonl",
   "output_dir": "runs"
 }
 ```
@@ -377,7 +377,7 @@ interpretable.
   "completed_at": "2026-06-08T20:03:12Z",
   "wall_clock_ms": 192000,
   "dataset_id": "doctl_issues_530",
-  "dataset_path": "data/eval_dataset.json",
+  "dataset_path": "data/labels/classification_corpus.jsonl",
   "model_ids": ["llama-8b", "llama-70b"],
   "prompt_source": "config/prompts/classification_template.txt",
   "model_catalog_path": "config/model_catalog.json",
@@ -534,7 +534,7 @@ Example local run:
 
 ```bash
 uv run python scripts/run_eval.py \
-  --dataset data/eval_dataset.json \
+  --dataset data/labels/classification_corpus.jsonl \
   --prompt config/prompts/classification_template.txt \
   --models llama-8b,llama-70b \
   --concurrency 8 \

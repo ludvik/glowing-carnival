@@ -37,6 +37,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Local exercise materials
+.DS_Store
 *.pdf
 docs/decision-log.md
 runs/

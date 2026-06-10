@@ -24,7 +24,7 @@ from eval_harness.runner import RunConfig, run_model
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the issue classification eval engine.")
-    parser.add_argument("--dataset", default="data/golden_dataset.json")
+    parser.add_argument("--dataset", default="data/labels/classification_corpus.jsonl")
     parser.add_argument("--model-catalog", default="config/model_catalog.json")
     parser.add_argument("--prompt", default="config/prompts/classification_template.txt")
     parser.add_argument("--models", default=None, help="Comma-separated model ids from catalog.")

@@ -26,7 +26,7 @@ from eval_harness.scoring import (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Score eval resultsets against a dataset.")
-    parser.add_argument("--dataset", default="data/golden_dataset.json")
+    parser.add_argument("--dataset", default="data/labels/classification_corpus.jsonl")
     parser.add_argument(
         "--resultsets",
         required=True,

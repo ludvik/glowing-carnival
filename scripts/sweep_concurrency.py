@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
         default="1,2,4,8",
         help="Comma-separated concurrency values.",
     )
-    parser.add_argument("--dataset", default="data/golden_dataset.json")
+    parser.add_argument("--dataset", default="data/labels/classification_corpus.jsonl")
     parser.add_argument("--prompt", default="config/prompts/classification_template.txt")
     parser.add_argument("--output-dir", default="runs")
     parser.add_argument("--timeout-seconds", type=float, default=45)

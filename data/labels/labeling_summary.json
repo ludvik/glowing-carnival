@@ -1,0 +1,79 @@
+{
+  "candidate_distribution_by_label": {
+    "bug": 163,
+    "documentation": 20,
+    "enhancement": 105,
+    "other": 2,
+    "question": 21,
+    "security": 27
+  },
+  "exclusion_reason_counts": {
+    "ambiguous_documentation_enhancement": 1,
+    "below_min_confidence": 17,
+    "conflicting_primary_labels": 1,
+    "no_high_confidence_signal": 162,
+    "only_secondary_labels": 29,
+    "over_max_per_class": 187,
+    "strong_competing_text_signal": 2
+  },
+  "generated_at_utc": "2026-06-10T20:11:47.285086Z",
+  "input_sha256": "2384207671fda2950e552739a9a75f09b6991b59af323b6f3e57e878e78c22e0",
+  "maintainer_label_distribution": {
+    "Needs Investigation": 18,
+    "api-parity": 16,
+    "app-platform": 1,
+    "blocked": 1,
+    "bug": 159,
+    "do-api": 22,
+    "docs": 3,
+    "duplicate": 1,
+    "enhancement": 16,
+    "good first issue": 14,
+    "hacktoberfest": 19,
+    "help wanted": 9,
+    "packaging": 15,
+    "question": 12,
+    "security vulnerability": 26,
+    "snap": 14,
+    "suggestion": 89,
+    "troubleshooting": 3,
+    "version 2.x": 1,
+    "waiting-response": 6,
+    "windows": 5,
+    "wip": 5,
+    "work-around-available": 1
+  },
+  "max_per_class": 35,
+  "min_confidence": 0.75,
+  "review_candidate_distribution_by_label": {
+    "bug": 1,
+    "documentation": 5,
+    "enhancement": 2,
+    "other": 0,
+    "question": 4,
+    "security": 1
+  },
+  "review_count": 4,
+  "scored_count": 131,
+  "scored_distribution_by_label": {
+    "bug": 35,
+    "documentation": 15,
+    "enhancement": 35,
+    "other": 2,
+    "question": 18,
+    "security": 26
+  },
+  "scored_support_by_label": {
+    "bug": 35,
+    "documentation": 15,
+    "enhancement": 35,
+    "other": 2,
+    "question": 18,
+    "security": 26
+  },
+  "thin_labels": [
+    "other"
+  ],
+  "total_issues": 530,
+  "unscored_count": 395
+}

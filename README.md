@@ -13,49 +13,50 @@ uv run python scripts/fetch_github_issues.py
 The script writes a stable JSON corpus to `data/doctl_issues.json`. It uses the
 GitHub public API and can optionally use `GITHUB_TOKEN` to raise rate limits.
 
-## Build the golden dataset
+## Build the scored dataset
 
 ```bash
-uv run python scripts/build_golden_dataset.py
+uv run python scripts/build_scored_set.py \
+  --input data/doctl_issues.json \
+  --output-dir data/labels \
+  --min-confidence 0.75 \
+  --seed 42 \
+  --max-per-class 35
 ```
 
-The script writes `data/golden_dataset.json`, which splits the 530 fetched issues
-into:
+The script treats maintainer labels as weak signals, combines them with
+deterministic text heuristics, and writes the label artifacts under
+`data/labels/`:
 
-- `scored`: issues with a ground-truth label for evaluation.
-- `unscored`: issues that still get model predictions, but are excluded from
+- `classification_corpus.jsonl`: all 530 input issues exactly once. This is the
+  default model-classification input.
+- `scored_set.csv` and `scored_set.jsonl`: high-confidence issues with one
+  certified ground-truth label.
+- `unscored_set.csv`: issues still classified by models but excluded from
   accuracy/F1 scoring.
-- `needs_review`: conflicting cases not yet manually adjudicated.
+- `review_queue.csv`: ambiguous cases that need adjudication.
+- `manual_review_candidates.csv`: prioritized rows to inspect next, including
+  review rows and thin-label candidates.
+- `labeling_summary.json`: counts, support by label, thin labels, and exclusion
+  reasons.
+- `labeling_guide.md`: the documented labeling methodology.
 
-Ground truth is derived from maintainer labels when exactly one target class can
-be mapped without ambiguity:
-
-- `bug` -> `bug`
-- `suggestion`, `enhancement`, `api-parity` -> `enhancement`
-- `question`, `troubleshooting` -> `question`
-- `docs` -> `documentation`
-- `security vulnerability` -> `security`
-- `duplicate` -> `other`
-
-Workflow and metadata labels such as `hacktoberfest`, `packaging`, `snap`,
-`waiting-response`, and `Needs Investigation` are ignored for scoring.
-
-Conflicting mapped labels are not scored automatically. The current dataset uses
-`data/golden_overrides.json` for six manual adjudications, each with a rationale.
-That produces 306 scored issues and 224 unscored issues:
+Manual corrections live in `data/labels/manual_overrides.csv`. Overrides take
+precedence over automatic rules and must include a rationale. The checked-in v1
+scored set is intentionally conservative:
 
 | Label | Count |
 | --- | ---: |
-| bug | 158 |
-| enhancement | 104 |
+| bug | 35 |
+| enhancement | 35 |
 | security | 26 |
-| question | 15 |
-| documentation | 2 |
-| other | 1 |
+| question | 18 |
+| documentation | 15 |
+| other | 2 |
 
-The `documentation` and `other` classes are intentionally retained, but their
-sample sizes are too small for strong per-class claims. Treat their metrics as
-qualitative signals unless more labels are added.
+`other` remains a thin class. Treat its metrics as qualitative unless more
+manual labels are added.
+
 
 ## Run the eval engine
 
@@ -71,6 +72,7 @@ Run a cost-controlled smoke eval:
 
 ```bash
 uv run python scripts/run_eval.py \
+  --dataset data/labels/classification_corpus.jsonl \
   --prompt config/prompts/classification_template.txt \
   --models mistral-3-14b,gpt-oss-20b \
   --limit 3 \
@@ -81,6 +83,7 @@ Run the full corpus explicitly:
 
 ```bash
 uv run python scripts/run_eval.py \
+  --dataset data/labels/classification_corpus.jsonl \
   --prompt config/prompts/classification_template.txt \
   --models mistral-3-14b,gpt-oss-20b \
   --all \
@@ -129,6 +132,7 @@ eval UI:
 
 ```bash
 uv run python scripts/score_results.py \
+  --dataset data/labels/classification_corpus.jsonl \
   --resultsets runs/{run_id}/results/{model_a}.json,runs/{run_id}/results/{model_b}.json
 ```
 
