@@ -672,56 +672,6 @@ def sha256_json(payload: Any) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
-def write_markdown_summary(path: Path, summary: dict[str, Any], output_paths: dict[str, Path]) -> None:
-    lines = [
-        "# Model Inventory Snapshot",
-        "",
-        "## Purpose",
-        "",
-        "This step discovers the DigitalOcean Serverless Inference models visible to the configured model access key. It normalizes model metadata and prepares explainable candidate lists for later smoke testing. It does not run issue classification or call chat completions.",
-        "",
-        "## Snapshot Semantics",
-        "",
-        "The inventory is a point-in-time snapshot. DigitalOcean model availability can change, and the visible model set can be scoped by the configured model access key.",
-        "",
-        "## Scope",
-        "",
-        "The empirical model pool focuses on DigitalOcean Serverless Inference models. Dedicated deployments, BYOM, and self-hosted GPU alternatives are handled qualitatively outside this inventory.",
-        "",
-        "## Eligibility",
-        "",
-        "A model is smoke-test eligible when it is visible through `/v1/models`, appears suitable for chat-style text generation, is not clearly an embedding/reranker/image/audio/video/TTS/async-only model, and is not explicitly excluded by metadata.",
-        "",
-        "## Pricing",
-        "",
-        "Pricing is supplied by `config/model_metadata.json`. Missing pricing is a metadata gap, not a smoke-test exclusion. Smoke testing can proceed without pricing, but pilot and final evaluation cost metrics require input and output token prices.",
-        "",
-        "## Known Limitations",
-        "",
-        "- `/v1/models` may not expose complete capability or context-window metadata.",
-        "- The snapshot only reflects models visible to the key at fetch time.",
-        "- Capability inference from model IDs is conservative and routes uncertain rows to review.",
-        "- Pricing must be manually maintained and source-attributed.",
-        "",
-        "## Counts",
-        "",
-        f"- Total visible models: {summary['total_visible_models']}",
-        f"- Smoke eligible models: {summary['smoke_eligible_count']}",
-        f"- Smoke eligible, pricing needed: {summary['smoke_eligible_needs_pricing_count']}",
-        f"- Cost-ready eligible models: {summary['cost_ready_count']}",
-        f"- Pricing needed: {summary['pricing_needed_count']}",
-        f"- Excluded models: {summary['excluded_count']}",
-        f"- Needs metadata review: {summary['needs_metadata_review_count']}",
-        f"- Missing pricing: {summary['missing_pricing_count']}",
-        "",
-        "## Artifacts",
-        "",
-    ]
-    for name, artifact_path in output_paths.items():
-        lines.append(f"- `{artifact_path}`: {name.replace('_', ' ')}")
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
 def validate_outputs(
     all_records: list[dict[str, Any]],
     eligible: list[dict[str, Any]],
@@ -891,7 +841,6 @@ def main() -> int:
         "excluded_models": output_dir / "excluded_models.csv",
         "needs_metadata_review": output_dir / "needs_metadata_review.csv",
         "model_inventory_summary": output_dir / "model_inventory_summary.json",
-        "model_inventory_markdown": output_dir / "model_inventory.md",
     }
 
     write_json(output_paths["raw_models_response"], raw_wrapper)
@@ -903,7 +852,6 @@ def main() -> int:
     write_csv(output_paths["excluded_models"], excluded, CSV_COLUMNS)
     write_csv(output_paths["needs_metadata_review"], review, REVIEW_COLUMNS)
     write_json(output_paths["model_inventory_summary"], summary)
-    write_markdown_summary(output_paths["model_inventory_markdown"], summary, output_paths)
 
     print_summary(summary, output_paths)
     return 0
