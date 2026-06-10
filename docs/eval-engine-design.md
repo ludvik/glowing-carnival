@@ -307,6 +307,11 @@ cost fields should be `null` rather than silently guessed.
 - `retryable`: Whether this failed call can be retried independently.
 - `error.type`: One of the fixed error types below.
 - `error.http_status`: HTTP status when applicable.
+- `response_headers`: Provider response headers relevant to operations. For
+  DigitalOcean Serverless Inference this includes `ratelimit-limit`,
+  `ratelimit-remaining`, and `ratelimit-reset` when returned. The current
+  Serverless Inference endpoint also returns `x-ratelimit-*` request and token
+  headers, which should be captured when present.
 
 Failed calls remain in the resultset and contribute to operational summaries.
 They are not dropped from the denominator.
@@ -458,6 +463,8 @@ state/
 runs/
   {run_id}/
     run.json
+    progress/
+      {model_id}.json
     results/
       {model_id}.json
     summaries/
@@ -496,6 +503,30 @@ scripts/
 
 The engine should persist raw resultsets before scoring. This allows scoring
 logic to change without rerunning expensive inference.
+
+## Scoring Artifacts
+
+`scripts/score_results.py` reads the dataset and one or more model resultsets and
+writes UI-ready summary JSON under `runs/{run_id}/summaries/`.
+
+```text
+summaries/
+  scored_metrics.json
+  unscored_analysis.json
+  operational_metrics.json
+```
+
+`scored_metrics.json` contains per-model accuracy, per-class precision, recall,
+F1, confusion matrices, scored-set cost per correct classification, and
+model-disagreement drill-down rows with ground truth visible.
+
+`unscored_analysis.json` contains per-model suggested label distributions,
+agreement rate between models, raw outputs, and disagreement rows for issues
+without ground truth.
+
+`operational_metrics.json` contains per-model cost, latency, throughput,
+wall-clock, error-rate, and rate-limit-header summaries copied from persisted
+resultsets.
 
 ## CLI Shape
 

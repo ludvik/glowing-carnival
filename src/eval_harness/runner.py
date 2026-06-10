@@ -4,13 +4,19 @@ import asyncio
 import time
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
-from eval_harness.client import DigitalOceanSIClient, extract_content, extract_usage
+from eval_harness.client import (
+    DigitalOceanSIClient,
+    extract_content,
+    extract_response_headers,
+    extract_usage,
+)
 from eval_harness.cost import calculate_cost
 from eval_harness.errors import InferenceError
 from eval_harness.prompt import build_messages, parse_model_output
-from eval_harness.resultset import isoformat, utc_now
+from eval_harness.resultset import isoformat, utc_now, write_json_atomic
 
 
 @dataclass(frozen=True)
@@ -24,6 +30,8 @@ class RunConfig:
     prompt_source: str
     streaming: bool = False
     verbose: bool = False
+    progress_dir: Path | None = None
+    progress_interval: int = 25
 
 
 async def run_model(
@@ -39,10 +47,50 @@ async def run_model(
     wall_start = time.perf_counter()
 
     tasks = [
-        run_call(client, semaphore, model_id, model, issue, system_prompt, config)
+        asyncio.create_task(
+            run_call(client, semaphore, model_id, model, issue, system_prompt, config)
+        )
         for issue in issues
     ]
-    results = await asyncio.gather(*tasks)
+    results = []
+    ok_count = 0
+    error_count = 0
+    total_count = len(tasks)
+    write_progress(
+        config,
+        model_id,
+        total_count,
+        completed_count=0,
+        ok_count=0,
+        error_count=0,
+        started_perf=wall_start,
+        done=False,
+    )
+    for task in asyncio.as_completed(tasks):
+        result = await task
+        results.append(result)
+        if result["status"] == "ok":
+            ok_count += 1
+        else:
+            error_count += 1
+        completed_count = len(results)
+        if (
+            completed_count == total_count
+            or completed_count % config.progress_interval == 0
+        ):
+            write_progress(
+                config,
+                model_id,
+                total_count,
+                completed_count,
+                ok_count,
+                error_count,
+                wall_start,
+                done=completed_count == total_count,
+            )
+            print_progress(config, model_id, total_count, completed_count, ok_count, error_count, wall_start)
+
+    results.sort(key=lambda result: result["issue_number"])
     completed = utc_now()
     wall_clock_ms = round((time.perf_counter() - wall_start) * 1000, 3)
 
@@ -57,6 +105,61 @@ async def run_model(
         "results": results,
         "operational_summary": summarize_results(results, wall_clock_ms, config.concurrency),
     }
+
+
+def write_progress(
+    config: RunConfig,
+    model_id: str,
+    total_count: int,
+    completed_count: int,
+    ok_count: int,
+    error_count: int,
+    started_perf: float,
+    done: bool,
+) -> None:
+    if config.progress_dir is None:
+        return
+    elapsed_seconds = time.perf_counter() - started_perf
+    rps = completed_count / elapsed_seconds if elapsed_seconds > 0 else None
+    remaining = total_count - completed_count
+    eta_seconds = remaining / rps if rps and rps > 0 else None
+    payload = {
+        "run_id": config.run_id,
+        "model_id": model_id,
+        "status": "completed" if done else "running",
+        "total_count": total_count,
+        "completed_count": completed_count,
+        "ok_count": ok_count,
+        "error_count": error_count,
+        "remaining_count": remaining,
+        "progress": completed_count / total_count if total_count else 1,
+        "elapsed_seconds": round(elapsed_seconds, 3),
+        "requests_per_second": round(rps, 3) if rps is not None else None,
+        "eta_seconds": round(eta_seconds, 3) if eta_seconds is not None else None,
+        "updated_at": isoformat(utc_now()),
+    }
+    write_json_atomic(config.progress_dir / f"{model_id}.json", payload)
+
+
+def print_progress(
+    config: RunConfig,
+    model_id: str,
+    total_count: int,
+    completed_count: int,
+    ok_count: int,
+    error_count: int,
+    started_perf: float,
+) -> None:
+    elapsed_seconds = time.perf_counter() - started_perf
+    rps = completed_count / elapsed_seconds if elapsed_seconds > 0 else 0
+    remaining = total_count - completed_count
+    eta_seconds = remaining / rps if rps > 0 else None
+    eta_text = f"{eta_seconds:.0f}s" if eta_seconds is not None else "unknown"
+    print(
+        f"Progress {model_id}: {completed_count}/{total_count} "
+        f"ok={ok_count} errors={error_count} rps={rps:.3f} eta={eta_text}",
+        flush=True,
+    )
 
 
 async def run_call(
@@ -101,6 +204,7 @@ async def run_call(
                 response_completed_at = utc_now()
                 response_perf = time.perf_counter()
                 raw_output = extract_content(response)
+                response_headers = extract_response_headers(response)
                 usage = extract_usage(response)
                 parsed_label, rationale, parse_error = parse_model_output(raw_output)
                 status = "ok"
@@ -110,6 +214,7 @@ async def run_call(
                     status = "error"
                     error_type = "invalid_label" if "Invalid label" in parse_error else "parse_error"
                     error = {"type": error_type, "message": parse_error, "http_status": None}
+                    retryable = True
 
                 ended_at = utc_now()
                 ended_perf = time.perf_counter()
@@ -137,6 +242,7 @@ async def run_call(
                     },
                     "usage": usage,
                     "cost": calculate_cost(usage, model),
+                    "response_headers": response_headers,
                     "timing": {
                         "queued_at": isoformat(queued_at),
                         "started_at": isoformat(started_at),
@@ -186,6 +292,7 @@ async def run_call(
             },
             "usage": None,
             "cost": calculate_cost(None, model),
+            "response_headers": error.headers,
             "timing": {
                 "queued_at": isoformat(queued_at),
                 "started_at": isoformat(started_at),
@@ -229,6 +336,11 @@ def summarize_results(
         for result in results
         if result["status"] == "error" and result.get("error")
     )
+    rate_limit_headers = [
+        result.get("response_headers", {})
+        for result in results
+        if result.get("response_headers")
+    ]
     return {
         "calls_total": len(results),
         "calls_ok": len(ok_results),
@@ -255,6 +367,48 @@ def summarize_results(
             if wall_clock_ms and wall_clock_ms > 0
             else None,
         },
+        "rate_limit_headers": summarize_rate_limit_headers(rate_limit_headers),
+    }
+
+
+def summarize_rate_limit_headers(headers: list[dict[str, Any]]) -> dict[str, Any]:
+    request_limits = [
+        header.get("x-ratelimit-limit-requests", header.get("ratelimit-limit"))
+        for header in headers
+    ]
+    request_remaining = [
+        header.get("x-ratelimit-remaining-requests", header.get("ratelimit-remaining"))
+        for header in headers
+    ]
+    request_resets = [
+        header.get("x-ratelimit-reset-requests", header.get("ratelimit-reset"))
+        for header in headers
+    ]
+    token_minute_limits = [
+        header.get("x-ratelimit-limit-tokens-per-minute") for header in headers
+    ]
+    token_minute_remaining = [
+        header.get("x-ratelimit-remaining-tokens-per-minute") for header in headers
+    ]
+    numeric_remaining = [value for value in request_remaining if isinstance(value, int)]
+    numeric_resets = [value for value in request_resets if isinstance(value, int)]
+    numeric_token_remaining = [
+        value for value in token_minute_remaining if isinstance(value, int)
+    ]
+    return {
+        "observed": len(headers),
+        "request_limits": sorted(
+            {value for value in request_limits if value is not None}, key=str
+        ),
+        "min_requests_remaining": min(numeric_remaining) if numeric_remaining else None,
+        "max_requests_remaining": max(numeric_remaining) if numeric_remaining else None,
+        "latest_requests_reset": max(numeric_resets) if numeric_resets else None,
+        "token_per_minute_limits": sorted(
+            {value for value in token_minute_limits if value is not None}, key=str
+        ),
+        "min_tokens_per_minute_remaining": min(numeric_token_remaining)
+        if numeric_token_remaining
+        else None,
     }
 
 

@@ -92,8 +92,13 @@ The engine writes runtime artifacts to `runs/{run_id}/` by default:
 ```text
 runs/{run_id}/
   run.json
+  progress/{model_id}.json
   results/{model_id}.json
 ```
+
+During long runs, `progress/{model_id}.json` is updated every
+`--progress-interval` completed calls and includes completed count, ok/error
+count, current requests/sec, and ETA.
 
 `runs/` is gitignored. Use `EVAL_OUTPUT_DIR` or `--output-dir` to write results
 to a mounted volume in deployed environments.
@@ -116,3 +121,28 @@ uv run python scripts/sweep_concurrency.py \
 
 Each model resultset includes wall-clock time and sustained throughput in
 `operational_summary.throughput`.
+
+## Score persisted resultsets
+
+Generate the scored, unscored, and operational JSON summaries required by the
+eval UI:
+
+```bash
+uv run python scripts/score_results.py \
+  --resultsets runs/{run_id}/results/{model_a}.json,runs/{run_id}/results/{model_b}.json
+```
+
+The script writes:
+
+```text
+runs/{run_id}/summaries/
+  scored_metrics.json
+  unscored_analysis.json
+  operational_metrics.json
+```
+
+`scored_metrics.json` includes accuracy, per-class precision/recall/F1,
+confusion matrices, cost per correct classification, and scored model
+disagreements with ground truth. `unscored_analysis.json` includes model
+agreement, per-class prediction distributions, raw outputs, and disagreements
+for issues without ground truth.

@@ -35,6 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-retries", type=int, default=2)
     parser.add_argument("--temperature", type=float, default=0)
     parser.add_argument("--max-output-tokens", type=int, default=128)
+    parser.add_argument("--progress-interval", type=int, default=25)
     parser.add_argument("--limit", type=int, default=None, help="Limit issue count for cost-controlled runs.")
     parser.add_argument("--all", action="store_true", help="Run all issues in the dataset.")
     parser.add_argument(
@@ -107,6 +108,8 @@ async def main_async() -> int:
         max_output_tokens=args.max_output_tokens,
         prompt_source=args.prompt,
         verbose=args.verbose,
+        progress_dir=output_root / "progress",
+        progress_interval=args.progress_interval,
     )
     run_payload = {
         "run_id": run_id,
@@ -148,6 +151,7 @@ async def main_async() -> int:
         print(f"  max_retries: {args.max_retries}")
         print(f"  temperature: {args.temperature}")
         print(f"  max_output_tokens: {args.max_output_tokens}")
+        print(f"  progress_interval: {args.progress_interval}")
 
     try:
         for model_id, model in models.items():

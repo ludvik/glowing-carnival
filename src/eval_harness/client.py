@@ -7,6 +7,7 @@ import urllib.request
 from typing import Any
 
 from eval_harness.errors import InferenceError, classify_http_error
+from eval_harness.errors import extract_rate_limit_headers
 
 
 class DigitalOceanSIClient:
@@ -46,7 +47,11 @@ class DigitalOceanSIClient:
 
         try:
             with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
-                return json.loads(response.read().decode("utf-8"))
+                body = json.loads(response.read().decode("utf-8"))
+                return {
+                    "body": body,
+                    "headers": extract_rate_limit_headers(response.headers),
+                }
         except urllib.error.HTTPError as exc:
             raise classify_http_error(exc) from exc
         except urllib.error.URLError as exc:
@@ -59,6 +64,7 @@ class DigitalOceanSIClient:
 
 
 def extract_content(response: dict[str, Any]) -> str:
+    response = response.get("body", response)
     choices = response.get("choices") or []
     if not choices:
         return ""
@@ -70,6 +76,7 @@ def extract_content(response: dict[str, Any]) -> str:
 
 
 def extract_usage(response: dict[str, Any]) -> dict[str, Any] | None:
+    response = response.get("body", response)
     usage = response.get("usage")
     if not usage:
         return None
@@ -84,3 +91,7 @@ def extract_usage(response: dict[str, Any]) -> dict[str, Any] | None:
         "total_tokens": total_tokens,
         "usage_source": "provider",
     }
+
+
+def extract_response_headers(response: dict[str, Any]) -> dict[str, Any]:
+    return response.get("headers", {})
