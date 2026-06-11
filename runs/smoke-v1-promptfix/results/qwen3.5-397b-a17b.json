@@ -1,0 +1,817 @@
+{
+  "completed_at": "2026-06-10T22:05:32.692860Z",
+  "created_at": "2026-06-10T22:05:20.915050Z",
+  "model_id": "qwen3.5-397b-a17b",
+  "operational_summary": {
+    "calls_error": 11,
+    "calls_ok": 0,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": null,
+      "total_cost_usd": null
+    },
+    "error_rate": 1.0,
+    "errors_by_type": {
+      "parse_error": 11
+    },
+    "latency_ms": {
+      "avg": null,
+      "p50": null,
+      "p95": null
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 118,
+      "min_tokens_per_minute_remaining": 499889,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.934,
+      "wall_clock_ms": 11777.637
+    }
+  },
+  "provider_model": "qwen3.5-397b-a17b",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:25",
+      "cost": {
+        "input_cost_usd": 0.00022275,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00044675
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 25,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2220,
+        "request-id": "3902eec8-7be8-4522-ba00-acb102ae62aa",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "3902eec8-7be8-4522-ba00-acb102ae62aa"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:23.402681Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.008,
+        "queued_at": "2026-06-10T22:05:20.915751Z",
+        "request_sent_at": "2026-06-10T22:05:20.915784Z",
+        "response_completed_at": "2026-06-10T22:05:23.402622Z",
+        "started_at": "2026-06-10T22:05:20.915761Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2486.826,
+        "wall_time_ms": 2486.893
+      },
+      "usage": {
+        "input_tokens": 405,
+        "output_tokens": 64,
+        "total_tokens": 469,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:127",
+      "cost": {
+        "input_cost_usd": 0.00040205000000000004,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0006260500000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 127,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1893,
+        "request-id": "794b778d-106f-44a2-9785-05c75c53a868",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "794b778d-106f-44a2-9785-05c75c53a868"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:23.077765Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.003,
+        "queued_at": "2026-06-10T22:05:20.915849Z",
+        "request_sent_at": "2026-06-10T22:05:20.915875Z",
+        "response_completed_at": "2026-06-10T22:05:23.077728Z",
+        "started_at": "2026-06-10T22:05:20.915851Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2161.836,
+        "wall_time_ms": 2161.885
+      },
+      "usage": {
+        "input_tokens": 731,
+        "output_tokens": 64,
+        "total_tokens": 795,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:131",
+      "cost": {
+        "input_cost_usd": 0.0005456,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0007696000000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 131,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1619,
+        "request-id": "c7dc903a-de9b-4c11-9d25-b8e6451c6f76",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 499533,
+        "x-ratelimit-remaining-tokens-per-minute": 499889,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "c7dc903a-de9b-4c11-9d25-b8e6451c6f76"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:24.937886Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2162.003,
+        "queued_at": "2026-06-10T22:05:20.915897Z",
+        "request_sent_at": "2026-06-10T22:05:23.078018Z",
+        "response_completed_at": "2026-06-10T22:05:24.937853Z",
+        "started_at": "2026-06-10T22:05:23.077931Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1859.819,
+        "wall_time_ms": 4021.93
+      },
+      "usage": {
+        "input_tokens": 992,
+        "output_tokens": 64,
+        "total_tokens": 1056,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:166",
+      "cost": {
+        "input_cost_usd": 0.00035420000000000004,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0005782000000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 166,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2484,
+        "request-id": "92fce80d-2be6-4e62-a51d-0355312786b1",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 499569,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "92fce80d-2be6-4e62-a51d-0355312786b1"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:26.118415Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2486.928,
+        "queued_at": "2026-06-10T22:05:20.915903Z",
+        "request_sent_at": "2026-06-10T22:05:23.402943Z",
+        "response_completed_at": "2026-06-10T22:05:26.118381Z",
+        "started_at": "2026-06-10T22:05:23.402867Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2715.407,
+        "wall_time_ms": 5202.436
+      },
+      "usage": {
+        "input_tokens": 644,
+        "output_tokens": 64,
+        "total_tokens": 708,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:238",
+      "cost": {
+        "input_cost_usd": 0.00022275,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00044675
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 238,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1120,
+        "request-id": "8e412d33-5713-4421-ae6d-85eecd6fbfbb",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498585,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "8e412d33-5713-4421-ae6d-85eecd6fbfbb"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:26.268564Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4022.071,
+        "queued_at": "2026-06-10T22:05:20.915907Z",
+        "request_sent_at": "2026-06-10T22:05:24.938093Z",
+        "response_completed_at": "2026-06-10T22:05:26.268535Z",
+        "started_at": "2026-06-10T22:05:24.938035Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1330.432,
+        "wall_time_ms": 5352.578
+      },
+      "usage": {
+        "input_tokens": 405,
+        "output_tokens": 64,
+        "total_tokens": 469,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:263",
+      "cost": {
+        "input_cost_usd": 0.00023045000000000002,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00045445
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 263,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1352,
+        "request-id": "21ef413a-a504-4a26-84b8-88295d931a10",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498185,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "21ef413a-a504-4a26-84b8-88295d931a10"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:27.702632Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 5202.579,
+        "queued_at": "2026-06-10T22:05:20.915910Z",
+        "request_sent_at": "2026-06-10T22:05:26.118620Z",
+        "response_completed_at": "2026-06-10T22:05:27.702598Z",
+        "started_at": "2026-06-10T22:05:26.118565Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1583.964,
+        "wall_time_ms": 6786.622
+      },
+      "usage": {
+        "input_tokens": 419,
+        "output_tokens": 64,
+        "total_tokens": 483,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:309",
+      "cost": {
+        "input_cost_usd": 0.00029755000000000005,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0005215500000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 309,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2391,
+        "request-id": "2d184d30-1838-40a4-83d0-a5d69383f962",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 498194,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "2d184d30-1838-40a4-83d0-a5d69383f962"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:28.931453Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 5352.738,
+        "queued_at": "2026-06-10T22:05:20.915913Z",
+        "request_sent_at": "2026-06-10T22:05:26.268809Z",
+        "response_completed_at": "2026-06-10T22:05:28.931420Z",
+        "started_at": "2026-06-10T22:05:26.268727Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2662.582,
+        "wall_time_ms": 8015.422
+      },
+      "usage": {
+        "input_tokens": 541,
+        "output_tokens": 64,
+        "total_tokens": 605,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:452",
+      "cost": {
+        "input_cost_usd": 0.0002134,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0004374
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 452,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1664,
+        "request-id": "a303841a-5eae-4b3b-a6ee-181f7f0553f2",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497810,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "a303841a-5eae-4b3b-a6ee-181f7f0553f2"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:29.647584Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 6786.818,
+        "queued_at": "2026-06-10T22:05:20.915916Z",
+        "request_sent_at": "2026-06-10T22:05:27.702899Z",
+        "response_completed_at": "2026-06-10T22:05:29.647560Z",
+        "started_at": "2026-06-10T22:05:27.702831Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1944.639,
+        "wall_time_ms": 8731.539
+      },
+      "usage": {
+        "input_tokens": 388,
+        "output_tokens": 64,
+        "total_tokens": 452,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:729",
+      "cost": {
+        "input_cost_usd": 0.00068475,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00090875
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 729,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2067,
+        "request-id": "7cbe82f7-66a0-473c-95b9-5f3044285563",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497742,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "7cbe82f7-66a0-473c-95b9-5f3044285563"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:31.219574Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 8015.564,
+        "queued_at": "2026-06-10T22:05:20.915918Z",
+        "request_sent_at": "2026-06-10T22:05:28.931703Z",
+        "response_completed_at": "2026-06-10T22:05:31.219541Z",
+        "started_at": "2026-06-10T22:05:28.931598Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2287.815,
+        "wall_time_ms": 10303.504
+      },
+      "usage": {
+        "input_tokens": 1245,
+        "output_tokens": 64,
+        "total_tokens": 1309,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:997",
+      "cost": {
+        "input_cost_usd": 0.00023980000000000003,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0004638
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 997,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1539,
+        "request-id": "a354562e-84e7-4ebf-82d0-7877fb2bebf1",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497467,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "a354562e-84e7-4ebf-82d0-7877fb2bebf1"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:31.392150Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 8731.628,
+        "queued_at": "2026-06-10T22:05:20.915922Z",
+        "request_sent_at": "2026-06-10T22:05:29.647719Z",
+        "response_completed_at": "2026-06-10T22:05:31.392118Z",
+        "started_at": "2026-06-10T22:05:29.647677Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1744.385,
+        "wall_time_ms": 10476.075
+      },
+      "usage": {
+        "input_tokens": 436,
+        "output_tokens": 64,
+        "total_tokens": 500,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:qwen3.5-397b-a17b:1363",
+      "cost": {
+        "input_cost_usd": 0.00019745,
+        "input_price_per_1m_tokens": 0.55,
+        "output_cost_usd": 0.000224,
+        "output_price_per_1m_tokens": 3.5,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00042144999999999997
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 1363,
+      "model_id": "qwen3.5-397b-a17b",
+      "provider_model": "qwen3.5-397b-a17b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1223,
+        "request-id": "96c5d6ad-0935-4088-96c6-e03a21d5d9c4",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497044,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "96c5d6ad-0935-4088-96c6-e03a21d5d9c4"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:32.690793Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 10303.639,
+        "queued_at": "2026-06-10T22:05:20.915924Z",
+        "request_sent_at": "2026-06-10T22:05:31.219769Z",
+        "response_completed_at": "2026-06-10T22:05:32.690761Z",
+        "started_at": "2026-06-10T22:05:31.219714Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1470.98,
+        "wall_time_ms": 11774.696
+      },
+      "usage": {
+        "input_tokens": 359,
+        "output_tokens": 64,
+        "total_tokens": 423,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1-promptfix",
+  "wall_clock_ms": 11777.637
+}

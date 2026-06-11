@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 35.343,
+  "error_count": 0,
+  "eta_seconds": 0.0,
+  "model_id": "llama3.3-70b-instruct",
+  "ok_count": 11,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.311,
+  "run_id": "smoke-v1-promptfix",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T22:04:49.302590Z"
+}

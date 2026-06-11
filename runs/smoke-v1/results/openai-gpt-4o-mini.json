@@ -1,0 +1,694 @@
+{
+  "completed_at": "2026-06-10T21:45:16.783678Z",
+  "created_at": "2026-06-10T21:45:14.941614Z",
+  "model_id": "openai-gpt-4o-mini",
+  "operational_summary": {
+    "calls_error": 11,
+    "calls_ok": 0,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": null,
+      "total_cost_usd": null
+    },
+    "error_rate": 1.0,
+    "errors_by_type": {
+      "auth_error": 11
+    },
+    "latency_ms": {
+      "avg": null,
+      "p50": null,
+      "p95": null
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 113,
+      "min_requests_remaining": 107,
+      "min_tokens_per_minute_remaining": null,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": []
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 5.972,
+      "wall_clock_ms": 1842.047
+    }
+  },
+  "provider_model": "openai-gpt-4o-mini",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:25",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 25,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 79,
+        "request-id": "d24efd54-3099-4abe-8c1a-26df9d24623e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 113,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "d24efd54-3099-4abe-8c1a-26df9d24623e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.245420Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.007,
+        "queued_at": "2026-06-10T21:45:14.942564Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.942573Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 302.852
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:127",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 127,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 78,
+        "request-id": "7d45b070-125d-435c-8204-08bf3fadc96e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 112,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "7d45b070-125d-435c-8204-08bf3fadc96e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.245306Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T21:45:14.942675Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.942678Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 302.637
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:131",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 131,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 85,
+        "request-id": "7567b18e-7897-4254-b8fc-55b9e43c25d0",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 111,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "7567b18e-7897-4254-b8fc-55b9e43c25d0"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.533794Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 302.772,
+        "queued_at": "2026-06-10T21:45:14.942725Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.245499Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 591.075
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:166",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 166,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 75,
+        "request-id": "4cf33f5b-e997-4a1e-b217-9fdd5a5fe87a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 112,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "4cf33f5b-e997-4a1e-b217-9fdd5a5fe87a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.528119Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 302.96,
+        "queued_at": "2026-06-10T21:45:14.942732Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.245694Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 585.39
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:238",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 238,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 112,
+        "request-id": "d64bb0c7-145a-416a-a1f1-816f0546199a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 110,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "d64bb0c7-145a-416a-a1f1-816f0546199a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.858871Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 585.465,
+        "queued_at": "2026-06-10T21:45:14.942736Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.528206Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 916.135
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:263",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 263,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 85,
+        "request-id": "a237bd35-5067-4291-9b36-206f696837e1",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 110,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "a237bd35-5067-4291-9b36-206f696837e1"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:15.858952Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 591.235,
+        "queued_at": "2026-06-10T21:45:14.942739Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.533977Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 916.204
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:309",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 309,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 77,
+        "request-id": "b634a9d9-22a7-4454-92ab-f70cc3968d88",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 110,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "b634a9d9-22a7-4454-92ab-f70cc3968d88"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:16.167200Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 916.251,
+        "queued_at": "2026-06-10T21:45:14.942742Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.858999Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1224.458
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:452",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 452,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 119,
+        "request-id": "6802c6fc-bd71-4572-ab3b-741c3536d4e9",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 109,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "6802c6fc-bd71-4572-ab3b-741c3536d4e9"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:16.188432Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 916.377,
+        "queued_at": "2026-06-10T21:45:14.942745Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:15.859131Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1245.684
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:729",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 729,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 309,
+        "request-id": "cef806e7-a5d2-4fa7-a5c9-8baa0208f8c4",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 108,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "cef806e7-a5d2-4fa7-a5c9-8baa0208f8c4"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:16.680053Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1224.605,
+        "queued_at": "2026-06-10T21:45:14.942748Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:16.167362Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1737.295
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:997",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 997,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 87,
+        "request-id": "65b5d488-38c6-4b67-bba3-d0184a8b696d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 108,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "65b5d488-38c6-4b67-bba3-d0184a8b696d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:16.475872Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1245.784,
+        "queued_at": "2026-06-10T21:45:14.942752Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:16.188546Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1533.111
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-4o-mini:1363",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.15,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.6,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 1363,
+      "model_id": "openai-gpt-4o-mini",
+      "provider_model": "openai-gpt-4o-mini",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 116,
+        "request-id": "53e5a205-ca6a-4301-9ed3-5489957c7d74",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 107,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "53e5a205-ca6a-4301-9ed3-5489957c7d74"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:16.782343Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1533.215,
+        "queued_at": "2026-06-10T21:45:14.942755Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:16.475982Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1839.577
+      },
+      "usage": null
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 1842.047
+}

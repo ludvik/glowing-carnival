@@ -1,0 +1,15 @@
+{
+  "completed_count": 530,
+  "elapsed_seconds": 256.875,
+  "error_count": 6,
+  "eta_seconds": 0.0,
+  "model_id": "openai-gpt-oss-20b",
+  "ok_count": 524,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 2.063,
+  "run_id": "ui-20260611T061922Z-mistral-3-14B-vs-openai-gpt-oss-20b",
+  "status": "completed",
+  "total_count": 530,
+  "updated_at": "2026-06-11T06:26:02.337743Z"
+}

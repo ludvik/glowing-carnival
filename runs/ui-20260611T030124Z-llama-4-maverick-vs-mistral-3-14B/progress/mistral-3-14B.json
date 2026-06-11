@@ -1,0 +1,15 @@
+{
+  "completed_count": 530,
+  "elapsed_seconds": 253.87,
+  "error_count": 7,
+  "eta_seconds": 0.0,
+  "model_id": "mistral-3-14B",
+  "ok_count": 523,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 2.088,
+  "run_id": "ui-20260611T030124Z-llama-4-maverick-vs-mistral-3-14B",
+  "status": "completed",
+  "total_count": 530,
+  "updated_at": "2026-06-11T03:09:45.479011Z"
+}

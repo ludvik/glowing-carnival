@@ -1,0 +1,771 @@
+{
+  "completed_at": "2026-06-10T21:40:02.251517Z",
+  "created_at": "2026-06-10T21:39:45.241036Z",
+  "model_id": "deepseek-4-flash",
+  "operational_summary": {
+    "calls_error": 0,
+    "calls_ok": 11,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 7.982545454545455e-05,
+      "total_cost_usd": 0.00087808
+    },
+    "error_rate": 0.0,
+    "errors_by_type": {},
+    "latency_ms": {
+      "avg": 2974.821,
+      "p50": 1760.021,
+      "p95": 6564.974
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 110,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.647,
+      "wall_clock_ms": 17010.322
+    }
+  },
+  "provider_model": "deepseek-4-flash",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:25",
+      "cost": {
+        "input_cost_usd": 4.508000000000001e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 8.12e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 5.3200000000000006e-05
+      },
+      "error": null,
+      "issue_number": 25,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "The issue reports conflicting documentation about the config file name and missing specification of the file format.",
+        "raw_output": "{\"label\":\"documentation\",\"rationale\":\"The issue reports conflicting documentation about the config file name and missing specification of the file format.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 972,
+        "request-id": "2bfd5e40-a25c-41fc-8600-e1d56026be89",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 111,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "2bfd5e40-a25c-41fc-8600-e1d56026be89"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:46.391498Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.008,
+        "queued_at": "2026-06-10T21:39:45.242024Z",
+        "request_sent_at": "2026-06-10T21:39:45.242063Z",
+        "response_completed_at": "2026-06-10T21:39:46.391447Z",
+        "started_at": "2026-06-10T21:39:45.242035Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1149.382,
+        "wall_time_ms": 1149.462
+      },
+      "usage": {
+        "input_tokens": 322,
+        "output_tokens": 29,
+        "total_tokens": 351,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:127",
+      "cost": {
+        "input_cost_usd": 8.722000000000001e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 7.840000000000001e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 9.506000000000001e-05
+      },
+      "error": null,
+      "issue_number": 127,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "The command reports an error but still creates the droplet, which is incorrect and misleading behavior.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"The command reports an error but still creates the droplet, which is incorrect and misleading behavior.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 910,
+        "request-id": "b04f2453-1f0e-4f2c-a70a-f2008ff935b2",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 110,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "b04f2453-1f0e-4f2c-a70a-f2008ff935b2"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:46.326026Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.003,
+        "queued_at": "2026-06-10T21:39:45.242136Z",
+        "request_sent_at": "2026-06-10T21:39:45.242164Z",
+        "response_completed_at": "2026-06-10T21:39:46.325986Z",
+        "started_at": "2026-06-10T21:39:45.242140Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1083.82,
+        "wall_time_ms": 1083.88
+      },
+      "usage": {
+        "input_tokens": 623,
+        "output_tokens": 28,
+        "total_tokens": 651,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:131",
+      "cost": {
+        "input_cost_usd": 0.00012922,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 1.1200000000000001e-05,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00014042000000000001
+      },
+      "error": null,
+      "issue_number": 131,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "The issue reports that 'doctl auth init' command is not found after a new installation, indicating a defect or regression in command behavior on Ubuntu.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"The issue reports that 'doctl auth init' command is not found after a new installation, indicating a defect or regression in command behavior on Ubuntu.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1438,
+        "request-id": "e6fea85a-76f8-4901-ace8-2639e2f02a2d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 111,
+        "x-ratelimit-remaining-tokens-per-day": 599020,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "e6fea85a-76f8-4901-ace8-2639e2f02a2d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:47.969603Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1083.941,
+        "queued_at": "2026-06-10T21:39:45.242190Z",
+        "request_sent_at": "2026-06-10T21:39:46.326202Z",
+        "response_completed_at": "2026-06-10T21:39:47.969564Z",
+        "started_at": "2026-06-10T21:39:46.326140Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1643.354,
+        "wall_time_ms": 2727.387
+      },
+      "usage": {
+        "input_tokens": 923,
+        "output_tokens": 40,
+        "total_tokens": 963,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:166",
+      "cost": {
+        "input_cost_usd": 7.616e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 1.0640000000000001e-05,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.680000000000001e-05
+      },
+      "error": null,
+      "issue_number": 166,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "The issue asks for clarification about the difference between two flags and the reasoning behind having both, which is a usage/troubleshooting question.",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"The issue asks for clarification about the difference between two flags and the reasoning behind having both, which is a usage/troubleshooting question.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1294,
+        "request-id": "f655aa90-368d-4a11-9080-e89c7631a8bf",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 111,
+        "x-ratelimit-remaining-tokens-per-day": 599023,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f655aa90-368d-4a11-9080-e89c7631a8bf"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:47.900118Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1149.462,
+        "queued_at": "2026-06-10T21:39:45.242197Z",
+        "request_sent_at": "2026-06-10T21:39:46.391738Z",
+        "response_completed_at": "2026-06-10T21:39:47.900065Z",
+        "started_at": "2026-06-10T21:39:46.391667Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1508.323,
+        "wall_time_ms": 2657.898
+      },
+      "usage": {
+        "input_tokens": 544,
+        "output_tokens": 38,
+        "total_tokens": 582,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:238",
+      "cost": {
+        "input_cost_usd": 4.396e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 9.8e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 5.376e-05
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "This is a feature request for generating man pages and fish completions, which is an enhancement to improve user experience.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"This is a feature request for generating man pages and fish completions, which is an enhancement to improve user experience.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 6314,
+        "request-id": "b2df7c29-fb94-4c2a-8117-9ae30393167a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 112,
+        "x-ratelimit-remaining-tokens-per-day": 598163,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "b2df7c29-fb94-4c2a-8117-9ae30393167a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:54.423596Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2658.034,
+        "queued_at": "2026-06-10T21:39:45.242201Z",
+        "request_sent_at": "2026-06-10T21:39:47.900313Z",
+        "response_completed_at": "2026-06-10T21:39:54.423550Z",
+        "started_at": "2026-06-10T21:39:47.900258Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 6523.187,
+        "wall_time_ms": 9181.311
+      },
+      "usage": {
+        "input_tokens": 314,
+        "output_tokens": 35,
+        "total_tokens": 349,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:263",
+      "cost": {
+        "input_cost_usd": 4.55e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 1.1480000000000002e-05,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 5.698e-05
+      },
+      "error": null,
+      "issue_number": 263,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "The issue describes a specific command failure (`doctl compute ssh` returning a permission-denied error), which indicates a defect or incorrect behavior in the CLI.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"The issue describes a specific command failure (`doctl compute ssh` returning a permission-denied error), which indicates a defect or incorrect behavior in the CLI.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 6391,
+        "request-id": "04eca2e3-348a-4e10-ba1a-7c2c0d117a7e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 112,
+        "x-ratelimit-remaining-tokens-per-day": 598169,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "04eca2e3-348a-4e10-ba1a-7c2c0d117a7e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:54.576649Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2727.507,
+        "queued_at": "2026-06-10T21:39:45.242203Z",
+        "request_sent_at": "2026-06-10T21:39:47.969791Z",
+        "response_completed_at": "2026-06-10T21:39:54.576603Z",
+        "started_at": "2026-06-10T21:39:47.969735Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 6606.761,
+        "wall_time_ms": 9334.36
+      },
+      "usage": {
+        "input_tokens": 325,
+        "output_tokens": 41,
+        "total_tokens": 366,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:309",
+      "cost": {
+        "input_cost_usd": 6.216e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 1.3440000000000002e-05,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 7.560000000000001e-05
+      },
+      "error": null,
+      "issue_number": 309,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "The user is asking how to implement a specific workflow (keeping only 12 snapshots and deleting the oldest), which is a usage or how-to question about doctl functionality.",
+        "raw_output": "{\"label\": \"question\", \"rationale\": \"The user is asking how to implement a specific workflow (keeping only 12 snapshots and deleting the oldest), which is a usage or how-to question about doctl functionality.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4483,
+        "request-id": "a8ea8589-6928-4950-b92e-8cb9a1fdbef4",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598249,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "a8ea8589-6928-4950-b92e-8cb9a1fdbef4"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:59.083866Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9181.439,
+        "queued_at": "2026-06-10T21:39:45.242207Z",
+        "request_sent_at": "2026-06-10T21:39:54.423792Z",
+        "response_completed_at": "2026-06-10T21:39:59.083829Z",
+        "started_at": "2026-06-10T21:39:54.423730Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4659.999,
+        "wall_time_ms": 13841.531
+      },
+      "usage": {
+        "input_tokens": 444,
+        "output_tokens": 48,
+        "total_tokens": 492,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:452",
+      "cost": {
+        "input_cost_usd": 4.144e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 8.680000000000002e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 5.012e-05
+      },
+      "error": null,
+      "issue_number": 452,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "Feature request to improve help text by adding valid options like listing regions, sizes, and images.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"Feature request to improve help text by adding valid options like listing regions, sizes, and images.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4266,
+        "request-id": "f9479a32-7c25-4cc5-b42c-c5c53caf366d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 598262,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f9479a32-7c25-4cc5-b42c-c5c53caf366d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:39:59.054116Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9334.484,
+        "queued_at": "2026-06-10T21:39:45.242211Z",
+        "request_sent_at": "2026-06-10T21:39:54.576836Z",
+        "response_completed_at": "2026-06-10T21:39:59.054056Z",
+        "started_at": "2026-06-10T21:39:54.576780Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4477.187,
+        "wall_time_ms": 13811.778
+      },
+      "usage": {
+        "input_tokens": 296,
+        "output_tokens": 31,
+        "total_tokens": 327,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:729",
+      "cost": {
+        "input_cost_usd": 0.00015512000000000002,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 9.8e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00016492
+      },
+      "error": null,
+      "issue_number": 729,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "security",
+        "rationale": "Reports a CVE vulnerability (CVE-2019-11250) in a dependency, which is a security issue.",
+        "raw_output": "{\"label\":\"security\",\"rationale\":\"Reports a CVE vulnerability (CVE-2019-11250) in a dependency, which is a security issue.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1697,
+        "request-id": "9ad8f7e0-c3f8-4cae-bf9a-684ff5a19b5a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598081,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "9ad8f7e0-c3f8-4cae-bf9a-684ff5a19b5a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:40:00.960292Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 13811.916,
+        "queued_at": "2026-06-10T21:39:45.242214Z",
+        "request_sent_at": "2026-06-10T21:39:59.054348Z",
+        "response_completed_at": "2026-06-10T21:40:00.960243Z",
+        "started_at": "2026-06-10T21:39:59.054257Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1905.888,
+        "wall_time_ms": 15717.933
+      },
+      "usage": {
+        "input_tokens": 1108,
+        "output_tokens": 35,
+        "total_tokens": 1143,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:997",
+      "cost": {
+        "input_cost_usd": 4.83e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 7.000000000000001e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 5.53e-05
+      },
+      "error": null,
+      "issue_number": 997,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "Feature request for adding local file upload capability to an existing command.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"Feature request for adding local file upload capability to an existing command.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1576,
+        "request-id": "90c81cc9-20d3-4271-b5a7-d78f821f2a95",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 598081,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "90c81cc9-20d3-4271-b5a7-d78f821f2a95"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:40:00.844113Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 13841.642,
+        "queued_at": "2026-06-10T21:39:45.242217Z",
+        "request_sent_at": "2026-06-10T21:39:59.084035Z",
+        "response_completed_at": "2026-06-10T21:40:00.844063Z",
+        "started_at": "2026-06-10T21:39:59.083986Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1760.021,
+        "wall_time_ms": 15601.752
+      },
+      "usage": {
+        "input_tokens": 345,
+        "output_tokens": 25,
+        "total_tokens": 370,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:deepseek-4-flash:1363",
+      "cost": {
+        "input_cost_usd": 3.7800000000000004e-05,
+        "input_price_per_1m_tokens": 0.14,
+        "output_cost_usd": 8.12e-06,
+        "output_price_per_1m_tokens": 0.28,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 4.592000000000001e-05
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "deepseek-4-flash",
+      "provider_model": "deepseek-4-flash",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "Issue appears to be spam; title simply says 'spam link' with no actionable content.",
+        "raw_output": "{\"label\":\"other\",\"rationale\":\"Issue appears to be spam; title simply says 'spam link' with no actionable content.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1171,
+        "request-id": "ab0feaa1-f5b8-4b3f-9cbb-7a829c0d1fcb",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 597064,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "ab0feaa1-f5b8-4b3f-9cbb-7a829c0d1fcb"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:40:02.249461Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 15601.882,
+        "queued_at": "2026-06-10T21:39:45.242220Z",
+        "request_sent_at": "2026-06-10T21:40:00.844295Z",
+        "response_completed_at": "2026-06-10T21:40:02.249402Z",
+        "started_at": "2026-06-10T21:40:00.844245Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1405.106,
+        "wall_time_ms": 17007.084
+      },
+      "usage": {
+        "input_tokens": 270,
+        "output_tokens": 29,
+        "total_tokens": 299,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 17010.322
+}

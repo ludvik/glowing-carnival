@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 9.707,
+  "error_count": 0,
+  "eta_seconds": 0.0,
+  "model_id": "openai-gpt-oss-120b",
+  "ok_count": 11,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 1.133,
+  "run_id": "smoke-v1",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T21:44:10.000897Z"
+}

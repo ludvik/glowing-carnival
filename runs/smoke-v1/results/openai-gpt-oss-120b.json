@@ -1,0 +1,771 @@
+{
+  "completed_at": "2026-06-10T21:44:10.002648Z",
+  "created_at": "2026-06-10T21:44:00.293735Z",
+  "model_id": "openai-gpt-oss-120b",
+  "operational_summary": {
+    "calls_error": 0,
+    "calls_ok": 11,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00011987272727272728,
+      "total_cost_usd": 0.0013186
+    },
+    "error_rate": 0.0,
+    "errors_by_type": {},
+    "latency_ms": {
+      "avg": 1688.176,
+      "p50": 1551.043,
+      "p95": 2202.763
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 118,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 1.133,
+      "wall_clock_ms": 9708.823
+    }
+  },
+  "provider_model": "openai-gpt-oss-120b",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:25",
+      "cost": {
+        "input_cost_usd": 3.7300000000000005e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 5.6e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 9.33e-05
+      },
+      "error": null,
+      "issue_number": 25,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "The issue reports inconsistencies and missing details in the docs regarding config file name and format.",
+        "raw_output": "{\"label\":\"documentation\",\"rationale\":\"The issue reports inconsistencies and missing details in the docs regarding config file name and format.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1548,
+        "request-id": "5448ca27-b7b9-4de2-829e-2894864757e6",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "5448ca27-b7b9-4de2-829e-2894864757e6"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:02.070422Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.024,
+        "queued_at": "2026-06-10T21:44:00.296898Z",
+        "request_sent_at": "2026-06-10T21:44:00.296952Z",
+        "response_completed_at": "2026-06-10T21:44:02.070377Z",
+        "started_at": "2026-06-10T21:44:00.296925Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1773.416,
+        "wall_time_ms": 1773.506
+      },
+      "usage": {
+        "input_tokens": 373,
+        "output_tokens": 80,
+        "total_tokens": 453,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:127",
+      "cost": {
+        "input_cost_usd": 6.780000000000001e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 5.95e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001273
+      },
+      "error": null,
+      "issue_number": 127,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "Droplet creation succeeds despite tag error, confusing output and non\u2011atomic behavior",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"Droplet creation succeeds despite tag error, confusing output and non\u2011atomic behavior\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1314,
+        "request-id": "5d780ad8-d462-43da-89b3-9642216bee51",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "5d780ad8-d462-43da-89b3-9642216bee51"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:01.848184Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.003,
+        "queued_at": "2026-06-10T21:44:00.297032Z",
+        "request_sent_at": "2026-06-10T21:44:00.297090Z",
+        "response_completed_at": "2026-06-10T21:44:01.848136Z",
+        "started_at": "2026-06-10T21:44:00.297035Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1551.043,
+        "wall_time_ms": 1551.137
+      },
+      "usage": {
+        "input_tokens": 678,
+        "output_tokens": 85,
+        "total_tokens": 763,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:131",
+      "cost": {
+        "input_cost_usd": 9.54e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 0.00011689999999999998,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00021229999999999998
+      },
+      "error": null,
+      "issue_number": 131,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "User cannot run expected 'doctl auth init' command after installation, indicating a defect or missing functionality.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"User cannot run expected 'doctl auth init' command after installation, indicating a defect or missing functionality.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2439,
+        "request-id": "deeb958d-9168-4a37-bc49-3719daba4d92",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498801,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "deeb958d-9168-4a37-bc49-3719daba4d92"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:04.480611Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1551.186,
+        "queued_at": "2026-06-10T21:44:00.297118Z",
+        "request_sent_at": "2026-06-10T21:44:01.848434Z",
+        "response_completed_at": "2026-06-10T21:44:04.480557Z",
+        "started_at": "2026-06-10T21:44:01.848318Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2632.11,
+        "wall_time_ms": 4183.455
+      },
+      "usage": {
+        "input_tokens": 954,
+        "output_tokens": 167,
+        "total_tokens": 1121,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:166",
+      "cost": {
+        "input_cost_usd": 5.97e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 6.65e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001262
+      },
+      "error": null,
+      "issue_number": 166,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "User asks why two similar flags exist and seeks clarification on behavior",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"User asks why two similar flags exist and seeks clarification on behavior\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1425,
+        "request-id": "f9c707a2-7d00-4338-a55c-8f4b4ff09147",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 498817,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f9c707a2-7d00-4338-a55c-8f4b4ff09147"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:03.770577Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1773.414,
+        "queued_at": "2026-06-10T21:44:00.297125Z",
+        "request_sent_at": "2026-06-10T21:44:02.070606Z",
+        "response_completed_at": "2026-06-10T21:44:03.770516Z",
+        "started_at": "2026-06-10T21:44:02.070554Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1699.907,
+        "wall_time_ms": 3473.421
+      },
+      "usage": {
+        "input_tokens": 597,
+        "output_tokens": 95,
+        "total_tokens": 692,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:238",
+      "cost": {
+        "input_cost_usd": 3.710000000000001e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 5.8099999999999996e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 9.520000000000001e-05
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "User requests a new feature to export man pages for shell completions, which is a capability request.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"User requests a new feature to export man pages for shell completions, which is a capability request.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1247,
+        "request-id": "58c66f8c-5651-4cbe-a9ca-43aa2cb9e206",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498224,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "58c66f8c-5651-4cbe-a9ca-43aa2cb9e206"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:05.271174Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 3473.628,
+        "queued_at": "2026-06-10T21:44:00.297128Z",
+        "request_sent_at": "2026-06-10T21:44:03.770853Z",
+        "response_completed_at": "2026-06-10T21:44:05.271117Z",
+        "started_at": "2026-06-10T21:44:03.770784Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1500.262,
+        "wall_time_ms": 4974.0
+      },
+      "usage": {
+        "input_tokens": 371,
+        "output_tokens": 83,
+        "total_tokens": 454,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:263",
+      "cost": {
+        "input_cost_usd": 3.8100000000000005e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 4.97e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.78e-05
+      },
+      "error": null,
+      "issue_number": 263,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "doctl compute ssh command fails with permission denied error",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"doctl compute ssh command fails with permission denied error\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1159,
+        "request-id": "24faa070-ec9f-4abd-a718-4182d1ce51ba",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497832,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "24faa070-ec9f-4abd-a718-4182d1ce51ba"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:05.919494Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4183.579,
+        "queued_at": "2026-06-10T21:44:00.297132Z",
+        "request_sent_at": "2026-06-10T21:44:04.480797Z",
+        "response_completed_at": "2026-06-10T21:44:05.919444Z",
+        "started_at": "2026-06-10T21:44:04.480748Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1438.644,
+        "wall_time_ms": 5622.311
+      },
+      "usage": {
+        "input_tokens": 381,
+        "output_tokens": 71,
+        "total_tokens": 452,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:309",
+      "cost": {
+        "input_cost_usd": 5e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 7e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00011999999999999999
+      },
+      "error": null,
+      "issue_number": 309,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "User asks how to implement snapshot retention logic using doctl",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"User asks how to implement snapshot retention logic using doctl\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1550,
+        "request-id": "1ed7653a-b0c3-4662-baa9-e3bd1feec92d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497853,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1ed7653a-b0c3-4662-baa9-e3bd1feec92d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:07.021391Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4974.13,
+        "queued_at": "2026-06-10T21:44:00.297135Z",
+        "request_sent_at": "2026-06-10T21:44:05.271373Z",
+        "response_completed_at": "2026-06-10T21:44:07.021343Z",
+        "started_at": "2026-06-10T21:44:05.271310Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1749.964,
+        "wall_time_ms": 6724.194
+      },
+      "usage": {
+        "input_tokens": 500,
+        "output_tokens": 100,
+        "total_tokens": 600,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:452",
+      "cost": {
+        "input_cost_usd": 3.55e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 6.23e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 9.779999999999999e-05
+      },
+      "error": null,
+      "issue_number": 452,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "User requests adding contextual option listings to CLI help output, a new feature request.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"User requests adding contextual option listings to CLI help output, a new feature request.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1432,
+        "request-id": "db3c378c-86e8-4f40-9f9c-ae8b7af8d15a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497464,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "db3c378c-86e8-4f40-9f9c-ae8b7af8d15a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:07.661318Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 5622.447,
+        "queued_at": "2026-06-10T21:44:00.297139Z",
+        "request_sent_at": "2026-06-10T21:44:05.919687Z",
+        "response_completed_at": "2026-06-10T21:44:07.661258Z",
+        "started_at": "2026-06-10T21:44:05.919636Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1741.574,
+        "wall_time_ms": 7364.111
+      },
+      "usage": {
+        "input_tokens": 355,
+        "output_tokens": 89,
+        "total_tokens": 444,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:729",
+      "cost": {
+        "input_cost_usd": 0.00011360000000000001,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 5.459999999999999e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001682
+      },
+      "error": null,
+      "issue_number": 729,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "security",
+        "rationale": "Reports a medium\u2011severity CVE in a dependent library, requiring a version upgrade to address a credential leak risk.",
+        "raw_output": "{\"label\":\"security\",\"rationale\":\"Reports a medium\u2011severity CVE in a dependent library, requiring a version upgrade to address a credential leak risk.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1249,
+        "request-id": "5856cadd-a1d2-42e4-985a-e511c41a68a4",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497356,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "5856cadd-a1d2-42e4-985a-e511c41a68a4"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:08.486415Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 6724.322,
+        "queued_at": "2026-06-10T21:44:00.297142Z",
+        "request_sent_at": "2026-06-10T21:44:07.021615Z",
+        "response_completed_at": "2026-06-10T21:44:08.486365Z",
+        "started_at": "2026-06-10T21:44:07.021525Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1464.745,
+        "wall_time_ms": 8189.198
+      },
+      "usage": {
+        "input_tokens": 1136,
+        "output_tokens": 78,
+        "total_tokens": 1214,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:997",
+      "cost": {
+        "input_cost_usd": 4.0300000000000004e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 6.0899999999999996e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001012
+      },
+      "error": null,
+      "issue_number": 997,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "User requests a new capability to upload local image files via a new flag, which is a feature request.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"User requests a new capability to upload local image files via a new flag, which is a feature request.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1319,
+        "request-id": "4b7799a4-0375-4722-b232-f97c9c439cf4",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 497121,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "4b7799a4-0375-4722-b232-f97c9c439cf4"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:09.165811Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 7364.243,
+        "queued_at": "2026-06-10T21:44:00.297145Z",
+        "request_sent_at": "2026-06-10T21:44:07.661510Z",
+        "response_completed_at": "2026-06-10T21:44:09.165757Z",
+        "started_at": "2026-06-10T21:44:07.661455Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1504.244,
+        "wall_time_ms": 8868.585
+      },
+      "usage": {
+        "input_tokens": 403,
+        "output_tokens": 87,
+        "total_tokens": 490,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:openai-gpt-oss-120b:1363",
+      "cost": {
+        "input_cost_usd": 3.26e-05,
+        "input_price_per_1m_tokens": 0.1,
+        "output_cost_usd": 5.6699999999999996e-05,
+        "output_price_per_1m_tokens": 0.7,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.93e-05
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "openai-gpt-oss-120b",
+      "provider_model": "openai-gpt-oss-120b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "The issue is a spam link, not a bug, feature, question, docs, or security matter.",
+        "raw_output": "{\"label\":\"other\",\"rationale\":\"The issue is a spam link, not a bug, feature, question, docs, or security matter.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1298,
+        "request-id": "ddf82f9f-dcb8-4030-a783-05f4a72ed58d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 496227,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "ddf82f9f-dcb8-4030-a783-05f4a72ed58d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:10.000700Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 8189.342,
+        "queued_at": "2026-06-10T21:44:00.297148Z",
+        "request_sent_at": "2026-06-10T21:44:08.486616Z",
+        "response_completed_at": "2026-06-10T21:44:10.000654Z",
+        "started_at": "2026-06-10T21:44:08.486563Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1514.032,
+        "wall_time_ms": 9703.463
+      },
+      "usage": {
+        "input_tokens": 326,
+        "output_tokens": 81,
+        "total_tokens": 407,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 9708.823
+}

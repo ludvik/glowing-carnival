@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 11.776,
+  "error_count": 11,
+  "eta_seconds": 0.0,
+  "model_id": "qwen3.5-397b-a17b",
+  "ok_count": 0,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.934,
+  "run_id": "smoke-v1-promptfix",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T22:05:32.691027Z"
+}

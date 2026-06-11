@@ -1,0 +1,813 @@
+{
+  "completed_at": "2026-06-10T22:05:20.913637Z",
+  "created_at": "2026-06-10T22:04:52.992279Z",
+  "model_id": "nvidia-nemotron-3-super-120b",
+  "operational_summary": {
+    "calls_error": 10,
+    "calls_ok": 1,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00014654999999999998,
+      "total_cost_usd": 0.00014654999999999998
+    },
+    "error_rate": 0.9090909090909091,
+    "errors_by_type": {
+      "parse_error": 10
+    },
+    "latency_ms": {
+      "avg": 4472.048,
+      "p50": 4472.048,
+      "p95": 4472.048
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 114,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.394,
+      "wall_clock_ms": 27920.947
+    }
+  },
+  "provider_model": "nvidia-nemotron-3-super-120b",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:25",
+      "cost": {
+        "input_cost_usd": 0.0001203,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001619
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 25,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4480,
+        "request-id": "4a919fdb-78e1-4f8a-a1fa-638d32770a62",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "4a919fdb-78e1-4f8a-a1fa-638d32770a62"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:57.700596Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.008,
+        "queued_at": "2026-06-10T22:04:52.992883Z",
+        "request_sent_at": "2026-06-10T22:04:52.992911Z",
+        "response_completed_at": "2026-06-10T22:04:57.700555Z",
+        "started_at": "2026-06-10T22:04:52.992892Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4707.595,
+        "wall_time_ms": 4707.644
+      },
+      "usage": {
+        "input_tokens": 401,
+        "output_tokens": 64,
+        "total_tokens": 465,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:127",
+      "cost": {
+        "input_cost_usd": 0.0002196,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002612
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 127,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4656,
+        "request-id": "953bf9e5-d903-4d2e-bedc-3577e0fff622",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 114,
+        "x-ratelimit-remaining-tokens-per-day": 500000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "953bf9e5-d903-4d2e-bedc-3577e0fff622"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:57.851298Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T22:04:52.992966Z",
+        "request_sent_at": "2026-06-10T22:04:52.992992Z",
+        "response_completed_at": "2026-06-10T22:04:57.851271Z",
+        "started_at": "2026-06-10T22:04:52.992968Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4858.217,
+        "wall_time_ms": 4858.261
+      },
+      "usage": {
+        "input_tokens": 732,
+        "output_tokens": 64,
+        "total_tokens": 796,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:131",
+      "cost": {
+        "input_cost_usd": 0.0003027,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00034429999999999997
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 131,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4436,
+        "request-id": "08b62591-17e9-40e8-aa93-2c13822ed299",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 499212,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "08b62591-17e9-40e8-aa93-2c13822ed299"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:02.342080Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4707.651,
+        "queued_at": "2026-06-10T22:04:52.993010Z",
+        "request_sent_at": "2026-06-10T22:04:57.700813Z",
+        "response_completed_at": "2026-06-10T22:05:02.342048Z",
+        "started_at": "2026-06-10T22:04:57.700729Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4641.177,
+        "wall_time_ms": 9348.932
+      },
+      "usage": {
+        "input_tokens": 1009,
+        "output_tokens": 64,
+        "total_tokens": 1073,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:166",
+      "cost": {
+        "input_cost_usd": 0.00019229999999999999,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002339
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 166,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4459,
+        "request-id": "5049822c-72e9-417f-b8c4-a6d7baf31c7b",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 499222,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "5049822c-72e9-417f-b8c4-a6d7baf31c7b"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:02.500880Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4858.34,
+        "queued_at": "2026-06-10T22:04:52.993015Z",
+        "request_sent_at": "2026-06-10T22:04:57.851496Z",
+        "response_completed_at": "2026-06-10T22:05:02.500851Z",
+        "started_at": "2026-06-10T22:04:57.851425Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4649.296,
+        "wall_time_ms": 9507.726
+      },
+      "usage": {
+        "input_tokens": 641,
+        "output_tokens": 64,
+        "total_tokens": 705,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:238",
+      "cost": {
+        "input_cost_usd": 0.0001191,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001607
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 238,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4436,
+        "request-id": "b5dd95b3-21d9-44ef-a953-64eccbbd93b7",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498779,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "b5dd95b3-21d9-44ef-a953-64eccbbd93b7"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:07.005453Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9349.07,
+        "queued_at": "2026-06-10T22:04:52.993019Z",
+        "request_sent_at": "2026-06-10T22:05:02.342284Z",
+        "response_completed_at": "2026-06-10T22:05:07.005413Z",
+        "started_at": "2026-06-10T22:05:02.342225Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4663.071,
+        "wall_time_ms": 14012.229
+      },
+      "usage": {
+        "input_tokens": 397,
+        "output_tokens": 64,
+        "total_tokens": 461,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:263",
+      "cost": {
+        "input_cost_usd": 0.0001245,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001661
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 263,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4392,
+        "request-id": "1cdfe76d-b536-4587-8283-ba989743cd1b",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 498789,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1cdfe76d-b536-4587-8283-ba989743cd1b"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:07.131152Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9507.852,
+        "queued_at": "2026-06-10T22:04:52.993021Z",
+        "request_sent_at": "2026-06-10T22:05:02.501062Z",
+        "response_completed_at": "2026-06-10T22:05:07.131122Z",
+        "started_at": "2026-06-10T22:05:02.501012Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4630.001,
+        "wall_time_ms": 14137.923
+      },
+      "usage": {
+        "input_tokens": 415,
+        "output_tokens": 64,
+        "total_tokens": 479,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:309",
+      "cost": {
+        "input_cost_usd": 0.0001608,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00020240000000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 309,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4462,
+        "request-id": "89ee2173-aaab-4805-a00f-3227c20487cb",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498566,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "89ee2173-aaab-4805-a00f-3227c20487cb"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:11.728751Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 14012.361,
+        "queued_at": "2026-06-10T22:04:52.993025Z",
+        "request_sent_at": "2026-06-10T22:05:07.005664Z",
+        "response_completed_at": "2026-06-10T22:05:11.728718Z",
+        "started_at": "2026-06-10T22:05:07.005591Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4722.997,
+        "wall_time_ms": 18735.451
+      },
+      "usage": {
+        "input_tokens": 536,
+        "output_tokens": 64,
+        "total_tokens": 600,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:452",
+      "cost": {
+        "input_cost_usd": 0.0001137,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001553
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 452,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4465,
+        "request-id": "373eaff5-06cf-4b08-83d9-feea08a0fd56",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 498574,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "373eaff5-06cf-4b08-83d9-feea08a0fd56"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:11.788136Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 14138.063,
+        "queued_at": "2026-06-10T22:04:52.993027Z",
+        "request_sent_at": "2026-06-10T22:05:07.131352Z",
+        "response_completed_at": "2026-06-10T22:05:11.788107Z",
+        "started_at": "2026-06-10T22:05:07.131297Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4656.694,
+        "wall_time_ms": 18794.832
+      },
+      "usage": {
+        "input_tokens": 379,
+        "output_tokens": 64,
+        "total_tokens": 443,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:729",
+      "cost": {
+        "input_cost_usd": 0.00038669999999999997,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00042829999999999995
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 729,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "\n\n{\"label\":\""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4421,
+        "request-id": "3a4a2aa7-c216-44f7-903e-b2bb5eb9875a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498398,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "3a4a2aa7-c216-44f7-903e-b2bb5eb9875a"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:16.439527Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 18735.593,
+        "queued_at": "2026-06-10T22:04:52.993030Z",
+        "request_sent_at": "2026-06-10T22:05:11.728985Z",
+        "response_completed_at": "2026-06-10T22:05:16.439497Z",
+        "started_at": "2026-06-10T22:05:11.728898Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4710.452,
+        "wall_time_ms": 23446.151
+      },
+      "usage": {
+        "input_tokens": 1289,
+        "output_tokens": 64,
+        "total_tokens": 1353,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:997",
+      "cost": {
+        "input_cost_usd": 0.0001281,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.16e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001697
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 997,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": ""
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4474,
+        "request-id": "7682e167-03ae-4360-8fe8-1089f41f4a50",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 498401,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "7682e167-03ae-4360-8fe8-1089f41f4a50"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1-promptfix",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:16.459133Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 18794.96,
+        "queued_at": "2026-06-10T22:04:52.993033Z",
+        "request_sent_at": "2026-06-10T22:05:11.788326Z",
+        "response_completed_at": "2026-06-10T22:05:16.459103Z",
+        "started_at": "2026-06-10T22:05:11.788269Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4670.706,
+        "wall_time_ms": 23465.754
+      },
+      "usage": {
+        "input_tokens": 427,
+        "output_tokens": 64,
+        "total_tokens": 491,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:nvidia-nemotron-3-super-120b:1363",
+      "cost": {
+        "input_cost_usd": 0.00010559999999999999,
+        "input_price_per_1m_tokens": 0.3,
+        "output_cost_usd": 4.095e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00014654999999999998
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "nvidia-nemotron-3-super-120b",
+      "provider_model": "nvidia-nemotron-3-super-120b",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "Spam link in issue body",
+        "raw_output": "\n\n{\"label\":\"other\",\"rationale\":\"Spam link in issue body\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4261,
+        "request-id": "02c66f0c-14d9-446a-9e2f-a50d3b06ad1c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 5000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 498179,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "02c66f0c-14d9-446a-9e2f-a50d3b06ad1c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:05:20.911856Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 23446.282,
+        "queued_at": "2026-06-10T22:04:52.993035Z",
+        "request_sent_at": "2026-06-10T22:05:16.439714Z",
+        "response_completed_at": "2026-06-10T22:05:20.911818Z",
+        "started_at": "2026-06-10T22:05:16.439662Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4472.048,
+        "wall_time_ms": 27918.408
+      },
+      "usage": {
+        "input_tokens": 352,
+        "output_tokens": 63,
+        "total_tokens": 415,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1-promptfix",
+  "wall_clock_ms": 27920.947
+}

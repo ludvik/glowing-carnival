@@ -1,0 +1,771 @@
+{
+  "completed_at": "2026-06-10T22:04:52.990834Z",
+  "created_at": "2026-06-10T22:04:49.306409Z",
+  "model_id": "mistral-3-14B",
+  "operational_summary": {
+    "calls_error": 0,
+    "calls_ok": 11,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00012270909090909092,
+      "total_cost_usd": 0.0013498000000000002
+    },
+    "error_rate": 0.0,
+    "errors_by_type": {},
+    "latency_ms": {
+      "avg": 637.691,
+      "p50": 598.297,
+      "p95": 847.251
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 115,
+      "min_tokens_per_minute_remaining": 749391,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        750000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 2.986,
+      "wall_clock_ms": 3684.37
+    }
+  },
+  "provider_model": "mistral-3-14B",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:25",
+      "cost": {
+        "input_cost_usd": 7.8e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5.8e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.38e-05
+      },
+      "error": null,
+      "issue_number": 25,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "Mismatch in docs and actual CLI config file name/format; unclear JSON schema.",
+        "raw_output": "{\"label\":\"documentation\",\"rationale\":\"Mismatch in docs and actual CLI config file name/format; unclear JSON schema.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 606,
+        "request-id": "f230663a-41dc-400a-a818-b72e89bc568c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 800000,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f230663a-41dc-400a-a818-b72e89bc568c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:50.120154Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.009,
+        "queued_at": "2026-06-10T22:04:49.307079Z",
+        "request_sent_at": "2026-06-10T22:04:49.307109Z",
+        "response_completed_at": "2026-06-10T22:04:50.120103Z",
+        "started_at": "2026-06-10T22:04:49.307090Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 812.992,
+        "wall_time_ms": 813.062
+      },
+      "usage": {
+        "input_tokens": 390,
+        "output_tokens": 29,
+        "total_tokens": 419,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:127",
+      "cost": {
+        "input_cost_usd": 0.0001442,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 4.800000000000001e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00014900000000000002
+      },
+      "error": null,
+      "issue_number": 127,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "Command fails to validate tag existence before droplet creation, causing inconsistent behavior.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"Command fails to validate tag existence before droplet creation, causing inconsistent behavior.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 398,
+        "request-id": "6ddd6f9d-054d-4e95-9667-9fa74333b361",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 800000,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "6ddd6f9d-054d-4e95-9667-9fa74333b361"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:49.901391Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T22:04:49.307168Z",
+        "request_sent_at": "2026-06-10T22:04:49.307194Z",
+        "response_completed_at": "2026-06-10T22:04:49.901342Z",
+        "started_at": "2026-06-10T22:04:49.307170Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 594.154,
+        "wall_time_ms": 594.214
+      },
+      "usage": {
+        "input_tokens": 721,
+        "output_tokens": 24,
+        "total_tokens": 745,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:131",
+      "cost": {
+        "input_cost_usd": 0.0001996,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5.600000000000001e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002052
+      },
+      "error": null,
+      "issue_number": 131,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "Command `doctl auth init` is missing, causing a functional defect in authentication workflow.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"Command `doctl auth init` is missing, causing a functional defect in authentication workflow.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 379,
+        "request-id": "430fb5b9-2b85-4d5f-9bbd-cae911d88603",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 799585,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "430fb5b9-2b85-4d5f-9bbd-cae911d88603"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:50.473420Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 594.302,
+        "queued_at": "2026-06-10T22:04:49.307215Z",
+        "request_sent_at": "2026-06-10T22:04:49.901615Z",
+        "response_completed_at": "2026-06-10T22:04:50.473406Z",
+        "started_at": "2026-06-10T22:04:49.901524Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 571.786,
+        "wall_time_ms": 1166.187
+      },
+      "usage": {
+        "input_tokens": 998,
+        "output_tokens": 28,
+        "total_tokens": 1026,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:166",
+      "cost": {
+        "input_cost_usd": 0.000126,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 4.4e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001304
+      },
+      "error": null,
+      "issue_number": 166,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "User asks for clarification on CLI behavior and API design rationale.",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"User asks for clarification on CLI behavior and API design rationale.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 312,
+        "request-id": "b5304579-b2bd-4e56-94a5-e25de6293427",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 117,
+        "x-ratelimit-remaining-tokens-per-day": 799608,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "b5304579-b2bd-4e56-94a5-e25de6293427"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:50.637292Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 813.063,
+        "queued_at": "2026-06-10T22:04:49.307220Z",
+        "request_sent_at": "2026-06-10T22:04:50.120374Z",
+        "response_completed_at": "2026-06-10T22:04:50.637265Z",
+        "started_at": "2026-06-10T22:04:50.120293Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 516.888,
+        "wall_time_ms": 1330.053
+      },
+      "usage": {
+        "input_tokens": 630,
+        "output_tokens": 22,
+        "total_tokens": 652,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:238",
+      "cost": {
+        "input_cost_usd": 7.72e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5.2e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.240000000000001e-05
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "Request for man page export to improve shell completions and documentation persistence.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"Request for man page export to improve shell completions and documentation persistence.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 371,
+        "request-id": "dfe7e8c1-4827-4603-8ba4-9ab5ec321f23",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 117,
+        "x-ratelimit-remaining-tokens-per-day": 798989,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "dfe7e8c1-4827-4603-8ba4-9ab5ec321f23"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:51.147420Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1166.225,
+        "queued_at": "2026-06-10T22:04:49.307223Z",
+        "request_sent_at": "2026-06-10T22:04:50.473480Z",
+        "response_completed_at": "2026-06-10T22:04:51.147376Z",
+        "started_at": "2026-06-10T22:04:50.473465Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 673.894,
+        "wall_time_ms": 1840.171
+      },
+      "usage": {
+        "input_tokens": 386,
+        "output_tokens": 26,
+        "total_tokens": 412,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:263",
+      "cost": {
+        "input_cost_usd": 8.080000000000001e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 6e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.680000000000001e-05
+      },
+      "error": null,
+      "issue_number": 263,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "Permission denied error when running `doctl compute ssh` indicates a defect in execution or environment setup.",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"Permission denied error when running `doctl compute ssh` indicates a defect in execution or environment setup.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 354,
+        "request-id": "fe294c1b-2fee-40d7-a966-c50f88e25b1e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 116,
+        "x-ratelimit-remaining-tokens-per-day": 799002,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "fe294c1b-2fee-40d7-a966-c50f88e25b1e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:51.193609Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1330.127,
+        "queued_at": "2026-06-10T22:04:49.307225Z",
+        "request_sent_at": "2026-06-10T22:04:50.637400Z",
+        "response_completed_at": "2026-06-10T22:04:51.193568Z",
+        "started_at": "2026-06-10T22:04:50.637370Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 556.166,
+        "wall_time_ms": 1886.357
+      },
+      "usage": {
+        "input_tokens": 404,
+        "output_tokens": 30,
+        "total_tokens": 434,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:309",
+      "cost": {
+        "input_cost_usd": 0.000105,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00011
+      },
+      "error": null,
+      "issue_number": 309,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "User seeks help implementing snapshot management logic, not a defect or feature request.",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"User seeks help implementing snapshot management logic, not a defect or feature request.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 383,
+        "request-id": "81b9f4ba-dce5-4b35-867c-f562ecbd1035",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 116,
+        "x-ratelimit-remaining-tokens-per-day": 798616,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "81b9f4ba-dce5-4b35-867c-f562ecbd1035"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:51.759993Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1840.305,
+        "queued_at": "2026-06-10T22:04:49.307228Z",
+        "request_sent_at": "2026-06-10T22:04:51.147635Z",
+        "response_completed_at": "2026-06-10T22:04:51.759942Z",
+        "started_at": "2026-06-10T22:04:51.147558Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 612.307,
+        "wall_time_ms": 2452.73
+      },
+      "usage": {
+        "input_tokens": 525,
+        "output_tokens": 25,
+        "total_tokens": 550,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:452",
+      "cost": {
+        "input_cost_usd": 7.36e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5.2e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 7.88e-05
+      },
+      "error": null,
+      "issue_number": 452,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "Request to improve help text with valid option examples for better UX.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"Request to improve help text with valid option examples for better UX.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 386,
+        "request-id": "dbd3391f-d69b-46d5-a624-a7a6e5c8461b",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 798620,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "dbd3391f-d69b-46d5-a624-a7a6e5c8461b"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:51.774797Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1886.474,
+        "queued_at": "2026-06-10T22:04:49.307231Z",
+        "request_sent_at": "2026-06-10T22:04:51.193777Z",
+        "response_completed_at": "2026-06-10T22:04:51.774761Z",
+        "started_at": "2026-06-10T22:04:51.193731Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 580.982,
+        "wall_time_ms": 2467.531
+      },
+      "usage": {
+        "input_tokens": 368,
+        "output_tokens": 26,
+        "total_tokens": 394,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:729",
+      "cost": {
+        "input_cost_usd": 0.00025560000000000003,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 6.4e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.000262
+      },
+      "error": null,
+      "issue_number": 729,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "security",
+        "rationale": "CVE-2019-11250 is a credential exposure vulnerability in a dependency.",
+        "raw_output": "{\"label\":\"security\",\"rationale\":\"CVE-2019-11250 is a credential exposure vulnerability in a dependency.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 659,
+        "request-id": "589061bf-1e3a-4d21-89bd-ccb55b67672f",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 798297,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "589061bf-1e3a-4d21-89bd-ccb55b67672f"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:52.641782Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2452.864,
+        "queued_at": "2026-06-10T22:04:49.307234Z",
+        "request_sent_at": "2026-06-10T22:04:51.760214Z",
+        "response_completed_at": "2026-06-10T22:04:52.641728Z",
+        "started_at": "2026-06-10T22:04:51.760132Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 881.511,
+        "wall_time_ms": 3334.5
+      },
+      "usage": {
+        "input_tokens": 1278,
+        "output_tokens": 32,
+        "total_tokens": 1310,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:997",
+      "cost": {
+        "input_cost_usd": 8.32e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 5.600000000000001e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 8.88e-05
+      },
+      "error": null,
+      "issue_number": 997,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "Request to add local file upload capability to `doctl compute image create`.",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"Request to add local file upload capability to `doctl compute image create`.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 372,
+        "request-id": "4b34376c-2e05-487c-ac11-4f4f8b9a178d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 798279,
+        "x-ratelimit-remaining-tokens-per-minute": 750000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "4b34376c-2e05-487c-ac11-4f4f8b9a178d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:52.373315Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2467.639,
+        "queued_at": "2026-06-10T22:04:49.307236Z",
+        "request_sent_at": "2026-06-10T22:04:51.774957Z",
+        "response_completed_at": "2026-06-10T22:04:52.373251Z",
+        "started_at": "2026-06-10T22:04:51.774910Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 598.297,
+        "wall_time_ms": 3066.035
+      },
+      "usage": {
+        "input_tokens": 416,
+        "output_tokens": 28,
+        "total_tokens": 444,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:mistral-3-14B:1363",
+      "cost": {
+        "input_cost_usd": 6.82e-05,
+        "input_price_per_1m_tokens": 0.2,
+        "output_cost_usd": 4.4e-06,
+        "output_price_per_1m_tokens": 0.2,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 7.26e-05
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "mistral-3-14B",
+      "provider_model": "mistral-3-14B",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "Spam link in issue body, not a valid concern.",
+        "raw_output": "{\"label\":\"other\",\"rationale\":\"Spam link in issue body, not a valid concern.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 338,
+        "request-id": "536ca3ed-1457-415d-99a7-486845f267c3",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 8000000,
+        "x-ratelimit-limit-tokens-per-minute": 750000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 797027,
+        "x-ratelimit-remaining-tokens-per-minute": 749391,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "536ca3ed-1457-415d-99a7-486845f267c3"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:52.989174Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 3066.175,
+        "queued_at": "2026-06-10T22:04:49.307238Z",
+        "request_sent_at": "2026-06-10T22:04:52.373508Z",
+        "response_completed_at": "2026-06-10T22:04:52.989130Z",
+        "started_at": "2026-06-10T22:04:52.373456Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 615.622,
+        "wall_time_ms": 3681.882
+      },
+      "usage": {
+        "input_tokens": 341,
+        "output_tokens": 22,
+        "total_tokens": 363,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1-promptfix",
+  "wall_clock_ms": 3684.37
+}

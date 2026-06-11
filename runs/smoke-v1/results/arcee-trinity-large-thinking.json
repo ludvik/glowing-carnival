@@ -1,0 +1,694 @@
+{
+  "completed_at": "2026-06-10T21:45:14.939855Z",
+  "created_at": "2026-06-10T21:45:13.200727Z",
+  "model_id": "arcee-trinity-large-thinking",
+  "operational_summary": {
+    "calls_error": 11,
+    "calls_ok": 0,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": null,
+      "total_cost_usd": null
+    },
+    "error_rate": 1.0,
+    "errors_by_type": {
+      "auth_error": 11
+    },
+    "latency_ms": {
+      "avg": null,
+      "p50": null,
+      "p95": null
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 113,
+      "min_tokens_per_minute_remaining": null,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": []
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 6.325,
+      "wall_clock_ms": 1739.115
+    }
+  },
+  "provider_model": "arcee-trinity-large-thinking",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:25",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 25,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 112,
+        "request-id": "462ca428-db2b-4e9d-b151-18bf2b6a677e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "462ca428-db2b-4e9d-b151-18bf2b6a677e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:13.513029Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.018,
+        "queued_at": "2026-06-10T21:45:13.201381Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.201401Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 311.648
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:127",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 127,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 76,
+        "request-id": "7643690c-35d5-432a-b938-57ea05f04fc9",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "7643690c-35d5-432a-b938-57ea05f04fc9"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:13.475956Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.003,
+        "queued_at": "2026-06-10T21:45:13.201499Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.201502Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 274.46
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:131",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 131,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 87,
+        "request-id": "750763c5-adfb-4f55-890d-73ee7a1fa429",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "750763c5-adfb-4f55-890d-73ee7a1fa429"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:13.756151Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 274.463,
+        "queued_at": "2026-06-10T21:45:13.201556Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.476022Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 554.596
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:166",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 166,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 74,
+        "request-id": "1328dc64-f42b-4a36-af8e-7b59ee95c25d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 117,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "1328dc64-f42b-4a36-af8e-7b59ee95c25d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:13.789713Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 311.521,
+        "queued_at": "2026-06-10T21:45:13.201562Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.513085Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 588.152
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:238",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 238,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 116,
+        "request-id": "581ae41d-fb10-476a-9ced-bc0e0e3b5c0a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 117,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "581ae41d-fb10-476a-9ced-bc0e0e3b5c0a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.119156Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 554.669,
+        "queued_at": "2026-06-10T21:45:13.201566Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.756239Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 917.59
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:263",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 263,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 84,
+        "request-id": "a506bcef-c41c-48f1-af43-3480320dfb15",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 116,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "a506bcef-c41c-48f1-af43-3480320dfb15"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.119233Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 588.235,
+        "queued_at": "2026-06-10T21:45:13.201568Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:13.789807Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 917.657
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:309",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 309,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 80,
+        "request-id": "515ff033-d08f-47f5-9091-ecf675efd881",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "515ff033-d08f-47f5-9091-ecf675efd881"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.400752Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 917.704,
+        "queued_at": "2026-06-10T21:45:13.201572Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.119283Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1199.178
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:452",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 452,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 135,
+        "request-id": "4e877d55-fc90-49ea-9f58-b4aa314d78c6",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "4e877d55-fc90-49ea-9f58-b4aa314d78c6"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.456967Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 917.852,
+        "queued_at": "2026-06-10T21:45:13.201574Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.119434Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1255.392
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:729",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 729,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 74,
+        "request-id": "7d91e542-f379-4183-8608-e9edbf725a2f",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "7d91e542-f379-4183-8608-e9edbf725a2f"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.669403Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1199.262,
+        "queued_at": "2026-06-10T21:45:13.201577Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.400850Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1467.824
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:997",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 997,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 79,
+        "request-id": "4d95f1d8-c1c1-4449-b3c5-d7ce2d074794",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 114,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "4d95f1d8-c1c1-4449-b3c5-d7ce2d074794"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.767341Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1255.534,
+        "queued_at": "2026-06-10T21:45:13.201580Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.457124Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1565.757
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:arcee-trinity-large-thinking:1363",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.9,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 1363,
+      "model_id": "arcee-trinity-large-thinking",
+      "provider_model": "arcee-trinity-large-thinking",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 74,
+        "request-id": "65ed0b92-c587-4c65-86b8-fb8184574c8c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 113,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "65ed0b92-c587-4c65-86b8-fb8184574c8c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:14.937834Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1467.957,
+        "queued_at": "2026-06-10T21:45:13.201583Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:14.669550Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1736.246
+      },
+      "usage": null
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 1739.115
+}

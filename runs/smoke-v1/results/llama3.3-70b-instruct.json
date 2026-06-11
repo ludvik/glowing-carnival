@@ -1,0 +1,809 @@
+{
+  "completed_at": "2026-06-10T21:44:23.433310Z",
+  "created_at": "2026-06-10T21:44:10.004005Z",
+  "model_id": "llama3.3-70b-instruct",
+  "operational_summary": {
+    "calls_error": 9,
+    "calls_ok": 2,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00021417500000000002,
+      "total_cost_usd": 0.00042835000000000003
+    },
+    "error_rate": 0.8181818181818182,
+    "errors_by_type": {
+      "parse_error": 9
+    },
+    "latency_ms": {
+      "avg": 2003.704,
+      "p50": 2003.704,
+      "p95": 2113.526
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 118,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.819,
+      "wall_clock_ms": 13429.18
+    }
+  },
+  "provider_model": "llama3.3-70b-instruct",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:25",
+      "cost": {
+        "input_cost_usd": 0.0002197,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002301
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 25,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"documentation\",\"rationale\":\"issue reports mismatch and lack of clarity in"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2121,
+        "request-id": "6cf61eeb-0c9c-4de8-ac14-89869a228a15",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "6cf61eeb-0c9c-4de8-ac14-89869a228a15"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:12.334652Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.005,
+        "queued_at": "2026-06-10T21:44:10.004686Z",
+        "request_sent_at": "2026-06-10T21:44:10.004711Z",
+        "response_completed_at": "2026-06-10T21:44:12.334620Z",
+        "started_at": "2026-06-10T21:44:10.004692Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2329.899,
+        "wall_time_ms": 2329.944
+      },
+      "usage": {
+        "input_tokens": 338,
+        "output_tokens": 16,
+        "total_tokens": 354,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:127",
+      "cost": {
+        "input_cost_usd": 0.00041600000000000003,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0004264
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 127,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"command fails with an error but still creates"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1929,
+        "request-id": "1012e80b-afa2-43c3-9c37-5e3bf76edd77",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1012e80b-afa2-43c3-9c37-5e3bf76edd77"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:12.161937Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T21:44:10.004768Z",
+        "request_sent_at": "2026-06-10T21:44:10.004793Z",
+        "response_completed_at": "2026-06-10T21:44:12.161892Z",
+        "started_at": "2026-06-10T21:44:10.004771Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2157.093,
+        "wall_time_ms": 2157.149
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 16,
+        "total_tokens": 656,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:131",
+      "cost": {
+        "input_cost_usd": 0.0005954,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0006058000000000001
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 131,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"the 'doctl auth init' command"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2360,
+        "request-id": "391dd66e-56dd-4e24-9b2e-e5839f25eca5",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599655,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "391dd66e-56dd-4e24-9b2e-e5839f25eca5"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:14.741149Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2157.252,
+        "queued_at": "2026-06-10T21:44:10.004812Z",
+        "request_sent_at": "2026-06-10T21:44:12.162170Z",
+        "response_completed_at": "2026-06-10T21:44:14.741120Z",
+        "started_at": "2026-06-10T21:44:12.162083Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2578.936,
+        "wall_time_ms": 4736.293
+      },
+      "usage": {
+        "input_tokens": 916,
+        "output_tokens": 16,
+        "total_tokens": 932,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:166",
+      "cost": {
+        "input_cost_usd": 0.00036725,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00037765
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 166,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"user is asking for clarification on the difference"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2503,
+        "request-id": "781406d4-9fb1-4cb7-8cb8-463c2b898da6",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 599679,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "781406d4-9fb1-4cb7-8cb8-463c2b898da6"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:15.045322Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 2329.951,
+        "queued_at": "2026-06-10T21:44:10.004817Z",
+        "request_sent_at": "2026-06-10T21:44:12.334859Z",
+        "response_completed_at": "2026-06-10T21:44:15.045293Z",
+        "started_at": "2026-06-10T21:44:12.334788Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2710.419,
+        "wall_time_ms": 5040.458
+      },
+      "usage": {
+        "input_tokens": 565,
+        "output_tokens": 16,
+        "total_tokens": 581,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:238",
+      "cost": {
+        "input_cost_usd": 0.00021905,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00022945000000000002
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "request for man pages export option",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"request for man pages export option\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1933,
+        "request-id": "e50d8963-4fb1-4aa3-8104-91828d61c3ab",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598902,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "e50d8963-4fb1-4aa3-8104-91828d61c3ab"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:16.867130Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 4736.419,
+        "queued_at": "2026-06-10T21:44:10.004821Z",
+        "request_sent_at": "2026-06-10T21:44:14.741337Z",
+        "response_completed_at": "2026-06-10T21:44:16.867064Z",
+        "started_at": "2026-06-10T21:44:14.741282Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2125.728,
+        "wall_time_ms": 6862.246
+      },
+      "usage": {
+        "input_tokens": 337,
+        "output_tokens": 16,
+        "total_tokens": 353,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:263",
+      "cost": {
+        "input_cost_usd": 0.00022360000000000001,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00023400000000000002
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 263,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"permission denied error when using doctl compute"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1996,
+        "request-id": "af2e330b-86a9-46fb-a474-c04a51b8f44b",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 599273,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "af2e330b-86a9-46fb-a474-c04a51b8f44b"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:17.288037Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 5040.592,
+        "queued_at": "2026-06-10T21:44:10.004823Z",
+        "request_sent_at": "2026-06-10T21:44:15.045553Z",
+        "response_completed_at": "2026-06-10T21:44:17.288008Z",
+        "started_at": "2026-06-10T21:44:15.045461Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2242.445,
+        "wall_time_ms": 7283.147
+      },
+      "usage": {
+        "input_tokens": 344,
+        "output_tokens": 16,
+        "total_tokens": 360,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:309",
+      "cost": {
+        "input_cost_usd": 0.00030225,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00031265
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 309,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"user is asking for help with modifying a"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2189,
+        "request-id": "8ad1da0d-57b9-4626-91b4-04b50a154898",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598695,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "8ad1da0d-57b9-4626-91b4-04b50a154898"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:19.336468Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 6862.389,
+        "queued_at": "2026-06-10T21:44:10.004826Z",
+        "request_sent_at": "2026-06-10T21:44:16.867383Z",
+        "response_completed_at": "2026-06-10T21:44:19.336423Z",
+        "started_at": "2026-06-10T21:44:16.867277Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2469.028,
+        "wall_time_ms": 9331.556
+      },
+      "usage": {
+        "input_tokens": 465,
+        "output_tokens": 16,
+        "total_tokens": 481,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:452",
+      "cost": {
+        "input_cost_usd": 0.00020800000000000001,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00021840000000000002
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 452,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"request to improve the help text with"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2219,
+        "request-id": "c2fcf8be-b7e1-4b6d-aa15-3fa49ad20ad1",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 599071,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "c2fcf8be-b7e1-4b6d-aa15-3fa49ad20ad1"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:19.716166Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 7283.243,
+        "queued_at": "2026-06-10T21:44:10.004829Z",
+        "request_sent_at": "2026-06-10T21:44:17.288181Z",
+        "response_completed_at": "2026-06-10T21:44:19.716135Z",
+        "started_at": "2026-06-10T21:44:17.288139Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2427.941,
+        "wall_time_ms": 9711.247
+      },
+      "usage": {
+        "input_tokens": 320,
+        "output_tokens": 16,
+        "total_tokens": 336,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:729",
+      "cost": {
+        "input_cost_usd": 0.0007098000000000001,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0007202000000000002
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 729,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"security\",\"rationale\":\"CVE-2019-11250 vulnerability"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 2022,
+        "request-id": "eefe35cb-a5c9-4c57-ada0-e1e025a59572",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598385,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "eefe35cb-a5c9-4c57-ada0-e1e025a59572"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:21.549966Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9331.695,
+        "queued_at": "2026-06-10T21:44:10.004831Z",
+        "request_sent_at": "2026-06-10T21:44:19.336696Z",
+        "response_completed_at": "2026-06-10T21:44:21.549935Z",
+        "started_at": "2026-06-10T21:44:19.336612Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2213.228,
+        "wall_time_ms": 11545.028
+      },
+      "usage": {
+        "input_tokens": 1092,
+        "output_tokens": 16,
+        "total_tokens": 1108,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:997",
+      "cost": {
+        "input_cost_usd": 0.00023985000000000003,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 1.04e-05,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00025025000000000004
+      },
+      "error": {
+        "http_status": null,
+        "message": "No JSON object found in model output.",
+        "type": "parse_error"
+      },
+      "issue_number": 997,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": "No JSON object found in model output.",
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"request for a new feature to upload"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1815,
+        "request-id": "785c7855-632f-4b8c-a2fa-81efd4b3d9e0",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 118,
+        "x-ratelimit-remaining-tokens-per-day": 598904,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "785c7855-632f-4b8c-a2fa-81efd4b3d9e0"
+      },
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:21.738088Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 9711.381,
+        "queued_at": "2026-06-10T21:44:10.004834Z",
+        "request_sent_at": "2026-06-10T21:44:19.716368Z",
+        "response_completed_at": "2026-06-10T21:44:21.738058Z",
+        "started_at": "2026-06-10T21:44:19.716304Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 2021.68,
+        "wall_time_ms": 11733.146
+      },
+      "usage": {
+        "input_tokens": 369,
+        "output_tokens": 16,
+        "total_tokens": 385,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:llama3.3-70b-instruct:1363",
+      "cost": {
+        "input_cost_usd": 0.00018915000000000002,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001989
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "issue contains a spam link",
+        "raw_output": "{\"label\":\"other\",\"rationale\":\"issue contains a spam link\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 1655,
+        "request-id": "1a856ebd-c710-4d1c-9ff6-c41658cd7bf0",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598643,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1a856ebd-c710-4d1c-9ff6-c41658cd7bf0"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:23.431866Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 11545.152,
+        "queued_at": "2026-06-10T21:44:10.004837Z",
+        "request_sent_at": "2026-06-10T21:44:21.550143Z",
+        "response_completed_at": "2026-06-10T21:44:23.431831Z",
+        "started_at": "2026-06-10T21:44:21.550095Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 1881.679,
+        "wall_time_ms": 13426.905
+      },
+      "usage": {
+        "input_tokens": 291,
+        "output_tokens": 15,
+        "total_tokens": 306,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 13429.18
+}

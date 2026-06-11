@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 178.887,
+  "error_count": 2,
+  "eta_seconds": 0.0,
+  "model_id": "qwen3.5-397b-a17b",
+  "ok_count": 9,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.061,
+  "run_id": "smoke-v1-reasoning-2048",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T22:37:43.038742Z"
+}

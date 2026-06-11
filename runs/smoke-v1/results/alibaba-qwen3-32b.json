@@ -1,0 +1,759 @@
+{
+  "completed_at": "2026-06-10T21:44:00.292116Z",
+  "created_at": "2026-06-10T21:40:05.586253Z",
+  "model_id": "alibaba-qwen3-32b",
+  "operational_summary": {
+    "calls_error": 1,
+    "calls_ok": 10,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00027295,
+      "total_cost_usd": 0.0027295
+    },
+    "error_rate": 0.09090909090909091,
+    "errors_by_type": {
+      "timeout": 1
+    },
+    "latency_ms": {
+      "avg": 27265.29,
+      "p50": 24384.153,
+      "p95": 38984.962
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 114,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 10,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.047,
+      "wall_clock_ms": 234703.683
+    }
+  },
+  "provider_model": "alibaba-qwen3-32b",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:25",
+      "cost": {
+        "input_cost_usd": 7.925e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.0001408,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00022005
+      },
+      "error": null,
+      "issue_number": 25,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "The issue highlights inconsistencies between documented configuration filenames (\".doctlconfig\" vs \".doctlcfg\") and lacks clarity on the configuration file format, which directly relates to documentation accuracy and completeness.",
+        "raw_output": "\n\n{\"label\":\"documentation\",\"rationale\":\"The issue highlights inconsistencies between documented configuration filenames (\\\".doctlconfig\\\" vs \\\".doctlcfg\\\") and lacks clarity on the configuration file format, which directly relates to documentation accuracy and completeness.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 25629,
+        "request-id": "da53eb6a-106f-413f-a3f3-d38cfb026839",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 114,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "da53eb6a-106f-413f-a3f3-d38cfb026839"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:40:31.417819Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.006,
+        "queued_at": "2026-06-10T21:40:05.586898Z",
+        "request_sent_at": "2026-06-10T21:40:05.586924Z",
+        "response_completed_at": "2026-06-10T21:40:31.417738Z",
+        "started_at": "2026-06-10T21:40:05.586905Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 25830.596,
+        "wall_time_ms": 25830.681
+      },
+      "usage": {
+        "input_tokens": 317,
+        "output_tokens": 256,
+        "total_tokens": 573,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 2,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:127",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": null,
+        "message": "The read operation timed out",
+        "type": "timeout"
+      },
+      "issue_number": 127,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {},
+      "retryable": true,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:41:37.660983Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T21:40:05.586983Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:40:05.586986Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 92073.177
+      },
+      "usage": null
+    },
+    {
+      "attempts": 2,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:131",
+      "cost": {
+        "input_cost_usd": 0.000226,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00021835000000000002,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00044435000000000004
+      },
+      "error": null,
+      "issue_number": 131,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "The issue highlights that the README.md and tutorial links point to an outdated version of doctl (v1.3.1) where the `auth init` command does not exist. The user resolved the problem by finding a newer release with the command, confirming the documentation needs updates to reflect correct version links.",
+        "raw_output": "\n\n{\"label\":\"documentation\",\"rationale\":\"The issue highlights that the README.md and tutorial links point to an outdated version of doctl (v1.3.1) where the `auth init` command does not exist. The user resolved the problem by finding a newer release with the command, confirming the documentation needs updates to reflect correct version links.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 38541,
+        "request-id": "e907ee61-e53b-4879-9481-8da181e8d642",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "e907ee61-e53b-4879-9481-8da181e8d642"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:41:57.305701Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 25830.763,
+        "queued_at": "2026-06-10T21:40:05.587027Z",
+        "request_sent_at": "2026-06-10T21:41:18.467590Z",
+        "response_completed_at": "2026-06-10T21:41:57.305619Z",
+        "started_at": "2026-06-10T21:40:31.418030Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 38837.619,
+        "wall_time_ms": 111717.636
+      },
+      "usage": {
+        "input_tokens": 904,
+        "output_tokens": 397,
+        "total_tokens": 1301,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:166",
+      "cost": {
+        "input_cost_usd": 0.00013925,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00015840000000000003,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00029765
+      },
+      "error": null,
+      "issue_number": 166,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "The user is asking for clarification on the design and behavior differences between the 'tag-name' and 'tag-names' flags in doctl, seeking to understand why two similar flags exist.",
+        "raw_output": "\n\n{\"label\":\"question\",\"rationale\":\"The user is asking for clarification on the design and behavior differences between the 'tag-name' and 'tag-names' flags in doctl, seeking to understand why two similar flags exist.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 34674,
+        "request-id": "8c52918a-9fb3-4685-a039-6ac73825b691",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "8c52918a-9fb3-4685-a039-6ac73825b691"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:42:12.563667Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 92073.402,
+        "queued_at": "2026-06-10T21:40:05.587033Z",
+        "request_sent_at": "2026-06-10T21:41:37.661400Z",
+        "response_completed_at": "2026-06-10T21:42:12.563611Z",
+        "started_at": "2026-06-10T21:41:37.661288Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 34901.896,
+        "wall_time_ms": 126975.455
+      },
+      "usage": {
+        "input_tokens": 557,
+        "output_tokens": 288,
+        "total_tokens": 845,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:238",
+      "cost": {
+        "input_cost_usd": 7.925e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00018810000000000002,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00026735
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "The request is for adding an export option for man pages to support fish shell completions, which is a feature enhancement to improve usability.",
+        "raw_output": "\n\n{\"label\":\"enhancement\",\"rationale\":\"The request is for adding an export option for man pages to support fish shell completions, which is a feature enhancement to improve usability.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 37566,
+        "request-id": "629926c0-ba7a-4333-b718-3ea5e73ac1ba",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598726,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "629926c0-ba7a-4333-b718-3ea5e73ac1ba"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:42:35.102884Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 111717.735,
+        "queued_at": "2026-06-10T21:40:05.587036Z",
+        "request_sent_at": "2026-06-10T21:41:57.305860Z",
+        "response_completed_at": "2026-06-10T21:42:35.102839Z",
+        "started_at": "2026-06-10T21:41:57.305808Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 37796.636,
+        "wall_time_ms": 149514.459
+      },
+      "usage": {
+        "input_tokens": 317,
+        "output_tokens": 342,
+        "total_tokens": 659,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 2,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:263",
+      "cost": {
+        "input_cost_usd": 8.275e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00011990000000000001,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00020265000000000002
+      },
+      "error": null,
+      "issue_number": 263,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "The error 'fork/exec /usr/bin/ssh: permission denied' indicates a permission issue when doctl attempts to execute the SSH binary, which constitutes incorrect behavior in the tool.",
+        "raw_output": "\n\n{\"label\":\"bug\",\"rationale\":\"The error 'fork/exec /usr/bin/ssh: permission denied' indicates a permission issue when doctl attempts to execute the SSH binary, which constitutes incorrect behavior in the tool.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 20279,
+        "request-id": "441d0410-a23d-41f0-9f83-986e85c87c6e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "441d0410-a23d-41f0-9f83-986e85c87c6e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:43:20.148355Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 126975.665,
+        "queued_at": "2026-06-10T21:40:05.587038Z",
+        "request_sent_at": "2026-06-10T21:42:59.598837Z",
+        "response_completed_at": "2026-06-10T21:43:20.148310Z",
+        "started_at": "2026-06-10T21:42:12.563881Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 20549.26,
+        "wall_time_ms": 194559.509
+      },
+      "usage": {
+        "input_tokens": 331,
+        "output_tokens": 218,
+        "total_tokens": 549,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:309",
+      "cost": {
+        "input_cost_usd": 0.00011325,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00018095,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002942
+      },
+      "error": null,
+      "issue_number": 309,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "The user is asking for guidance on how to modify their script to manage and limit the number of snapshots using doctl commands, which is a usage/clarification request.",
+        "raw_output": "\n\n{\"label\":\"question\",\"rationale\":\"The user is asking for guidance on how to modify their script to manage and limit the number of snapshots using doctl commands, which is a usage/clarification request.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 38849,
+        "request-id": "577ab742-ae78-4212-8ffa-a2fbfcac56c7",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599361,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "577ab742-ae78-4212-8ffa-a2fbfcac56c7"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:43:14.208988Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 149514.553,
+        "queued_at": "2026-06-10T21:40:05.587041Z",
+        "request_sent_at": "2026-06-10T21:42:35.103064Z",
+        "response_completed_at": "2026-06-10T21:43:14.208931Z",
+        "started_at": "2026-06-10T21:42:35.102983Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 39105.516,
+        "wall_time_ms": 188620.195
+      },
+      "usage": {
+        "input_tokens": 453,
+        "output_tokens": 329,
+        "total_tokens": 782,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:452",
+      "cost": {
+        "input_cost_usd": 7.5e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.00011825,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00019325
+      },
+      "error": null,
+      "issue_number": 452,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "The issue requests adding valid options to help text (e.g., listing regions/sizes/images) to improve CLI usability, which constitutes a feature request for better UX.",
+        "raw_output": "\n\n{\"label\":\"enhancement\",\"rationale\":\"The issue requests adding valid options to help text (e.g., listing regions/sizes/images) to improve CLI usability, which constitutes a feature request for better UX.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 18910,
+        "request-id": "f56e4044-a881-43a2-b625-2fce2d4a44ca",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599242,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f56e4044-a881-43a2-b625-2fce2d4a44ca"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:43:33.331865Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 188620.455,
+        "queued_at": "2026-06-10T21:40:05.587043Z",
+        "request_sent_at": "2026-06-10T21:43:14.209310Z",
+        "response_completed_at": "2026-06-10T21:43:33.331799Z",
+        "started_at": "2026-06-10T21:43:14.209247Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 19122.321,
+        "wall_time_ms": 207742.892
+      },
+      "usage": {
+        "input_tokens": 300,
+        "output_tokens": 215,
+        "total_tokens": 515,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:729",
+      "cost": {
+        "input_cost_usd": 0.00028925,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.0001419,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00043115000000000004
+      },
+      "error": null,
+      "issue_number": 729,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "security",
+        "rationale": "The issue reports a CVE-2019-11250 vulnerability in a dependency, which involves credential exposure via logs in the Kubernetes client-go library used by doctl.",
+        "raw_output": "\n\n{\"label\":\"security\",\"rationale\":\"The issue reports a CVE-2019-11250 vulnerability in a dependency, which involves credential exposure via logs in the Kubernetes client-go library used by doctl.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 22709,
+        "request-id": "1fc7207c-922d-4dc2-8bbf-f7b3f4480d6c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599474,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1fc7207c-922d-4dc2-8bbf-f7b3f4480d6c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:43:43.086571Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 194559.611,
+        "queued_at": "2026-06-10T21:40:05.587046Z",
+        "request_sent_at": "2026-06-10T21:43:20.148582Z",
+        "response_completed_at": "2026-06-10T21:43:43.086485Z",
+        "started_at": "2026-06-10T21:43:20.148464Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 22937.709,
+        "wall_time_ms": 217497.505
+      },
+      "usage": {
+        "input_tokens": 1157,
+        "output_tokens": 258,
+        "total_tokens": 1415,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:997",
+      "cost": {
+        "input_cost_usd": 8.725e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 0.0001287,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00021595000000000002
+      },
+      "error": null,
+      "issue_number": 997,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "The request is for adding a new feature to upload local files as images, which is a capability improvement over the current URL-only support.",
+        "raw_output": "\n\n{\"label\":\"enhancement\",\"rationale\":\"The request is for adding a new feature to upload local files as images, which is a capability improvement over the current URL-only support.\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 16101,
+        "request-id": "9eb7fb71-8d37-44b8-afd8-040d21aff22e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599506,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "9eb7fb71-8d37-44b8-afd8-040d21aff22e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:43:49.701436Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 207743.038,
+        "queued_at": "2026-06-10T21:40:05.587048Z",
+        "request_sent_at": "2026-06-10T21:43:33.332137Z",
+        "response_completed_at": "2026-06-10T21:43:49.701385Z",
+        "started_at": "2026-06-10T21:43:33.332015Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 16369.107,
+        "wall_time_ms": 224112.306
+      },
+      "usage": {
+        "input_tokens": 349,
+        "output_tokens": 234,
+        "total_tokens": 583,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:alibaba-qwen3-32b:1363",
+      "cost": {
+        "input_cost_usd": 6.775e-05,
+        "input_price_per_1m_tokens": 0.25,
+        "output_cost_usd": 9.515000000000001e-05,
+        "output_price_per_1m_tokens": 0.55,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0001629
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "alibaba-qwen3-32b",
+      "provider_model": "alibaba-qwen3-32b",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "spam",
+        "raw_output": "\n\n{\"label\":\"other\",\"rationale\":\"spam\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 16993,
+        "request-id": "ffad1829-4879-4999-88bc-ec5d24a6078f",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598624,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "ffad1829-4879-4999-88bc-ec5d24a6078f"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T21:44:00.289252Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 217497.691,
+        "queued_at": "2026-06-10T21:40:05.587050Z",
+        "request_sent_at": "2026-06-10T21:43:43.086817Z",
+        "response_completed_at": "2026-06-10T21:44:00.289198Z",
+        "started_at": "2026-06-10T21:43:43.086761Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 17202.237,
+        "wall_time_ms": 234700.021
+      },
+      "usage": {
+        "input_tokens": 271,
+        "output_tokens": 173,
+        "total_tokens": 444,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 234703.683
+}

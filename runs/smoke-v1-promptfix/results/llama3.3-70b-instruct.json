@@ -1,0 +1,771 @@
+{
+  "completed_at": "2026-06-10T22:04:49.304804Z",
+  "created_at": "2026-06-10T22:04:13.958637Z",
+  "model_id": "llama3.3-70b-instruct",
+  "operational_summary": {
+    "calls_error": 0,
+    "calls_ok": 11,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": 0.00038799090909090905,
+      "total_cost_usd": 0.0042679
+    },
+    "error_rate": 0.0,
+    "errors_by_type": {},
+    "latency_ms": {
+      "avg": 6062.718,
+      "p50": 5808.988,
+      "p95": 7476.47
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 119,
+      "min_requests_remaining": 114,
+      "min_tokens_per_minute_remaining": 500000,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": [
+        500000
+      ]
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 0.311,
+      "wall_clock_ms": 35345.647
+    }
+  },
+  "provider_model": "llama3.3-70b-instruct",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:25",
+      "cost": {
+        "input_cost_usd": 0.00026325,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 7.8e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00027105
+      },
+      "error": null,
+      "issue_number": 25,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "documentation",
+        "rationale": "docs mismatch",
+        "raw_output": "{\"label\":\"documentation\",\"rationale\":\"docs mismatch\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 5637,
+        "request-id": "1c04cc8e-07ab-4ee9-b1db-9520e6011f7c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 115,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "1c04cc8e-07ab-4ee9-b1db-9520e6011f7c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:19.810683Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.007,
+        "queued_at": "2026-06-10T22:04:13.959197Z",
+        "request_sent_at": "2026-06-10T22:04:13.959222Z",
+        "response_completed_at": "2026-06-10T22:04:19.810641Z",
+        "started_at": "2026-06-10T22:04:13.959204Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 5851.341,
+        "wall_time_ms": 5851.399
+      },
+      "usage": {
+        "input_tokens": 405,
+        "output_tokens": 12,
+        "total_tokens": 417,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:127",
+      "cost": {
+        "input_cost_usd": 0.00045955,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00046929999999999997
+      },
+      "error": null,
+      "issue_number": 127,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "droplet created despite error",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"droplet created despite error\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 6660,
+        "request-id": "72549c76-ed06-4956-84b2-aa59cfbf5ba0",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 114,
+        "x-ratelimit-remaining-tokens-per-day": 600000,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "72549c76-ed06-4956-84b2-aa59cfbf5ba0"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:20.833716Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T22:04:13.959277Z",
+        "request_sent_at": "2026-06-10T22:04:13.959302Z",
+        "response_completed_at": "2026-06-10T22:04:20.833670Z",
+        "started_at": "2026-06-10T22:04:13.959280Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 6874.275,
+        "wall_time_ms": 6874.338
+      },
+      "usage": {
+        "input_tokens": 707,
+        "output_tokens": 15,
+        "total_tokens": 722,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:131",
+      "cost": {
+        "input_cost_usd": 0.00063895,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 8.45e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0006474
+      },
+      "error": null,
+      "issue_number": 131,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "command not found",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"command not found\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 6720,
+        "request-id": "e0cbccf2-26a7-4c77-b8bb-92712e84348e",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599604,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "e0cbccf2-26a7-4c77-b8bb-92712e84348e"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:26.774270Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 5851.434,
+        "queued_at": "2026-06-10T22:04:13.959320Z",
+        "request_sent_at": "2026-06-10T22:04:19.810929Z",
+        "response_completed_at": "2026-06-10T22:04:26.774213Z",
+        "started_at": "2026-06-10T22:04:19.810837Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 6963.192,
+        "wall_time_ms": 12814.761
+      },
+      "usage": {
+        "input_tokens": 983,
+        "output_tokens": 13,
+        "total_tokens": 996,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:166",
+      "cost": {
+        "input_cost_usd": 0.0004108,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00042055
+      },
+      "error": null,
+      "issue_number": 166,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "Asking about command behavior",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"Asking about command behavior\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 7767,
+        "request-id": "f77bdd61-0bba-43b7-a105-24536bb7e1da",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599300,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "f77bdd61-0bba-43b7-a105-24536bb7e1da"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:28.823834Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 6874.425,
+        "queued_at": "2026-06-10T22:04:13.959325Z",
+        "request_sent_at": "2026-06-10T22:04:20.833920Z",
+        "response_completed_at": "2026-06-10T22:04:28.823775Z",
+        "started_at": "2026-06-10T22:04:20.833850Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 7989.748,
+        "wall_time_ms": 14864.291
+      },
+      "usage": {
+        "input_tokens": 632,
+        "output_tokens": 15,
+        "total_tokens": 647,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:238",
+      "cost": {
+        "input_cost_usd": 0.00026260000000000004,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00027235000000000003
+      },
+      "error": null,
+      "issue_number": 238,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "request for man pages",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"request for man pages\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 6179,
+        "request-id": "58cf84c9-72ae-4986-ba0b-2c7237eb995a",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599041,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "58cf84c9-72ae-4986-ba0b-2c7237eb995a"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:33.184789Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 12814.904,
+        "queued_at": "2026-06-10T22:04:13.959329Z",
+        "request_sent_at": "2026-06-10T22:04:26.774476Z",
+        "response_completed_at": "2026-06-10T22:04:33.184732Z",
+        "started_at": "2026-06-10T22:04:26.774420Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 6410.179,
+        "wall_time_ms": 19225.177
+      },
+      "usage": {
+        "input_tokens": 404,
+        "output_tokens": 15,
+        "total_tokens": 419,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:263",
+      "cost": {
+        "input_cost_usd": 0.00026715,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 8.45e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00027560000000000003
+      },
+      "error": null,
+      "issue_number": 263,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "bug",
+        "rationale": "permission denied error",
+        "raw_output": "{\"label\":\"bug\",\"rationale\":\"permission denied error\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4776,
+        "request-id": "b1efa39c-02fb-41a3-a3b2-2a7c2ddf2986",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599205,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "b1efa39c-02fb-41a3-a3b2-2a7c2ddf2986"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:33.791492Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 14864.442,
+        "queued_at": "2026-06-10T22:04:13.959331Z",
+        "request_sent_at": "2026-06-10T22:04:28.824054Z",
+        "response_completed_at": "2026-06-10T22:04:33.791441Z",
+        "started_at": "2026-06-10T22:04:28.823990Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4967.325,
+        "wall_time_ms": 19831.87
+      },
+      "usage": {
+        "input_tokens": 411,
+        "output_tokens": 13,
+        "total_tokens": 424,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:309",
+      "cost": {
+        "input_cost_usd": 0.00034580000000000006,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.00035555000000000005
+      },
+      "error": null,
+      "issue_number": 309,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "question",
+        "rationale": "user needs help with scripting",
+        "raw_output": "{\"label\":\"question\",\"rationale\":\"user needs help with scripting\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 5592,
+        "request-id": "52b9b0c2-d249-411e-bef9-b1e8915fbcfe",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599052,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "52b9b0c2-d249-411e-bef9-b1e8915fbcfe"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:38.974870Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 19225.309,
+        "queued_at": "2026-06-10T22:04:13.959334Z",
+        "request_sent_at": "2026-06-10T22:04:33.184992Z",
+        "response_completed_at": "2026-06-10T22:04:38.974795Z",
+        "started_at": "2026-06-10T22:04:33.184926Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 5789.745,
+        "wall_time_ms": 25015.167
+      },
+      "usage": {
+        "input_tokens": 532,
+        "output_tokens": 15,
+        "total_tokens": 547,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:452",
+      "cost": {
+        "input_cost_usd": 0.00025155,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.75e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002613
+      },
+      "error": null,
+      "issue_number": 452,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "improve help text",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"improve help text\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 5582,
+        "request-id": "3ecdcfc3-6fd3-4678-9612-35d6f21da3ee",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599128,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "3ecdcfc3-6fd3-4678-9612-35d6f21da3ee"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:39.600797Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 19832.005,
+        "queued_at": "2026-06-10T22:04:13.959337Z",
+        "request_sent_at": "2026-06-10T22:04:33.791684Z",
+        "response_completed_at": "2026-06-10T22:04:39.600737Z",
+        "started_at": "2026-06-10T22:04:33.791633Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 5808.988,
+        "wall_time_ms": 25641.083
+      },
+      "usage": {
+        "input_tokens": 387,
+        "output_tokens": 15,
+        "total_tokens": 402,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:729",
+      "cost": {
+        "input_cost_usd": 0.0007533500000000001,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 8.45e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0007618000000000001
+      },
+      "error": null,
+      "issue_number": 729,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "security",
+        "rationale": "CVE vulnerability detected",
+        "raw_output": "{\"label\":\"security\",\"rationale\":\"CVE vulnerability detected\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 5386,
+        "request-id": "084ff57f-97c2-4b14-af80-4b8adb82c005",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598910,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "084ff57f-97c2-4b14-af80-4b8adb82c005"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:44.572460Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 25015.36,
+        "queued_at": "2026-06-10T22:04:13.959339Z",
+        "request_sent_at": "2026-06-10T22:04:38.975147Z",
+        "response_completed_at": "2026-06-10T22:04:44.572407Z",
+        "started_at": "2026-06-10T22:04:38.975065Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 5597.189,
+        "wall_time_ms": 30612.67
+      },
+      "usage": {
+        "input_tokens": 1159,
+        "output_tokens": 13,
+        "total_tokens": 1172,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:997",
+      "cost": {
+        "input_cost_usd": 0.0002834,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 9.100000000000001e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002925
+      },
+      "error": null,
+      "issue_number": 997,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "enhancement",
+        "rationale": "new feature request",
+        "raw_output": "{\"label\":\"enhancement\",\"rationale\":\"new feature request\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 5508,
+        "request-id": "5d103b6d-639c-4184-a081-4c12482fd0c0",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 599127,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "5d103b6d-639c-4184-a081-4c12482fd0c0"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:45.309434Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 25641.227,
+        "queued_at": "2026-06-10T22:04:13.959341Z",
+        "request_sent_at": "2026-06-10T22:04:39.601001Z",
+        "response_completed_at": "2026-06-10T22:04:45.309383Z",
+        "started_at": "2026-06-10T22:04:39.600945Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 5708.308,
+        "wall_time_ms": 31349.631
+      },
+      "usage": {
+        "input_tokens": 436,
+        "output_tokens": 14,
+        "total_tokens": 450,
+        "usage_source": "provider"
+      }
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1-promptfix:llama3.3-70b-instruct:1363",
+      "cost": {
+        "input_cost_usd": 0.0002327,
+        "input_price_per_1m_tokens": 0.65,
+        "output_cost_usd": 7.8e-06,
+        "output_price_per_1m_tokens": 0.65,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": 0.0002405
+      },
+      "error": null,
+      "issue_number": 1363,
+      "model_id": "llama3.3-70b-instruct",
+      "provider_model": "llama3.3-70b-instruct",
+      "request": {
+        "max_output_tokens": 64,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": "other",
+        "rationale": "spam link",
+        "raw_output": "{\"label\":\"other\",\"rationale\":\"spam link\"}"
+      },
+      "response_headers": {
+        "do-upstream-service-time": 4386,
+        "request-id": "2854ef4f-7393-4092-b65b-072310043c85",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-limit-tokens-per-day": 6000000,
+        "x-ratelimit-limit-tokens-per-minute": 500000,
+        "x-ratelimit-remaining-requests": 119,
+        "x-ratelimit-remaining-tokens-per-day": 598127,
+        "x-ratelimit-remaining-tokens-per-minute": 500000,
+        "x-ratelimit-reset-requests": 0,
+        "x-ratelimit-reset-tokens-per-day": 0,
+        "x-ratelimit-reset-tokens-per-minute": 0,
+        "x-request-id": "2854ef4f-7393-4092-b65b-072310043c85"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1-promptfix",
+      "status": "ok",
+      "timing": {
+        "ended_at": "2026-06-10T22:04:49.302371Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 30612.809,
+        "queued_at": "2026-06-10T22:04:13.959343Z",
+        "request_sent_at": "2026-06-10T22:04:44.572655Z",
+        "response_completed_at": "2026-06-10T22:04:49.302318Z",
+        "started_at": "2026-06-10T22:04:44.572602Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": 4729.604,
+        "wall_time_ms": 35342.507
+      },
+      "usage": {
+        "input_tokens": 358,
+        "output_tokens": 12,
+        "total_tokens": 370,
+        "usage_source": "provider"
+      }
+    }
+  ],
+  "run_id": "smoke-v1-promptfix",
+  "wall_clock_ms": 35345.647
+}

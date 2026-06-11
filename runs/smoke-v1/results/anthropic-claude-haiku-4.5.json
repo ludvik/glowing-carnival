@@ -1,0 +1,694 @@
+{
+  "completed_at": "2026-06-10T21:45:20.360696Z",
+  "created_at": "2026-06-10T21:45:18.627378Z",
+  "model_id": "anthropic-claude-haiku-4.5",
+  "operational_summary": {
+    "calls_error": 11,
+    "calls_ok": 0,
+    "calls_total": 11,
+    "cost": {
+      "avg_cost_per_ok_call_usd": null,
+      "total_cost_usd": null
+    },
+    "error_rate": 1.0,
+    "errors_by_type": {
+      "auth_error": 11
+    },
+    "latency_ms": {
+      "avg": null,
+      "p50": null,
+      "p95": null
+    },
+    "rate_limit_headers": {
+      "latest_requests_reset": 0,
+      "max_requests_remaining": 100,
+      "min_requests_remaining": 95,
+      "min_tokens_per_minute_remaining": null,
+      "observed": 11,
+      "request_limits": [
+        120
+      ],
+      "token_per_minute_limits": []
+    },
+    "throughput": {
+      "concurrency": 2,
+      "requests_per_second": 6.346,
+      "wall_clock_ms": 1733.303
+    }
+  },
+  "provider_model": "anthropic-claude-haiku-4.5",
+  "result_count": 11,
+  "results": [
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:25",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 25,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 78,
+        "request-id": "0fd4fb32-6e16-495e-abad-293a3ddfb66c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 99,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "0fd4fb32-6e16-495e-abad-293a3ddfb66c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:18.904719Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.005,
+        "queued_at": "2026-06-10T21:45:18.627987Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:18.627993Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 276.737
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:127",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 127,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 86,
+        "request-id": "3e84f3e9-6a7c-4665-9270-741dbc5b4591",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 100,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "3e84f3e9-6a7c-4665-9270-741dbc5b4591"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:18.897436Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 0.002,
+        "queued_at": "2026-06-10T21:45:18.628069Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:18.628071Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 269.376
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:131",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 131,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 114,
+        "request-id": "877acf83-e7c3-4b5e-b039-6648c702df3b",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 99,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "877acf83-e7c3-4b5e-b039-6648c702df3b"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.219592Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 269.446,
+        "queued_at": "2026-06-10T21:45:18.628111Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:18.897556Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 591.487
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:166",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 166,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 108,
+        "request-id": "916d3a30-356d-4ca5-b775-706e67db2c4c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 99,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "916d3a30-356d-4ca5-b775-706e67db2c4c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.200703Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 276.702,
+        "queued_at": "2026-06-10T21:45:18.628116Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:18.904820Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 572.592
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:238",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 238,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 110,
+        "request-id": "19e9b5a5-d861-41a1-b6e5-57e60d1891d9",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 99,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "19e9b5a5-d861-41a1-b6e5-57e60d1891d9"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.525566Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 572.703,
+        "queued_at": "2026-06-10T21:45:18.628118Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.200825Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 897.444
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:263",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 263,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 86,
+        "request-id": "7d611217-9292-4d9f-b258-95f5c3440b85",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 98,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "7d611217-9292-4d9f-b258-95f5c3440b85"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.487341Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 591.684,
+        "queued_at": "2026-06-10T21:45:18.628121Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.219807Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 859.218
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:309",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 309,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 91,
+        "request-id": "e42152e6-a5ed-4ba0-90db-ee252c02939d",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 98,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "e42152e6-a5ed-4ba0-90db-ee252c02939d"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.762307Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 859.279,
+        "queued_at": "2026-06-10T21:45:18.628128Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.487413Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1134.178
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:452",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 452,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 78,
+        "request-id": "01de2b31-38a2-4719-8c1e-7ee371e9bbec",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 97,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "01de2b31-38a2-4719-8c1e-7ee371e9bbec"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:19.787990Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 897.509,
+        "queued_at": "2026-06-10T21:45:18.628130Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.525647Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1159.853
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:729",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 729,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 119,
+        "request-id": "b164c3e6-bcdf-4d55-92e3-8342b12c51fe",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 97,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "b164c3e6-bcdf-4d55-92e3-8342b12c51fe"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:20.060781Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1134.291,
+        "queued_at": "2026-06-10T21:45:18.628132Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.762432Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1432.641
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:997",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 997,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 79,
+        "request-id": "2b260d64-b004-4b75-b3ef-6c41dd3b858c",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 96,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "2b260d64-b004-4b75-b3ef-6c41dd3b858c"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:20.054877Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1159.915,
+        "queued_at": "2026-06-10T21:45:18.628135Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:19.788060Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1426.742
+      },
+      "usage": null
+    },
+    {
+      "attempts": 1,
+      "call_id": "smoke-v1:anthropic-claude-haiku-4.5:1363",
+      "cost": {
+        "input_cost_usd": null,
+        "input_price_per_1m_tokens": 1.0,
+        "output_cost_usd": null,
+        "output_price_per_1m_tokens": 5.0,
+        "pricing_source": "DigitalOcean Inference Pricing docs",
+        "total_cost_usd": null
+      },
+      "error": {
+        "http_status": 403,
+        "message": "{\"error\":{\"message\":\"this model is not available for your subscription tier\",\"type\":\"forbidden_error\"},\"message\":\"this model is not available for your subscription tier\",\"status_code\":403}\n",
+        "type": "auth_error"
+      },
+      "issue_number": 1363,
+      "model_id": "anthropic-claude-haiku-4.5",
+      "provider_model": "anthropic-claude-haiku-4.5",
+      "request": {
+        "max_output_tokens": 16,
+        "prompt_source": "config/prompts/classification_template.txt",
+        "streaming": false,
+        "temperature": 0.0,
+        "timeout_seconds": 45.0
+      },
+      "response": {
+        "parse_error": null,
+        "parsed_label": null,
+        "rationale": null,
+        "raw_output": null
+      },
+      "response_headers": {
+        "do-upstream-service-time": 88,
+        "request-id": "b35f65c4-ce68-4a3d-b83d-b7e4c82000c5",
+        "x-ratelimit-limit-requests": 120,
+        "x-ratelimit-remaining-requests": 95,
+        "x-ratelimit-reset-requests": 0,
+        "x-request-id": "b35f65c4-ce68-4a3d-b83d-b7e4c82000c5"
+      },
+      "retryable": false,
+      "run_id": "smoke-v1",
+      "status": "error",
+      "timing": {
+        "ended_at": "2026-06-10T21:45:20.358812Z",
+        "first_token_at": null,
+        "generation_ms": null,
+        "measurement_source": "client_non_streaming",
+        "queue_wait_ms": 1426.847,
+        "queued_at": "2026-06-10T21:45:18.628137Z",
+        "request_sent_at": null,
+        "response_completed_at": null,
+        "started_at": "2026-06-10T21:45:20.054996Z",
+        "time_to_first_token_ms": null,
+        "total_latency_ms": null,
+        "wall_time_ms": 1730.669
+      },
+      "usage": null
+    }
+  ],
+  "run_id": "smoke-v1",
+  "wall_clock_ms": 1733.303
+}

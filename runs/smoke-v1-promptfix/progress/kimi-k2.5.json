@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 12.2,
+  "error_count": 11,
+  "eta_seconds": 0.0,
+  "model_id": "kimi-k2.5",
+  "ok_count": 0,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.902,
+  "run_id": "smoke-v1-promptfix",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T22:04:10.389617Z"
+}

@@ -40,7 +40,6 @@ pip-delete-this-directory.txt
 .DS_Store
 *.pdf
 docs/decision-log.md
-runs/
 state/
 runtime-state/
 

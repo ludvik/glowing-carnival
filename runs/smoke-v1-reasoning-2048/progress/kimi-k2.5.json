@@ -1,0 +1,15 @@
+{
+  "completed_count": 11,
+  "elapsed_seconds": 99.039,
+  "error_count": 0,
+  "eta_seconds": 0.0,
+  "model_id": "kimi-k2.5",
+  "ok_count": 11,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.111,
+  "run_id": "smoke-v1-reasoning-2048",
+  "status": "completed",
+  "total_count": 11,
+  "updated_at": "2026-06-10T22:34:44.145081Z"
+}
