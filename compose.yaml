@@ -1,0 +1,12 @@
+services:
+  model-eval:
+    build: .
+    image: model-eval
+    ports:
+      - "8501:8501"
+    environment:
+      DIGITALOCEAN_SI_API_KEY: ${DIGITALOCEAN_SI_API_KEY:-}
+      DO_INFERENCE_API_KEY: ${DO_INFERENCE_API_KEY:-}
+      DIGITALOCEAN_TOKEN: ${DIGITALOCEAN_TOKEN:-}
+    volumes:
+      - ./runs:/app/runs

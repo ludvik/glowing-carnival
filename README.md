@@ -1,6 +1,62 @@
-# glowing-carnival
+# Issue Classification Model Evaluator
 
-Evaluation harness for the DigitalOcean FDE exercise.
+This project evaluates DigitalOcean Serverless Inference models on GitHub issue
+classification. It includes a curated issue corpus, labeled scored subset,
+persisted evaluation runs, and a Streamlit UI for comparing two models side by
+side.
+
+## Quick Start
+
+The fastest way to review the project is Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
+The submitted project includes curated persisted run artifacts under `runs/`.
+Docker Compose mounts the local `./runs` directory into the container at
+`/app/runs`, so the UI can load the existing evaluations immediately. You do not
+need an API key just to browse existing results.
+
+In the UI:
+
+1. Select an existing run.
+2. Pick Model A and Model B.
+3. Use the tabs to inspect overview metrics, side-by-side errors, scored
+   quality, unscored behavior, operational metrics, and the underlying dataset.
+
+The app is persisted-results-first. It does not call paid model APIs unless you
+explicitly start a new comparison from the UI or run the eval scripts yourself.
+
+If you want to launch new model calls, provide a DigitalOcean Serverless
+Inference key before starting Compose:
+
+```bash
+export DIGITALOCEAN_SI_API_KEY=<DIGITALOCEAN_SI_API_KEY>
+docker compose up --build
+```
+
+Compose passes these environment variables into the app if they are set:
+
+- `DIGITALOCEAN_SI_API_KEY`
+- `DO_INFERENCE_API_KEY`
+- `DIGITALOCEAN_TOKEN`
+
+## What Is Included
+
+- `data/labels/classification_corpus.jsonl`: every doctl issue exactly once.
+- `data/labels/scored_set.csv` and `scored_set.jsonl`: high-confidence scored
+  subset used for accuracy/F1.
+- `config/model_catalog.json`: 16 curated model candidates with pricing metadata.
+- `runs/`: persisted model evaluation runs for the UI.
+- `app.py`: Streamlit comparison UI.
+- `scripts/run_eval.py`: CLI evaluation engine.
 
 ## Fetch the issue corpus
 
@@ -51,24 +107,24 @@ scored set is intentionally conservative:
 | enhancement | 35 |
 | security | 26 |
 | question | 18 |
-| documentation | 15 |
+| documentation | 14 |
 | other | 2 |
 
 `other` remains a thin class. Treat its metrics as qualitative unless more
 manual labels are added.
 
 
-## Run the eval engine
+## Run the Eval Engine
 
 The eval engine calls DigitalOcean Serverless Inference through its
 OpenAI-compatible chat completions API. Set a model access key or DigitalOcean
 token before running:
 
 ```bash
-export DIGITALOCEAN_SI_API_KEY=...
+export DIGITALOCEAN_SI_API_KEY=<DIGITALOCEAN_SI_API_KEY>
 ```
 
-Run a cost-controlled smoke eval:
+Run a small screening eval:
 
 ```bash
 uv run python scripts/run_eval.py \
@@ -103,8 +159,10 @@ During long runs, `progress/{model_id}.json` is updated every
 `--progress-interval` completed calls and includes completed count, ok/error
 count, current requests/sec, and ETA.
 
-`runs/` is gitignored. Use `EVAL_OUTPUT_DIR` or `--output-dir` to write results
-to a mounted volume in deployed environments.
+Runtime artifacts are written under `runs/`. For the review package, curated
+persisted runs should be included so the UI can be opened and inspected without
+making new paid inference calls. Use `EVAL_OUTPUT_DIR` or `--output-dir` to
+write results to another mounted volume in deployed environments.
 
 Retry retryable failed calls from a prior model resultset:
 
@@ -113,40 +171,39 @@ uv run python scripts/run_eval.py \
   --retry-failed runs/{run_id}/results/{model_id}.json
 ```
 
-Run a small concurrency sweep before choosing a production default:
-
-```bash
-uv run python scripts/sweep_concurrency.py \
-  --model mistral-3-14b \
-  --limit 20 \
-  --concurrency-values 1,2,4,8
-```
-
 Each model resultset includes wall-clock time and sustained throughput in
 `operational_summary.throughput`.
 
-## Score persisted resultsets
+The UI reads persisted resultsets directly from `runs/{run_id}/results/` and
+computes scored, unscored, and operational views without an extra summary step.
 
-Generate the scored, unscored, and operational JSON summaries required by the
-eval UI:
+## Run the UI Locally
+
+Run locally:
 
 ```bash
-uv run python scripts/score_results.py \
-  --dataset data/labels/classification_corpus.jsonl \
-  --resultsets runs/{run_id}/results/{model_a}.json,runs/{run_id}/results/{model_b}.json
+uv run streamlit run app.py
 ```
 
-The script writes:
+Or run with Docker Compose:
 
-```text
-runs/{run_id}/summaries/
-  scored_metrics.json
-  unscored_analysis.json
-  operational_metrics.json
+```bash
+export DIGITALOCEAN_SI_API_KEY=...
+docker compose up --build
 ```
 
-`scored_metrics.json` includes accuracy, per-class precision/recall/F1,
-confusion matrices, cost per correct classification, and scored model
-disagreements with ground truth. `unscored_analysis.json` includes model
-agreement, per-class prediction distributions, raw outputs, and disagreements
-for issues without ground truth.
+The default Compose setup mounts the repo's local `./runs` directory into
+`/app/runs`, so existing persisted run artifacts are visible in the UI and new
+runtime artifacts survive image rebuilds.
+
+To run the image manually with the local `runs/` directory:
+
+```bash
+docker build -t model-eval .
+docker run --rm -p 8501:8501 \
+  -v "$PWD/runs:/app/runs" \
+  model-eval
+```
+
+The UI reads persisted run artifacts only. It does not call paid inference APIs
+unless a separate runner command is executed.

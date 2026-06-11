@@ -5,7 +5,7 @@ This script is Step 2 of the evaluation funnel. It does not classify issues and
 does not call chat completions. It captures the models visible to the configured
 DigitalOcean Serverless Inference key, normalizes model metadata, merges local
 pricing/capability annotations, and writes explainable eligible/excluded lists
-for later smoke testing.
+for later model screening.
 """
 
 from __future__ import annotations
@@ -74,8 +74,8 @@ def parse_args() -> argparse.Namespace:
         "--allow-missing-pricing",
         action="store_true",
         help=(
-            "Backward-compatible no-op for smoke inventory. Missing pricing is "
-            "always allowed for smoke testing, but cost/pilot/final evaluation "
+            "Backward-compatible no-op for screening inventory. Missing pricing is "
+            "always allowed for model screening, but cost/pilot/final evaluation "
             "must validate pricing metadata."
         ),
     )
@@ -196,7 +196,7 @@ def ensure_example_metadata_config(path: Path) -> None:
                         "output_price_per_1m": 0.75,
                         "pricing_source": "DigitalOcean pricing page, captured manually",
                         "pricing_captured_at": "2026-06-10",
-                        "include_for_smoke_test": True,
+                        "include_for_screening": True,
                         "exclude_reason": "",
                         "notes": "Cost-efficient candidate",
                     }
@@ -515,7 +515,7 @@ def decide_eligibility(
     local = row.get("_local_metadata", {})
     lowered = model_id.lower()
     notes = row.get("notes") or ""
-    explicitly_included = local.get("include_for_smoke_test") is True
+    explicitly_included = local.get("include_for_screening") is True
 
     if lowered.startswith("router:") and not explicitly_included:
         return {
@@ -533,7 +533,7 @@ def decide_eligibility(
             "suggested_review_reason": "",
             "notes": notes,
         }
-    if local.get("include_for_smoke_test") is False:
+    if local.get("include_for_screening") is False:
         return {
             "eligibility_status": "excluded",
             "exclusion_reason": "metadata_include_false",
@@ -583,7 +583,7 @@ def decide_eligibility(
 
     if not chat_capable:
         if include_unknown_chat_models:
-            status = "smoke_eligible_needs_pricing" if row["pricing_missing"] else "smoke_eligible"
+            status = "screening_eligible_needs_pricing" if row["pricing_missing"] else "screening_eligible"
             notes = append_note(notes, "Endpoint support inferred as uncertain; included by flag.")
         else:
             return {
@@ -593,18 +593,18 @@ def decide_eligibility(
                 "notes": append_note(notes, "Need to confirm chat completions support."),
             }
     else:
-        status = "smoke_eligible"
+        status = "screening_eligible"
 
     if row["pricing_missing"]:
-        status = "smoke_eligible_needs_pricing"
+        status = "screening_eligible_needs_pricing"
         notes = append_note(
             notes,
-            "Pricing missing; allowed for smoke test but must be filled before cost/pilot/final evaluation.",
+            "Pricing missing; allowed for screening run but must be filled before cost/pilot/final evaluation.",
         )
     elif allow_missing_pricing:
         notes = append_note(
             notes,
-            "--allow-missing-pricing is no longer required for smoke eligibility; pricing is present for this model.",
+            "--allow-missing-pricing is no longer required for screening eligibility; pricing is present for this model.",
         )
 
     return {
@@ -709,8 +709,8 @@ def validate_outputs(
 
 def print_summary(summary: dict[str, Any], output_paths: dict[str, Path]) -> None:
     print(f"Total visible models: {summary['total_visible_models']}")
-    print(f"Smoke eligible count: {summary['smoke_eligible_count']}")
-    print(f"Smoke eligible needs pricing count: {summary['smoke_eligible_needs_pricing_count']}")
+    print(f"Screening eligible count: {summary['screening_eligible_count']}")
+    print(f"Screening eligible needs pricing count: {summary['screening_eligible_needs_pricing_count']}")
     print(f"Pricing needed count: {summary['pricing_needed_count']}")
     print(f"Cost ready count: {summary['cost_ready_count']}")
     print(f"Excluded count: {summary['excluded_count']}")
@@ -719,8 +719,8 @@ def print_summary(summary: dict[str, Any], output_paths: dict[str, Path]) -> Non
     if summary["pricing_needed_count"]:
         print(
             "WARNING: "
-            f"{summary['pricing_needed_count']} smoke-eligible models are missing pricing metadata. "
-            "They can be smoke-tested, but cost/pilot/final eval requires pricing enrichment."
+            f"{summary['pricing_needed_count']} screening-eligible models are missing pricing metadata. "
+            "They can be screening-tested, but cost/pilot/final eval requires pricing enrichment."
         )
     print("Provider counts:")
     for provider, count in summary["provider_counts"].items():
@@ -778,7 +778,7 @@ def main() -> int:
     eligible = [
         record
         for record in records
-        if record["eligibility_status"] in {"smoke_eligible", "smoke_eligible_needs_pricing"}
+        if record["eligibility_status"] in {"screening_eligible", "screening_eligible_needs_pricing"}
     ]
     cost_ready = [record for record in eligible if record["cost_ready"]]
     pricing_needed = [record for record in eligible if record["pricing_missing"]]
@@ -792,13 +792,13 @@ def main() -> int:
     exclusion_reason_counts = Counter(record["exclusion_reason"] for record in excluded)
     missing_pricing_count = sum(1 for record in records if record["pricing_missing"])
     cost_ready_count = len(cost_ready)
-    smoke_eligible_count = len(eligible)
-    smoke_eligible_needs_pricing_count = len(pricing_needed)
+    screening_eligible_count = len(eligible)
+    screening_eligible_needs_pricing_count = len(pricing_needed)
     pricing_needed_count = len(pricing_needed)
     notes = [
         "Snapshot reflects models visible to the configured DigitalOcean Serverless Inference key at fetch time.",
         "API key and Authorization header are never persisted.",
-        "Pricing comes from local metadata; missing pricing is allowed for smoke testing but must be filled before cost/pilot/final evaluation.",
+        "Pricing comes from local metadata; missing pricing is allowed for model screening but must be filled before cost/pilot/final evaluation.",
     ]
     if not metadata_exists:
         notes.append("Metadata config was not found; deterministic API/ID heuristics were used.")
@@ -811,8 +811,8 @@ def main() -> int:
         "endpoint": endpoint,
         "total_visible_models": len(records),
         "eligible_count": len(eligible),
-        "smoke_eligible_count": smoke_eligible_count,
-        "smoke_eligible_needs_pricing_count": smoke_eligible_needs_pricing_count,
+        "screening_eligible_count": screening_eligible_count,
+        "screening_eligible_needs_pricing_count": screening_eligible_needs_pricing_count,
         "excluded_count": len(excluded),
         "needs_metadata_review_count": len(review),
         "provider_counts": dict(sorted(provider_counts.items())),

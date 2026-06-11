@@ -1,0 +1,12 @@
+issue_number,expected_label,why_included
+263,bug,Short clear command failure with permission denied.
+127,bug,Certified boundary case: command reports an error but still creates the droplet; tests question-vs-bug and partial-success behavior.
+997,enhancement,Short request for new local image upload capability.
+238,enhancement,Feature request around man pages and shell completions; tests documentation-vs-enhancement confusion.
+309,question,Clear usage question about keeping only 12 snapshots.
+166,question,Certified question about flag naming; tests question-vs-bug confusion.
+25,documentation,Explicit documentation mismatch.
+184,documentation,Short certified documentation issue about unclear snapshot syntax.
+131,documentation,Certified boundary case initially framed as bug but adjudicated as documentation.
+729,security,CVE-like dependency vulnerability issue.
+1363,other,Spam/link-only issue; conservative other example.

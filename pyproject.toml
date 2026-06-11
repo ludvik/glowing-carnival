@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Evaluation harness for GitHub issue classification with language models."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pandas>=2.2.0",
+    "streamlit>=1.36.0",
+]
 
 [dependency-groups]
 dev = []

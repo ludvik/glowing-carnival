@@ -10,6 +10,7 @@ from typing import Any
 from eval_harness.client import (
     DigitalOceanSIClient,
     extract_content,
+    extract_response_debug,
     extract_response_headers,
     extract_usage,
 )
@@ -207,6 +208,7 @@ async def run_call(
                 response_headers = extract_response_headers(response)
                 usage = extract_usage(response)
                 parsed_label, rationale, parse_error = parse_model_output(raw_output)
+                provider_debug = extract_response_debug(response) if parse_error or not raw_output.strip() else None
                 status = "ok"
                 error = None
                 retryable = False
@@ -239,6 +241,7 @@ async def run_call(
                         "parsed_label": parsed_label,
                         "rationale": rationale,
                         "parse_error": parse_error,
+                        "provider_debug": provider_debug,
                     },
                     "usage": usage,
                     "cost": calculate_cost(usage, model),

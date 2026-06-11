@@ -1,0 +1,13 @@
+.git
+.venv
+.uv-cache
+__pycache__
+*.pyc
+.DS_Store
+
+runs
+input.pdf
+decision-log.md
+
+.env
+.env.*

@@ -34,6 +34,11 @@ def parse_args() -> argparse.Namespace:
         default=0.0,
         help="Optional seconds to sleep between paginated requests.",
     )
+    parser.add_argument(
+        "--include-comments",
+        action="store_true",
+        help="Fetch issue comment bodies for human ground-truth review.",
+    )
     return parser.parse_args()
 
 
@@ -97,12 +102,41 @@ def simplify_issue(issue: dict[str, Any]) -> dict[str, Any]:
         "updated_at": issue.get("updated_at"),
         "closed_at": issue.get("closed_at"),
         "comments": issue.get("comments", 0),
+        "comment_details": [],
+        "comments_url": issue.get("comments_url"),
         "html_url": issue.get("html_url"),
         "api_url": issue.get("url"),
     }
 
 
-def fetch_issues(repo: str, token: str | None, sleep_seconds: float) -> list[dict[str, Any]]:
+def fetch_comments(comments_url: str, token: str | None, sleep_seconds: float) -> list[dict[str, Any]]:
+    comments: list[dict[str, Any]] = []
+    url: str | None = comments_url
+    while url:
+        batch, url = github_request(url, token)
+        for comment in batch:
+            comments.append(
+                {
+                    "id": comment.get("id"),
+                    "user_login": (comment.get("user") or {}).get("login"),
+                    "created_at": comment.get("created_at"),
+                    "updated_at": comment.get("updated_at"),
+                    "body": comment.get("body") or "",
+                    "html_url": comment.get("html_url"),
+                }
+            )
+        if url and sleep_seconds > 0:
+            time.sleep(sleep_seconds)
+    comments.sort(key=lambda comment: (comment.get("created_at") or "", comment.get("id") or 0))
+    return comments
+
+
+def fetch_issues(
+    repo: str,
+    token: str | None,
+    sleep_seconds: float,
+    include_comments: bool,
+) -> list[dict[str, Any]]:
     query = urllib.parse.urlencode({"state": "all", "per_page": "100"})
     url: str | None = f"{API_ROOT}/repos/{repo}/issues?{query}"
     issues: list[dict[str, Any]] = []
@@ -112,7 +146,18 @@ def fetch_issues(repo: str, token: str | None, sleep_seconds: float) -> list[dic
         page += 1
         batch, url = github_request(url, token)
         page_issues = [item for item in batch if "pull_request" not in item]
-        issues.extend(simplify_issue(issue) for issue in page_issues)
+        simplified = [simplify_issue(issue) for issue in page_issues]
+        if include_comments:
+            for issue in simplified:
+                comment_count = int(issue.get("comments") or 0)
+                comments_url = issue.get("comments_url")
+                if comment_count and comments_url:
+                    issue["comment_details"] = fetch_comments(comments_url, token, sleep_seconds)
+                    print(
+                        f"Fetched {len(issue['comment_details'])} comments for issue #{issue['number']}",
+                        file=sys.stderr,
+                    )
+        issues.extend(simplified)
         print(
             f"Fetched page {page}: {len(page_issues)} issues "
             f"({len(batch) - len(page_issues)} PRs skipped)",
@@ -130,13 +175,14 @@ def main() -> int:
     output = Path(args.output)
     token = os.environ.get("GITHUB_TOKEN")
 
-    issues = fetch_issues(args.repo, token, args.sleep)
+    issues = fetch_issues(args.repo, token, args.sleep, args.include_comments)
     payload = {
         "source": {
             "repo": args.repo,
             "api": "GitHub REST issues endpoint",
             "state": "all",
             "pull_requests_excluded": True,
+            "comments_included": args.include_comments,
         },
         "issue_count": len(issues),
         "issues": issues,

@@ -1,7 +1,7 @@
 {
   "candidate_distribution_by_label": {
     "bug": 163,
-    "documentation": 20,
+    "documentation": 19,
     "enhancement": 105,
     "other": 2,
     "question": 21,
@@ -11,13 +11,14 @@
     "ambiguous_documentation_enhancement": 1,
     "below_min_confidence": 17,
     "conflicting_primary_labels": 1,
+    "manual_override_review": 1,
     "no_high_confidence_signal": 162,
     "only_secondary_labels": 29,
     "over_max_per_class": 187,
     "strong_competing_text_signal": 2
   },
-  "generated_at_utc": "2026-06-10T20:11:47.285086Z",
-  "input_sha256": "2384207671fda2950e552739a9a75f09b6991b59af323b6f3e57e878e78c22e0",
+  "generated_at_utc": "2026-06-11T04:00:00.679542Z",
+  "input_sha256": "885dd584349fcfaf4a0e0b0eca12f7caf12707edea5f658d8ffc12778fed376f",
   "maintainer_label_distribution": {
     "Needs Investigation": 18,
     "api-parity": 16,
@@ -53,11 +54,11 @@
     "question": 4,
     "security": 1
   },
-  "review_count": 4,
-  "scored_count": 131,
+  "review_count": 5,
+  "scored_count": 130,
   "scored_distribution_by_label": {
     "bug": 35,
-    "documentation": 15,
+    "documentation": 14,
     "enhancement": 35,
     "other": 2,
     "question": 18,
@@ -65,7 +66,7 @@
   },
   "scored_support_by_label": {
     "bug": 35,
-    "documentation": 15,
+    "documentation": 14,
     "enhancement": 35,
     "other": 2,
     "question": 18,

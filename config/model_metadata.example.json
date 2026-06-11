@@ -1,36 +1,4 @@
 {
-  "models": {
-    "example-model-id": {
-      "display_name": "Example Model",
-      "provider": "Example Provider",
-      "family": "Example Family",
-      "modality": "text",
-      "supported_endpoints": ["chat_completions"],
-      "chat_completion_supported": true,
-      "responses_supported": false,
-      "embedding_supported": false,
-      "image_supported": false,
-      "audio_supported": false,
-      "video_supported": false,
-      "context_window": 131072,
-      "max_output_tokens": 4096,
-      "input_price_per_1m": 0.25,
-      "output_price_per_1m": 0.75,
-      "pricing_source": "DigitalOcean pricing page, captured manually",
-      "pricing_captured_at": "2026-06-10",
-      "include_for_smoke_test": true,
-      "exclude_reason": "",
-      "notes": "Cost-efficient candidate"
-    }
-  },
-  "provider_aliases": {
-    "openai": "OpenAI",
-    "anthropic": "Anthropic",
-    "meta": "Meta",
-    "mistral": "Mistral",
-    "deepseek": "DeepSeek",
-    "qwen": "Alibaba/Qwen"
-  },
   "exclude_id_patterns": [
     "embedding",
     "embed",
@@ -50,5 +18,39 @@
     "mpnet",
     "sentence-transformer",
     "^router:"
-  ]
+  ],
+  "models": {
+    "example-model-id": {
+      "audio_supported": false,
+      "chat_completion_supported": true,
+      "context_window": 131072,
+      "display_name": "Example Model",
+      "embedding_supported": false,
+      "exclude_reason": "",
+      "family": "Example Family",
+      "image_supported": false,
+      "include_for_screening": true,
+      "input_price_per_1m": 0.25,
+      "max_output_tokens": 4096,
+      "modality": "text",
+      "notes": "Cost-efficient candidate",
+      "output_price_per_1m": 0.75,
+      "pricing_captured_at": "2026-06-10",
+      "pricing_source": "DigitalOcean pricing page, captured manually",
+      "provider": "Example Provider",
+      "responses_supported": false,
+      "supported_endpoints": [
+        "chat_completions"
+      ],
+      "video_supported": false
+    }
+  },
+  "provider_aliases": {
+    "anthropic": "Anthropic",
+    "deepseek": "DeepSeek",
+    "meta": "Meta",
+    "mistral": "Mistral",
+    "openai": "OpenAI",
+    "qwen": "Alibaba/Qwen"
+  }
 }

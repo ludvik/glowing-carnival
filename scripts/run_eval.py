@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import csv
 import json
 import os
 import sys
@@ -39,6 +40,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=None, help="Limit issue count for cost-controlled runs.")
     parser.add_argument("--all", action="store_true", help="Run all issues in the dataset.")
     parser.add_argument(
+        "--issue-numbers",
+        default=None,
+        help="Comma-separated issue numbers or CSV path with an issue_number column.",
+    )
+    parser.add_argument(
         "--retry-failed",
         default=None,
         help="Path to a prior model resultset; retry only retryable failed calls.",
@@ -51,11 +57,29 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def parse_issue_number_filter(value: str | None) -> set[int] | None:
+    if not value:
+        return None
+    path = Path(value)
+    if path.exists():
+        with path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            if "issue_number" not in (reader.fieldnames or []):
+                raise SystemExit(f"{path} must include an issue_number column.")
+            numbers = {int(row["issue_number"]) for row in reader if row.get("issue_number")}
+    else:
+        numbers = {int(part.strip()) for part in value.split(",") if part.strip()}
+    if not numbers:
+        raise SystemExit("--issue-numbers did not include any issue numbers.")
+    return numbers
+
+
 async def main_async() -> int:
     args = parse_args()
     if args.concurrency < 1:
         raise SystemExit("--concurrency must be >= 1")
-    if not args.all and args.limit is None and not args.retry_failed:
+    issue_number_filter = parse_issue_number_filter(args.issue_numbers)
+    if not args.all and args.limit is None and not args.retry_failed and not issue_number_filter:
         raise SystemExit("Pass --limit N for a cost-controlled run, or --all for the full corpus.")
 
     retry_issue_numbers: set[int] | None = None
@@ -80,6 +104,12 @@ async def main_async() -> int:
 
     dataset = load_dataset(Path(args.dataset))
     issues = dataset["issues"]
+    dataset_issue_numbers = {int(issue["issue_number"]) for issue in issues}
+    if issue_number_filter is not None:
+        missing = sorted(issue_number_filter - dataset_issue_numbers)
+        if missing:
+            raise SystemExit(f"Requested issue numbers not found in dataset: {missing}")
+        issues = [issue for issue in issues if int(issue["issue_number"]) in issue_number_filter]
     if retry_issue_numbers is not None:
         issues = [issue for issue in issues if issue["issue_number"] in retry_issue_numbers]
         if not issues:
@@ -87,9 +117,16 @@ async def main_async() -> int:
     if args.limit is not None:
         issues = issues[: args.limit]
 
-    api_key = os.environ.get("DIGITALOCEAN_SI_API_KEY") or os.environ.get("DIGITALOCEAN_TOKEN")
+    api_key = (
+        os.environ.get("DIGITALOCEAN_SI_API_KEY")
+        or os.environ.get("DO_INFERENCE_API_KEY")
+        or os.environ.get("DIGITALOCEAN_TOKEN")
+    )
     if not api_key:
-        raise SystemExit("Set DIGITALOCEAN_SI_API_KEY or DIGITALOCEAN_TOKEN to call DigitalOcean SI.")
+        raise SystemExit(
+            "Set DIGITALOCEAN_SI_API_KEY, DO_INFERENCE_API_KEY, or DIGITALOCEAN_TOKEN "
+            "to call DigitalOcean SI."
+        )
 
     catalog = load_model_catalog(Path(args.model_catalog))
     models = resolve_models(catalog, model_ids)
@@ -133,6 +170,8 @@ async def main_async() -> int:
         "label_schema": list(LABELS),
         "retry_failed_source": args.retry_failed,
         "retry_issue_numbers": sorted(retry_issue_numbers) if retry_issue_numbers else None,
+        "selected_issue_numbers": [int(issue["issue_number"]) for issue in issues],
+        "issue_number_filter_source": args.issue_numbers,
     }
     write_json_atomic(output_root / "run.json", run_payload)
 

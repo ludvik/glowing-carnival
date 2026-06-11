@@ -95,3 +95,39 @@ def extract_usage(response: dict[str, Any]) -> dict[str, Any] | None:
 
 def extract_response_headers(response: dict[str, Any]) -> dict[str, Any]:
     return response.get("headers", {})
+
+
+def extract_response_debug(response: dict[str, Any]) -> dict[str, Any]:
+    """Return a sanitized response-body shape for debugging parse failures.
+
+    This intentionally excludes request headers and credentials. It is only
+    meant to help distinguish true empty model output from response-shape
+    mismatches in OpenAI-compatible providers.
+    """
+
+    body = response.get("body", response)
+    choices = body.get("choices") if isinstance(body, dict) else None
+    debug: dict[str, Any] = {
+        "body_keys": sorted(body.keys()) if isinstance(body, dict) else [],
+        "choices_count": len(choices) if isinstance(choices, list) else None,
+    }
+    if isinstance(choices, list) and choices:
+        first = choices[0] if isinstance(choices[0], dict) else {}
+        message = first.get("message") if isinstance(first.get("message"), dict) else {}
+        content = message.get("content")
+        reasoning_content = message.get("reasoning_content")
+        debug["first_choice_keys"] = sorted(first.keys())
+        debug["finish_reason"] = first.get("finish_reason")
+        debug["message_keys"] = sorted(message.keys())
+        debug["message_content_type"] = type(content).__name__
+        debug["message_content_length"] = len(content) if isinstance(content, str) else None
+        debug["message_content_preview"] = content[:500] if isinstance(content, str) else None
+        debug["reasoning_content_type"] = type(reasoning_content).__name__
+        debug["reasoning_content_length"] = (
+            len(reasoning_content) if isinstance(reasoning_content, str) else None
+        )
+        debug["reasoning_content_preview"] = (
+            reasoning_content[:500] if isinstance(reasoning_content, str) else None
+        )
+        debug["message_role"] = message.get("role")
+    return debug

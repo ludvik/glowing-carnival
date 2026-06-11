@@ -3,7 +3,7 @@ issue_number,decision,ground_truth,rationale
 28,scored,documentation,"Primary ask is to clarify the .doctlconfig file format in documentation."
 131,scored,documentation,"Reporter identifies README/tutorial links as the root problem after initial bug report."
 184,scored,documentation,"Issue explicitly says documentation is unclear for snapshot syntax."
-452,scored,documentation,"Primary ask is to improve help text by adding valid options and references."
+452,review,,"Removed from scored set because the issue is too ambiguous/low-context for certified ground truth."
 716,scored,documentation,"Primary ask is for missing uninstall documentation."
 719,scored,documentation,"Primary ask is to clarify README context-switching instructions."
 1156,scored,documentation,"Primary ask is to add examples for cdn flush --files documentation."

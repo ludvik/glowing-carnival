@@ -418,7 +418,6 @@ config/
 
 scripts/
   run_eval.py
-  score_results.py
 
 src/eval_harness/
 ```
@@ -498,7 +497,6 @@ src/eval_harness/
 
 scripts/
   run_eval.py       # CLI entrypoint for eval engine.
-  score_results.py  # CLI entrypoint for recomputing summaries.
 ```
 
 The engine should persist raw resultsets before scoring. This allows scoring
@@ -506,27 +504,10 @@ logic to change without rerunning expensive inference.
 
 ## Scoring Artifacts
 
-`scripts/score_results.py` reads the dataset and one or more model resultsets and
-writes UI-ready summary JSON under `runs/{run_id}/summaries/`.
-
-```text
-summaries/
-  scored_metrics.json
-  unscored_analysis.json
-  operational_metrics.json
-```
-
-`scored_metrics.json` contains per-model accuracy, per-class precision, recall,
-F1, confusion matrices, scored-set cost per correct classification, and
-model-disagreement drill-down rows with ground truth visible.
-
-`unscored_analysis.json` contains per-model suggested label distributions,
-agreement rate between models, raw outputs, and disagreement rows for issues
-without ground truth.
-
-`operational_metrics.json` contains per-model cost, latency, throughput,
-wall-clock, error-rate, and rate-limit-header summaries copied from persisted
-resultsets.
+The UI reads raw resultsets from `runs/{run_id}/results/` and computes scored,
+unscored, and operational views at display time. Persisted resultsets remain the
+source of truth so scoring logic can change without rerunning expensive
+inference.
 
 ## CLI Shape
 
@@ -559,15 +540,6 @@ Retry failed calls from a previous resultset:
 uv run python scripts/run_eval.py \
   --retry-failed runs/run_001/results/llama-8b.json \
   --output-dir runs
-```
-
-Sweep concurrency on a fixed dataset slice:
-
-```bash
-uv run python scripts/sweep_concurrency.py \
-  --model llama-8b \
-  --limit 50 \
-  --concurrency-values 1,2,4,8
 ```
 
 ## Design Principles
