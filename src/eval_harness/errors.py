@@ -43,6 +43,7 @@ def extract_rate_limit_headers(headers: Any) -> dict[str, int | str]:
         "ratelimit-limit",
         "ratelimit-remaining",
         "ratelimit-reset",
+        "retry-after",
         "x-ratelimit-limit-requests",
         "x-ratelimit-remaining-requests",
         "x-ratelimit-reset-requests",

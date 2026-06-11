@@ -295,6 +295,7 @@ def operational_summary_table(resultsets: list[dict[str, Any]]) -> pd.DataFrame:
         latency = summary.get("latency_ms", {})
         throughput = summary.get("throughput", {})
         cost = summary.get("cost", {})
+        retries = summary.get("retries", {})
         rows.append(
             {
                 "model_id": resultset["model_id"],
@@ -303,6 +304,9 @@ def operational_summary_table(resultsets: list[dict[str, Any]]) -> pd.DataFrame:
                 "calls_error": summary.get("calls_error"),
                 "error_rate": summary.get("error_rate"),
                 "errors_by_type": json.dumps(summary.get("errors_by_type", {}), sort_keys=True),
+                "retry_events_total": retries.get("total_retry_events"),
+                "rate_limit_retry_events": retries.get("rate_limit_retry_events"),
+                "retry_events_by_type": json.dumps(retries.get("retry_events_by_type", {}), sort_keys=True),
                 "p50_latency_ms": latency.get("p50"),
                 "p95_latency_ms": latency.get("p95"),
                 "avg_latency_ms": latency.get("avg"),

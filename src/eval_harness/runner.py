@@ -181,6 +181,7 @@ async def run_call(
         queue_wait_ms = (started_perf - queued_perf) * 1000
         attempts = 0
         last_error: InferenceError | None = None
+        retry_events: list[dict[str, Any]] = []
         messages = build_messages(system_prompt, issue)
         if config.verbose:
             print(
@@ -189,7 +190,7 @@ async def run_call(
                 flush=True,
             )
 
-        while attempts <= config.max_retries:
+        while True:
             attempts += 1
             request_sent_at = utc_now()
             request_perf = time.perf_counter()
@@ -228,6 +229,7 @@ async def run_call(
                     "issue_number": issue["issue_number"],
                     "status": status,
                     "attempts": attempts,
+                    "retry_events": retry_events,
                     "retryable": retryable,
                     "request": {
                         "temperature": config.temperature,
@@ -264,9 +266,32 @@ async def run_call(
                 }
             except InferenceError as exc:
                 last_error = exc
+                if exc.error_type == "rate_limit":
+                    sleep_seconds = rate_limit_retry_delay(exc, attempts)
+                    retry_events.append(
+                        {
+                            "attempt": attempts,
+                            "type": exc.error_type,
+                            "http_status": exc.http_status,
+                            "sleep_seconds": sleep_seconds,
+                            "headers": exc.headers,
+                        }
+                    )
+                    await asyncio.sleep(sleep_seconds)
+                    continue
                 if not exc.retryable or attempts > config.max_retries:
                     break
-                await asyncio.sleep(min(2**attempts, 8))
+                sleep_seconds = min(2**attempts, 8)
+                retry_events.append(
+                    {
+                        "attempt": attempts,
+                        "type": exc.error_type,
+                        "http_status": exc.http_status,
+                        "sleep_seconds": sleep_seconds,
+                        "headers": exc.headers,
+                    }
+                )
+                await asyncio.sleep(sleep_seconds)
 
         ended_at = utc_now()
         ended_perf = time.perf_counter()
@@ -279,6 +304,7 @@ async def run_call(
             "issue_number": issue["issue_number"],
             "status": "error",
             "attempts": attempts,
+            "retry_events": retry_events,
             "retryable": error.retryable,
             "request": {
                 "temperature": config.temperature,
@@ -318,6 +344,28 @@ async def run_call(
         }
 
 
+def rate_limit_retry_delay(error: InferenceError, attempts: int) -> float:
+    """Return a conservative retry delay for 429 responses.
+
+    Rate limits are not treated as terminal per-call failures. They are provider
+    backpressure, so the call waits and retries until it succeeds or the process
+    is stopped. Prefer an explicit Retry-After header when present; otherwise use
+    exponential backoff capped to keep long full-corpus runs moving safely.
+    """
+
+    retry_after = error.headers.get("retry-after")
+    if isinstance(retry_after, int) and retry_after > 0:
+        return min(float(retry_after), 60.0)
+    if isinstance(retry_after, str):
+        try:
+            parsed = float(retry_after)
+        except ValueError:
+            parsed = 0.0
+        if parsed > 0:
+            return min(parsed, 60.0)
+    return float(min(2 ** min(attempts, 6), 60))
+
+
 def summarize_results(
     results: list[dict[str, Any]],
     wall_clock_ms: float | None = None,
@@ -344,6 +392,13 @@ def summarize_results(
         for result in results
         if result.get("response_headers")
     ]
+    retry_events = [
+        event
+        for result in results
+        for event in result.get("retry_events", [])
+        if isinstance(event, dict)
+    ]
+    retry_counts = Counter(event.get("type", "unknown") for event in retry_events)
     return {
         "calls_total": len(results),
         "calls_ok": len(ok_results),
@@ -369,6 +424,11 @@ def summarize_results(
             "requests_per_second": round(len(results) / (wall_clock_ms / 1000), 3)
             if wall_clock_ms and wall_clock_ms > 0
             else None,
+        },
+        "retries": {
+            "total_retry_events": len(retry_events),
+            "retry_events_by_type": dict(sorted(retry_counts.items())),
+            "rate_limit_retry_events": retry_counts.get("rate_limit", 0),
         },
         "rate_limit_headers": summarize_rate_limit_headers(rate_limit_headers),
     }

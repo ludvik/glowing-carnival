@@ -33,7 +33,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-id", default=None)
     parser.add_argument("--concurrency", type=int, default=int(os.environ.get("EVAL_CONCURRENCY", "4")))
     parser.add_argument("--timeout-seconds", type=float, default=45)
-    parser.add_argument("--max-retries", type=int, default=2)
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=2,
+        help="Retries for non-rate-limit retryable errors. Rate-limit errors retry until success.",
+    )
     parser.add_argument("--temperature", type=float, default=0)
     parser.add_argument("--max-output-tokens", type=int, default=128)
     parser.add_argument("--progress-interval", type=int, default=25)
@@ -164,6 +169,7 @@ async def main_async() -> int:
         "concurrency": args.concurrency,
         "timeout_seconds": args.timeout_seconds,
         "max_retries": args.max_retries,
+        "rate_limit_retry_policy": "retry_until_success",
         "temperature": args.temperature,
         "max_output_tokens": args.max_output_tokens,
         "streaming": False,

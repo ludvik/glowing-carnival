@@ -225,9 +225,13 @@ def main() -> None:
 
     selected_run = run_choice
     run_dir = ROOT / "runs" / selected_run
-    run_payload = cached_json(str(run_dir / "run.json"))
+    run_payload = load_json(run_dir / "run.json")
     resultsets_by_model = effective_resultset_index(run_dir)
     if len(resultsets_by_model) < 2:
+        if run_is_active(run_dir, run_payload):
+            st.session_state["active_eval_run_id"] = selected_run
+            render_run_progress(run_dir)
+            return
         st.warning("Selected run has fewer than two model resultsets.")
         return
 
@@ -434,6 +438,21 @@ def render_run_progress(run_dir: Path) -> None:
     else:
         time.sleep(2)
         st.rerun()
+
+
+def run_is_active(run_dir: Path, run_payload: dict[str, Any]) -> bool:
+    """Return true when a selected persisted run should show the progress view."""
+
+    status = str(run_payload.get("status") or "").lower()
+    if status in {"starting", "running"}:
+        return True
+    if status in {"completed", "failed"}:
+        return False
+
+    progress_rows = load_progress_rows(run_dir)
+    if not progress_rows:
+        return False
+    return any(str(row.get("status") or "").lower() not in {"completed", "failed"} for row in progress_rows)
 
 
 def load_progress_rows(run_dir: Path) -> list[dict[str, Any]]:
@@ -1165,7 +1184,15 @@ def render_operational(result_a: dict[str, Any], result_b: dict[str, Any], catal
     )
 
     st.subheader("Run Config")
-    config_fields = ["concurrency", "timeout_seconds", "max_retries", "max_output_tokens", "temperature", "prompt_source"]
+    config_fields = [
+        "concurrency",
+        "timeout_seconds",
+        "max_retries",
+        "rate_limit_retry_policy",
+        "max_output_tokens",
+        "temperature",
+        "prompt_source",
+    ]
     dataframe(pd.DataFrame([{"field": key, "value": run_payload.get(key)} for key in config_fields]))
 
     st.subheader("Production Handling Notes")
