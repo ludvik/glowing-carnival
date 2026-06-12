@@ -30,8 +30,6 @@ def load_screening_pool(path: Path) -> list[dict[str, str]]:
             raise SystemExit(f"{path} contains an empty model_id.")
         if model_id in seen:
             raise SystemExit(f"Duplicate model_id in {path}: {model_id}")
-        if model_id.startswith("router:"):
-            raise SystemExit(f"Router model must not be in screening pool: {model_id}")
         seen.add(model_id)
     return rows
 
@@ -40,6 +38,17 @@ def numeric_price(model_id: str, record: dict[str, Any], key: str) -> float:
     value = record.get(key)
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise SystemExit(f"{model_id}.{key} must be numeric.")
+    if value < 0:
+        raise SystemExit(f"{model_id}.{key} must not be negative.")
+    return float(value)
+
+
+def optional_numeric_price(model_id: str, record: dict[str, Any], key: str) -> float | None:
+    value = record.get(key)
+    if value in ("", None):
+        return None
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise SystemExit(f"{model_id}.{key} must be numeric when provided.")
     if value < 0:
         raise SystemExit(f"{model_id}.{key} must not be negative.")
     return float(value)
@@ -62,8 +71,13 @@ def main() -> int:
         if model.get("chat_completion_supported") is not True:
             raise SystemExit(f"{model_id}.chat_completion_supported must be true.")
 
-        input_price = numeric_price(model_id, model, "input_price_per_1m")
-        output_price = numeric_price(model_id, model, "output_price_per_1m")
+        allow_missing_pricing = model_id.startswith("router:")
+        if allow_missing_pricing:
+            input_price = optional_numeric_price(model_id, model, "input_price_per_1m")
+            output_price = optional_numeric_price(model_id, model, "output_price_per_1m")
+        else:
+            input_price = numeric_price(model_id, model, "input_price_per_1m")
+            output_price = numeric_price(model_id, model, "output_price_per_1m")
         catalog_models[model_id] = {
             "display_name": model.get("display_name") or model_id,
             "provider": "digitalocean_si",
@@ -74,6 +88,7 @@ def main() -> int:
             "output_price_per_1m_tokens": output_price,
             "pricing_source": model.get("pricing_source", "config/model_metadata.json"),
             "pricing_captured_at": model.get("pricing_captured_at"),
+            "cost_ready": input_price is not None and output_price is not None,
             "pool_tier": row.get("pool_tier"),
             "expected_role": row.get("expected_role"),
             "why_included": row.get("why_included"),

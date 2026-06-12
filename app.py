@@ -218,7 +218,10 @@ def main() -> None:
 
     run_files = discover_runs(ROOT / "runs")
     run_labels = [path.parent.name for path in run_files]
-    run_choice = st.sidebar.selectbox("Run", ["New comparison", *run_labels])
+    run_choice = st.sidebar.selectbox("Run", ["Cross-run comparison", "New comparison", *run_labels])
+    if run_choice == "Cross-run comparison":
+        render_cross_run_comparison()
+        return
     if run_choice == "New comparison":
         render_new_comparison()
         return
@@ -254,6 +257,74 @@ def main() -> None:
     catalog_path = run_payload.get("model_catalog_path") or "config/model_catalog.json"
     catalog_abs = ROOT / catalog_path
     catalog = cached_json(str(catalog_abs)) if catalog_abs.exists() else {"models": {}}
+
+    comparison = compare_two_models(dataset, result_a, result_b)
+    metrics = comparison["metrics"]
+    strict = comparison["strict_contract"]
+    scored = certified_issues(dataset)
+    unscored = uncertified_issues(dataset)
+    issue_validation = validate_same_issue_set(result_a, result_b)
+
+    render_header(run_payload, dataset_path, result_a, result_b, issue_validation)
+
+    tab_overview, tab_side_by_side, tab_scored, tab_unscored, tab_ops, tab_dataset = st.tabs(
+        [
+            "Overview / Recommendation",
+            "Side by Side",
+            "Scored View",
+            "Unscored View",
+            "Operational Metrics",
+            "Dataset Browser",
+        ]
+    )
+
+    with tab_overview:
+        render_overview(dataset, scored, unscored, result_a, result_b, metrics, strict, run_payload)
+    with tab_side_by_side:
+        render_side_by_side(dataset, result_a, result_b, metrics)
+    with tab_scored:
+        render_scored(result_a, result_b, metrics)
+    with tab_unscored:
+        render_unscored(dataset, result_a, result_b)
+    with tab_ops:
+        render_operational(result_a, result_b, catalog, run_payload)
+    with tab_dataset:
+        render_dataset_browser(dataset)
+
+
+def render_cross_run_comparison() -> None:
+    resultsets_by_model = best_full_resultsets_by_model(ROOT / "runs")
+    if len(resultsets_by_model) < 2:
+        st.warning("Need at least two full resultsets under runs/*/results/*.json for cross-run comparison.")
+        return
+
+    models = sorted(resultsets_by_model)
+    model_a = st.sidebar.selectbox("Model A", models, index=0, key="cross_model_a")
+    default_b = 1 if len(models) > 1 else 0
+    model_b = st.sidebar.selectbox("Model B", models, index=default_b, key="cross_model_b")
+    if model_a == model_b:
+        st.warning("Choose two different models.")
+        return
+
+    dataset_path = str(ROOT / "data/labels/classification_corpus.jsonl")
+    dataset = cached_dataset(dataset_path)
+    result_a = cached_resultset(str(resultsets_by_model[model_a]))
+    result_b = cached_resultset(str(resultsets_by_model[model_b]))
+    catalog_abs = ROOT / "config/model_catalog.json"
+    catalog = cached_json(str(catalog_abs)) if catalog_abs.exists() else {"models": {}}
+
+    run_payload = {
+        "run_id": "cross-run comparison",
+        "status": "derived",
+        "dataset_path": "data/labels/classification_corpus.jsonl",
+        "issue_count": len(dataset.get("issues", [])),
+        "model_ids": [model_a, model_b],
+        "model_catalog_path": "config/model_catalog.json",
+        "selected_resultsets": {
+            model_a: str(resultsets_by_model[model_a].relative_to(ROOT)),
+            model_b: str(resultsets_by_model[model_b].relative_to(ROOT)),
+        },
+    }
 
     comparison = compare_two_models(dataset, result_a, result_b)
     metrics = comparison["metrics"]
@@ -520,6 +591,34 @@ def effective_resultset_index(run_dir: Path) -> dict[str, Path]:
     return merged or local
 
 
+def best_full_resultsets_by_model(runs_dir: Path, min_result_count: int = 530) -> dict[str, Path]:
+    """Return one best full-corpus resultset per model across all runs.
+
+    Cross-run comparison should not force the user into a single run directory.
+    When multiple full resultsets exist for the same model, prefer the one with
+    the most successful calls, then fewer errors, then shorter wall-clock time.
+    """
+
+    selected: dict[str, tuple[tuple[int, int, float], Path]] = {}
+    for path in sorted(runs_dir.glob("*/results/*.json")):
+        try:
+            payload = load_json(path)
+        except (OSError, json.JSONDecodeError):
+            continue
+        result_count = int(payload.get("result_count") or len(payload.get("results", [])))
+        if result_count < min_result_count:
+            continue
+        model_id = str(payload.get("model_id") or path.stem)
+        operational = payload.get("operational_summary", {})
+        calls_ok = int(operational.get("calls_ok") or 0)
+        calls_error = int(operational.get("calls_error") or 0)
+        wall_clock_ms = float(operational.get("throughput", {}).get("wall_clock_ms") or 10**12)
+        rank = (calls_ok, -calls_error, -wall_clock_ms)
+        if model_id not in selected or rank > selected[model_id][0]:
+            selected[model_id] = (rank, path)
+    return {model_id: path for model_id, (_, path) in selected.items()}
+
+
 def render_header(
     run_payload: dict[str, Any],
     dataset_path: str,
@@ -536,6 +635,17 @@ def render_header(
 
     with st.expander("Run metadata", expanded=False):
         st.write(f"Dataset: `{dataset_path}`")
+        selected_resultsets = run_payload.get("selected_resultsets")
+        if isinstance(selected_resultsets, dict) and selected_resultsets:
+            st.write("Selected resultsets:")
+            dataframe(
+                pd.DataFrame(
+                    [
+                        {"model_id": model_id, "resultset_path": path}
+                        for model_id, path in selected_resultsets.items()
+                    ]
+                )
+            )
         fields = [
             "prompt_source",
             "model_catalog_path",

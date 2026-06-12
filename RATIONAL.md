@@ -24,9 +24,9 @@ The current dataset split is:
 
 | Split | Count |
 |---|---:|
-| Scored | 131 |
-| Unscored | 395 |
-| Review | 4 |
+| Scored | 126 |
+| Unscored | 399 |
+| Review | 5 |
 | Total | 530 |
 
 The scored-label distribution is:
@@ -37,7 +37,7 @@ The scored-label distribution is:
 | `enhancement` | 35 |
 | `security` | 26 |
 | `question` | 18 |
-| `documentation` | 15 |
+| `documentation` | 10 |
 | `other` | 2 |
 
 The `other` class is intentionally conservative. I do not map unlabeled or ambiguous issues to `other`; I only use it for issues that genuinely do not fit the first five classes. Because `other` has very low scored support, I report its metrics for transparency but do not use it as a decisive model-selection signal.
@@ -57,6 +57,14 @@ Model selection is also treated as a funnel. I first capture a point-in-time inv
 | Excluded non-text / non-final candidates | 13 |
 | Needs metadata review | 4 |
 
+The first filter is a capability and modality filter, not a quality judgment.
+The assignment task is single-issue text classification through a chat-style
+API, so models whose IDs or metadata indicate embedding, reranking, image,
+audio/TTS, video, or async image/video generation are removed from the empirical
+classification pool. This reduces the visible inventory to the 51 models that
+are plausible text/chat classification candidates. The excluded models may be
+useful for other products, but they do not match this evaluation task.
+
 I keep the broader model universe visible, but I do not attempt to price or run every model up front. Instead, I curate a 16-model screening pool that covers meaningful production tradeoffs:
 
 - cost-efficient / small-ish models
@@ -67,7 +75,15 @@ I keep the broader model universe visible, but I do not attempt to price or run 
 
 This avoids starting with only two hand-picked models while also avoiding a brute-force evaluation of every visible model. The screening pool is fully enriched with source-attributed pricing metadata. Pricing is maintained as a local snapshot because `/v1/models` exposes availability and model metadata, but not token pricing.
 
-Routers are excluded from the empirical comparison because they are not single-model candidates. They may be useful in a production architecture, but they make per-model cost, latency, and failure attribution less clean. Dedicated Inference, BYOM, and self-hosted GPU deployments are also treated as production-scale alternatives rather than part of the empirical Serverless Inference comparison.
+Router models are not rejected as production options. If a router delivers the
+right accuracy, cost, latency, and operational behavior, it could be a valid
+production strategy. I keep routers out of the primary apples-to-apples
+single-model comparison because their internal model choice makes per-model
+cost, latency, and failure attribution less clean. They should be evaluated as a
+separate routing-policy candidate rather than mixed into the single-model
+leaderboard. Dedicated Inference, BYOM, and self-hosted GPU deployments are
+also treated as production-scale alternatives rather than part of the empirical
+Serverless Inference comparison.
 
 I did not run all 51 models immediately. This is not intended to be an exhaustive benchmark; it is a customer-facing model selection exercise. Many of the remaining models are near-duplicates within a provider family, lack pricing metadata, or do not represent a materially different production tradeoff. Running all of them would increase cost and noise without necessarily improving the recommendation. 
 
@@ -89,4 +105,4 @@ stable doctl issue corpus
   -> finalist evaluation on the full corpus
   -> production recommendation
 
-  I treated model selection as a funnel rather than starting with two hand-picked models. First, I captured the point-in-time model universe visible to my DigitalOcean Serverless Inference key through `/v1/models`. That produced 68 visible models. After excluding non-text modalities, routers, and models that were not appropriate for direct chat-style classification, I had 51 screening-eligible text/chat candidates.
+  I treated model selection as a funnel rather than starting with two hand-picked models. First, I captured the point-in-time model universe visible to my DigitalOcean Serverless Inference key through `/v1/models`. That produced 68 visible models. After excluding models with modalities that do not fit this text-classification task, I had 51 screening-eligible text/chat candidates. Router models remain visible but belong in a separate routing-policy evaluation track rather than the single-model comparison.

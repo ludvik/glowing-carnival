@@ -549,6 +549,8 @@ def decide_eligibility(
         }
 
     for pattern in metadata.get("exclude_id_patterns", default_exclude_patterns()):
+        if explicitly_included and lowered.startswith("router:") and str(pattern) == "^router:":
+            continue
         if re.search(str(pattern), lowered):
             return {
                 "eligibility_status": "excluded",

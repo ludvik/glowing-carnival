@@ -1,0 +1,15 @@
+{
+  "completed_count": 530,
+  "elapsed_seconds": 1434.779,
+  "error_count": 2,
+  "eta_seconds": 0.0,
+  "model_id": "router:knowledge-base-document",
+  "ok_count": 528,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.369,
+  "run_id": "shortlist-router-full-v1",
+  "status": "completed",
+  "total_count": 530,
+  "updated_at": "2026-06-12T00:51:11.447821Z"
+}

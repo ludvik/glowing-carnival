@@ -1,27 +1,30 @@
 issue_number,decision,ground_truth,rationale
 567,scored,bug,"Although maintainer-labeled as question, the issue reports repeated wrong disk/vCPU sizing and billing-impacting droplet creation behavior."
-28,scored,documentation,"Primary ask is to clarify the .doctlconfig file format in documentation."
-131,scored,documentation,"Reporter identifies README/tutorial links as the root problem after initial bug report."
-184,scored,documentation,"Issue explicitly says documentation is unclear for snapshot syntax."
-452,review,,"Removed from scored set because the issue is too ambiguous/low-context for certified ground truth."
-716,scored,documentation,"Primary ask is for missing uninstall documentation."
-719,scored,documentation,"Primary ask is to clarify README context-switching instructions."
-1156,scored,documentation,"Primary ask is to add examples for cdn flush --files documentation."
-166,scored,question,"User is asking why tag-name and tag-names differ rather than asserting a clear defect."
-183,scored,question,"User asks how to add multiple tags during droplet creation and asks for guidance."
-244,scored,question,"User asks how to enable monitoring on an existing droplet using doctl."
-279,scored,question,"User asks how to list image slugs for DO-provided distributions."
-288,scored,question,"User asks how to export droplet information into a file."
-293,scored,question,"User asks whether load balancer error logs can be viewed through doctl."
-1363,scored,other,"Spam/link-only issue that does not fit the customer schema."
+28,scored,documentation,Primary ask is to clarify the .doctlconfig file format in documentation.
+131,scored,documentation,Reporter identifies README/tutorial links as the root problem after initial bug report.
+184,scored,documentation,Issue explicitly says documentation is unclear for snapshot syntax.
+452,review,,Removed from scored set because the issue is too ambiguous/low-context for certified ground truth.
+716,scored,documentation,Primary ask is for missing uninstall documentation.
+719,scored,documentation,Primary ask is to clarify README context-switching instructions.
+1156,scored,enhancement,Primary ask is to add examples/output behavior for cdn flush --files; this is a CLI usage/help enhancement rather than a pure documentation correction.
+166,scored,question,User is asking why tag-name and tag-names differ rather than asserting a clear defect.
+183,scored,question,User asks how to add multiple tags during droplet creation and asks for guidance.
+244,scored,question,User asks how to enable monitoring on an existing droplet using doctl.
+279,scored,question,User asks how to list image slugs for DO-provided distributions.
+288,scored,question,User asks how to export droplet information into a file.
+293,scored,question,User asks whether load balancer error logs can be viewed through doctl.
+1363,scored,other,Spam/link-only issue that does not fit the customer schema.
 127,scored,bug,"Command returns an error after creating the droplet, producing unsafe/non-obvious partial success."
-247,scored,bug,"User reports firewall rule behavior that appears impossible despite equivalent manually-created rules."
-437,scored,bug,"Cluster deletion leaves dangling load balancers contrary to expected cleanup behavior."
+247,scored,bug,User reports firewall rule behavior that appears impossible despite equivalent manually-created rules.
+437,scored,bug,Cluster deletion leaves dangling load balancers contrary to expected cleanup behavior.
 853,scored,bug,"Flag accepts misleading syntax and silently does not apply the setting; docs are also unclear, but primary issue is behavior."
-876,scored,bug,"registry login fails with docker credential helper error despite documented flow."
-916,scored,bug,"zsh autocompletion fails due to non-portable sed usage."
-1723,scored,bug,"doctl registry commands fail in accounts with multiple registries."
-346,scored,enhancement,"Maintainer-labeled enhancement; proposes changing error handling to omit full usage help for non-usage errors."
-997,scored,enhancement,"Requests new local image upload capability."
-1361,scored,enhancement,"Requests richer diagnostics for unexpected end of JSON errors."
-1722,scored,enhancement,"Requests integrating golangci-lint into the development workflow."
+876,scored,bug,registry login fails with docker credential helper error despite documented flow.
+916,scored,bug,zsh autocompletion fails due to non-portable sed usage.
+1723,scored,bug,doctl registry commands fail in accounts with multiple registries.
+346,scored,enhancement,Maintainer-labeled enhancement; proposes changing error handling to omit full usage help for non-usage errors.
+997,scored,enhancement,Requests new local image upload capability.
+1361,scored,enhancement,Requests richer diagnostics for unexpected end of JSON errors.
+1722,scored,enhancement,Requests integrating golangci-lint into the development workflow.
+475,scored,enhancement,Primary ask is to improve product/CLI guidance for Snap permission-denied failures rather than correct existing documentation text.
+481,scored,enhancement,Primary ask is to improve product/CLI guidance for Snap kubeconfig permission failures rather than correct existing documentation text.
+672,scored,enhancement,"Primary ask is to improve the create image help menu, a CLI UX/help capability enhancement."

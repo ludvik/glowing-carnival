@@ -1,0 +1,15 @@
+{
+  "completed_count": 1,
+  "elapsed_seconds": 1.903,
+  "error_count": 0,
+  "eta_seconds": 0.0,
+  "model_id": "router:general",
+  "ok_count": 1,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.526,
+  "run_id": "debug-router-one",
+  "status": "completed",
+  "total_count": 1,
+  "updated_at": "2026-06-11T23:45:42.330096Z"
+}

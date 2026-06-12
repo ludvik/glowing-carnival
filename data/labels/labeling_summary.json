@@ -1,8 +1,8 @@
 {
   "candidate_distribution_by_label": {
     "bug": 163,
-    "documentation": 19,
-    "enhancement": 105,
+    "documentation": 15,
+    "enhancement": 109,
     "other": 2,
     "question": 21,
     "security": 27
@@ -14,10 +14,10 @@
     "manual_override_review": 1,
     "no_high_confidence_signal": 162,
     "only_secondary_labels": 29,
-    "over_max_per_class": 187,
+    "over_max_per_class": 191,
     "strong_competing_text_signal": 2
   },
-  "generated_at_utc": "2026-06-11T04:00:00.679542Z",
+  "generated_at_utc": "2026-06-12T02:41:08.084164Z",
   "input_sha256": "885dd584349fcfaf4a0e0b0eca12f7caf12707edea5f658d8ffc12778fed376f",
   "maintainer_label_distribution": {
     "Needs Investigation": 18,
@@ -55,10 +55,10 @@
     "security": 1
   },
   "review_count": 5,
-  "scored_count": 130,
+  "scored_count": 126,
   "scored_distribution_by_label": {
     "bug": 35,
-    "documentation": 14,
+    "documentation": 10,
     "enhancement": 35,
     "other": 2,
     "question": 18,
@@ -66,7 +66,7 @@
   },
   "scored_support_by_label": {
     "bug": 35,
-    "documentation": 14,
+    "documentation": 10,
     "enhancement": 35,
     "other": 2,
     "question": 18,
@@ -76,5 +76,5 @@
     "other"
   ],
   "total_issues": 530,
-  "unscored_count": 395
+  "unscored_count": 399
 }

@@ -405,24 +405,88 @@
       "video_supported": false
     },
     "router:general": {
-      "exclude_reason": "router_not_single_model",
-      "include_for_screening": false,
-      "notes": "Excluded from empirical model comparison because router is not a single model and makes per-model cost/latency attribution less clean."
+      "audio_supported": false,
+      "chat_completion_supported": true,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router General",
+      "embedding_supported": false,
+      "exclude_reason": "",
+      "family": "router",
+      "image_supported": false,
+      "include_for_screening": true,
+      "modality": "text",
+      "notes": "Router-policy screening candidate. Evaluated separately from single-model candidates because routing can be production-useful but cost and failure attribution differ.",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "DigitalOcean-hosted",
+      "responses_supported": false,
+      "supported_endpoints": [
+        "chat_completions"
+      ],
+      "video_supported": false
     },
     "router:knowledge-base-document": {
-      "exclude_reason": "router_not_single_model",
-      "include_for_screening": false,
-      "notes": "Excluded from empirical model comparison because router is not a single model and makes per-model cost/latency attribution less clean."
+      "audio_supported": false,
+      "chat_completion_supported": true,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Knowledge Base Document",
+      "embedding_supported": false,
+      "exclude_reason": "",
+      "family": "router",
+      "image_supported": false,
+      "include_for_screening": true,
+      "modality": "text",
+      "notes": "Router-policy screening candidate. Tests whether a knowledge/document-oriented router helps documentation and question-like issues.",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "DigitalOcean-hosted",
+      "responses_supported": false,
+      "supported_endpoints": [
+        "chat_completions"
+      ],
+      "video_supported": false
     },
     "router:software-engineering": {
-      "exclude_reason": "router_not_single_model",
-      "include_for_screening": false,
-      "notes": "Excluded from empirical model comparison because router is not a single model and makes per-model cost/latency attribution less clean."
+      "audio_supported": false,
+      "chat_completion_supported": true,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Software Engineering",
+      "embedding_supported": false,
+      "exclude_reason": "",
+      "family": "router",
+      "image_supported": false,
+      "include_for_screening": true,
+      "modality": "text",
+      "notes": "Router-policy screening candidate. Potentially aligned with GitHub issue triage and code-adjacent support text.",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "DigitalOcean-hosted",
+      "responses_supported": false,
+      "supported_endpoints": [
+        "chat_completions"
+      ],
+      "video_supported": false
     },
     "router:writing": {
-      "exclude_reason": "router_not_single_model",
-      "include_for_screening": false,
-      "notes": "Excluded from empirical model comparison because router is not a single model and makes per-model cost/latency attribution less clean."
+      "audio_supported": false,
+      "chat_completion_supported": true,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Writing",
+      "embedding_supported": false,
+      "exclude_reason": "",
+      "family": "router",
+      "image_supported": false,
+      "include_for_screening": true,
+      "modality": "text",
+      "notes": "Router-policy screening candidate. Tests whether language/writing-oriented routing handles strict issue classification cleanly.",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "DigitalOcean-hosted",
+      "responses_supported": false,
+      "supported_endpoints": [
+        "chat_completions"
+      ],
+      "video_supported": false
     }
   },
   "provider_aliases": {

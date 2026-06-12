@@ -15,3 +15,7 @@ arcee-trinity-large-thinking,large_reasoning,Thinking-style model; validates whe
 openai-gpt-4o-mini,frontier_reference,Low-cost commercial reference widely used for classification-like workloads,reference
 openai-gpt-5-mini,frontier_reference,Commercial higher-capability mini model; reference for quality uplift,reference
 anthropic-claude-haiku-4.5,frontier_reference,Anthropic low-latency/cost reference; provider diversity against OpenAI,reference
+router:general,router_policy,DigitalOcean router candidate; evaluates whether managed routing can beat single-model choices on quality and operations,router_candidate
+router:software-engineering,router_policy,DigitalOcean software-engineering router; potentially aligned with GitHub issue triage and code-adjacent support text,router_candidate
+router:knowledge-base-document,router_policy,DigitalOcean knowledge-base/document router; tests whether router behavior helps documentation/question-like support issues,router_candidate
+router:writing,router_policy,DigitalOcean writing router; tests whether a language/writing router handles issue classification cleanly,router_candidate

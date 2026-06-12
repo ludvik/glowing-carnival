@@ -2,6 +2,7 @@
   "models": {
     "alibaba-qwen3-32b": {
       "context_window": 32768,
+      "cost_ready": true,
       "display_name": "Alibaba Qwen3 32B",
       "expected_role": "cheap_default_candidate",
       "family": "qwen",
@@ -18,6 +19,7 @@
     },
     "anthropic-claude-haiku-4.5": {
       "context_window": 200000,
+      "cost_ready": true,
       "display_name": "Anthropic Claude Haiku 4.5",
       "expected_role": "reference",
       "family": "claude",
@@ -34,6 +36,7 @@
     },
     "arcee-trinity-large-thinking": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "Arcee Trinity Large Thinking",
       "expected_role": "quality_candidate",
       "family": "trinity",
@@ -50,6 +53,7 @@
     },
     "deepseek-3.2": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "DeepSeek 3.2",
       "expected_role": "quality_candidate",
       "family": "deepseek",
@@ -66,6 +70,7 @@
     },
     "deepseek-4-flash": {
       "context_window": 262144,
+      "cost_ready": true,
       "display_name": "DeepSeek 4 Flash",
       "expected_role": "cheap_default_candidate",
       "family": "deepseek",
@@ -82,6 +87,7 @@
     },
     "kimi-k2.5": {
       "context_window": 256000,
+      "cost_ready": true,
       "display_name": "Kimi K2.5",
       "expected_role": "balanced_candidate",
       "family": "kimi",
@@ -98,6 +104,7 @@
     },
     "llama-4-maverick": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "Llama 4 Maverick",
       "expected_role": "balanced_candidate",
       "family": "llama",
@@ -114,6 +121,7 @@
     },
     "llama3.3-70b-instruct": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "Llama 3.3 70B Instruct",
       "expected_role": "balanced_candidate",
       "family": "llama",
@@ -130,6 +138,7 @@
     },
     "mistral-3-14B": {
       "context_window": 262144,
+      "cost_ready": true,
       "display_name": "Mistral 3 14B",
       "expected_role": "cheap_default_candidate",
       "family": "mistral",
@@ -146,6 +155,7 @@
     },
     "nvidia-nemotron-3-super-120b": {
       "context_window": 1000000,
+      "cost_ready": true,
       "display_name": "NVIDIA Nemotron 3 Super 120B",
       "expected_role": "balanced_candidate",
       "family": "nemotron",
@@ -162,6 +172,7 @@
     },
     "openai-gpt-4o-mini": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "OpenAI GPT-4o Mini",
       "expected_role": "reference",
       "family": "gpt-4o",
@@ -178,6 +189,7 @@
     },
     "openai-gpt-5-mini": {
       "context_window": 400000,
+      "cost_ready": true,
       "display_name": "OpenAI GPT-5 Mini",
       "expected_role": "reference",
       "family": "gpt-5",
@@ -194,6 +206,7 @@
     },
     "openai-gpt-5-nano": {
       "context_window": 400000,
+      "cost_ready": true,
       "display_name": "OpenAI GPT-5 Nano",
       "expected_role": "cheap_default_candidate",
       "family": "gpt-5",
@@ -210,6 +223,7 @@
     },
     "openai-gpt-oss-120b": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "OpenAI GPT-OSS 120B",
       "expected_role": "balanced_candidate",
       "family": "gpt-oss",
@@ -226,6 +240,7 @@
     },
     "openai-gpt-oss-20b": {
       "context_window": 128000,
+      "cost_ready": true,
       "display_name": "OpenAI GPT-OSS 20B",
       "expected_role": "cheap_default_candidate",
       "family": "gpt-oss",
@@ -242,6 +257,7 @@
     },
     "qwen3.5-397b-a17b": {
       "context_window": 131072,
+      "cost_ready": true,
       "display_name": "Qwen3.5 397B A17B",
       "expected_role": "quality_candidate",
       "family": "qwen",
@@ -255,6 +271,74 @@
       "provider_model": "qwen3.5-397b-a17b",
       "provider_name": "Alibaba/Qwen",
       "why_included": "High-capability Qwen-family model; quality-oriented non-frontier candidate"
+    },
+    "router:general": {
+      "context_window": null,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router General",
+      "expected_role": "router_candidate",
+      "family": "router",
+      "input_price_per_1m_tokens": null,
+      "max_output_tokens": null,
+      "output_price_per_1m_tokens": null,
+      "pool_tier": "router_policy",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "digitalocean_si",
+      "provider_model": "router:general",
+      "provider_name": "DigitalOcean-hosted",
+      "why_included": "DigitalOcean router candidate; evaluates whether managed routing can beat single-model choices on quality and operations"
+    },
+    "router:knowledge-base-document": {
+      "context_window": null,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Knowledge Base Document",
+      "expected_role": "router_candidate",
+      "family": "router",
+      "input_price_per_1m_tokens": null,
+      "max_output_tokens": null,
+      "output_price_per_1m_tokens": null,
+      "pool_tier": "router_policy",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "digitalocean_si",
+      "provider_model": "router:knowledge-base-document",
+      "provider_name": "DigitalOcean-hosted",
+      "why_included": "DigitalOcean knowledge-base/document router; tests whether router behavior helps documentation/question-like support issues"
+    },
+    "router:software-engineering": {
+      "context_window": null,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Software Engineering",
+      "expected_role": "router_candidate",
+      "family": "router",
+      "input_price_per_1m_tokens": null,
+      "max_output_tokens": null,
+      "output_price_per_1m_tokens": null,
+      "pool_tier": "router_policy",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "digitalocean_si",
+      "provider_model": "router:software-engineering",
+      "provider_name": "DigitalOcean-hosted",
+      "why_included": "DigitalOcean software-engineering router; potentially aligned with GitHub issue triage and code-adjacent support text"
+    },
+    "router:writing": {
+      "context_window": null,
+      "cost_ready": false,
+      "display_name": "DigitalOcean Router Writing",
+      "expected_role": "router_candidate",
+      "family": "router",
+      "input_price_per_1m_tokens": null,
+      "max_output_tokens": null,
+      "output_price_per_1m_tokens": null,
+      "pool_tier": "router_policy",
+      "pricing_captured_at": "",
+      "pricing_source": "Pricing metadata not available in /v1/models; cost metrics deferred until router pricing is confirmed.",
+      "provider": "digitalocean_si",
+      "provider_model": "router:writing",
+      "provider_name": "DigitalOcean-hosted",
+      "why_included": "DigitalOcean writing router; tests whether a language/writing router handles issue classification cleanly"
     }
   },
   "pricing_source": "config/model_metadata.json"

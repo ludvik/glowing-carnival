@@ -1,0 +1,15 @@
+{
+  "completed_count": 530,
+  "elapsed_seconds": 800.961,
+  "error_count": 0,
+  "eta_seconds": 0.0,
+  "model_id": "deepseek-4-flash",
+  "ok_count": 530,
+  "progress": 1.0,
+  "remaining_count": 0,
+  "requests_per_second": 0.662,
+  "run_id": "ui-20260611T231508Z-arcee-trinity-large-thinking-vs-deepseek-4-flash",
+  "status": "completed",
+  "total_count": 530,
+  "updated_at": "2026-06-11T23:31:36.142988Z"
+}

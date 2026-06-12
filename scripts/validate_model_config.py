@@ -83,10 +83,6 @@ def main() -> int:
     if duplicate_ids:
         raise SystemExit(f"Duplicate screening-pool model IDs: {', '.join(duplicate_ids)}")
 
-    router_ids = [model_id for model_id in screening_model_ids if model_id.startswith("router:")]
-    if router_ids:
-        raise SystemExit(f"Router models must not be in screening_pool.csv: {', '.join(router_ids)}")
-
     missing_from_snapshot = sorted(set(screening_model_ids) - raw_model_ids)
     if missing_from_snapshot:
         raise SystemExit(f"Screening-pool models missing from raw model snapshot: {', '.join(missing_from_snapshot)}")
@@ -97,23 +93,21 @@ def main() -> int:
 
     for model_id in screening_model_ids:
         record = metadata_models[model_id]
-        require_numeric_price(model_id, record, "input_price_per_1m")
-        require_numeric_price(model_id, record, "output_price_per_1m")
+        is_router = model_id.startswith("router:")
+        if not is_router:
+            require_numeric_price(model_id, record, "input_price_per_1m")
+            require_numeric_price(model_id, record, "output_price_per_1m")
         if record.get("include_for_screening") is not True:
             raise SystemExit(f"{model_id}.include_for_screening must be true.")
         if record.get("chat_completion_supported") is not True:
             raise SystemExit(f"{model_id}.chat_completion_supported must be true.")
 
-    router_metadata = [
-        model_id
-        for model_id in raw_model_ids
-        if model_id.startswith("router:") and metadata_models.get(model_id, {}).get("exclude_reason") == "router_not_single_model"
-    ]
+    router_ids = [model_id for model_id in screening_model_ids if model_id.startswith("router:")]
 
     print(f"Screening-pool models: {len(screening_model_ids)}")
     print(f"Screening-pool models present in raw snapshot: {len(screening_model_ids) - len(missing_from_snapshot)}")
-    print(f"Screening-pool models with pricing metadata: {len(screening_model_ids)}")
-    print(f"Router exclusions configured: {len(router_metadata)}")
+    print(f"Screening-pool models with pricing metadata: {len(screening_model_ids) - len(router_ids)}")
+    print(f"Router-policy candidates without confirmed pricing: {len(router_ids)}")
     print("Model config validation passed.")
     return 0
 

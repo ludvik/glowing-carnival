@@ -7,6 +7,15 @@ def calculate_cost(usage: dict[str, Any] | None, model: dict[str, Any]) -> dict[
     input_price = model["input_price_per_1m_tokens"]
     output_price = model["output_price_per_1m_tokens"]
     pricing_source = model.get("pricing_source", "config/model_catalog.json")
+    if input_price is None or output_price is None:
+        return {
+            "input_price_per_1m_tokens": input_price,
+            "output_price_per_1m_tokens": output_price,
+            "input_cost_usd": None,
+            "output_cost_usd": None,
+            "total_cost_usd": None,
+            "pricing_source": pricing_source,
+        }
 
     if not usage:
         return {

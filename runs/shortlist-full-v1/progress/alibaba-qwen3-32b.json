@@ -1,0 +1,15 @@
+{
+  "completed_count": 225,
+  "elapsed_seconds": 867.031,
+  "error_count": 0,
+  "eta_seconds": 1175.309,
+  "model_id": "alibaba-qwen3-32b",
+  "ok_count": 225,
+  "progress": 0.42452830188679247,
+  "remaining_count": 305,
+  "requests_per_second": 0.26,
+  "run_id": "shortlist-full-v1",
+  "status": "running",
+  "total_count": 530,
+  "updated_at": "2026-06-12T00:02:32.506720Z"
+}
