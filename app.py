@@ -12,14 +12,17 @@ from typing import Any
 
 import pandas as pd
 import streamlit as st
+import altair as alt
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from eval_harness.comparison import (
+    all_class_macro_f1,
     compare_two_models,
     confusion_matrix_dataframe,
     discover_runs,
+    end_to_end_accuracy,
     executive_comparison_table,
     load_json,
     operational_summary_table,
@@ -28,13 +31,14 @@ from eval_harness.comparison import (
     scored_case_table,
     scored_label_distribution,
     side_by_side_per_class_table,
+    stable_macro_f1,
     token_cost_trace,
     unscored_case_table,
     validate_same_issue_set,
 )
 from eval_harness.dataset import load_dataset
 from eval_harness.prompt import LABELS
-from eval_harness.scoring import certified_issues, load_resultset, unscored_analysis, uncertified_issues
+from eval_harness.scoring import certified_issues, load_resultset, model_scored_metrics, unscored_analysis, uncertified_issues
 
 
 st.set_page_config(page_title="Issue Classification Model Evaluator", layout="wide")
@@ -215,6 +219,16 @@ def display_cell_value(value: Any) -> str:
 def main() -> None:
     st.title("Issue Classification Model Evaluator")
     st.caption("Compare model quality, cost, latency, and failure behavior on the doctl issue corpus.")
+
+    view_mode = st.sidebar.radio(
+        "View",
+        ["Model Landscape", "Model-to-model comparison"],
+        horizontal=False,
+    )
+    if view_mode == "Model Landscape":
+        dataset = cached_dataset(str(ROOT / "data/labels/classification_corpus.jsonl"))
+        render_model_landscape(dataset)
+        return
 
     run_files = discover_runs(ROOT / "runs")
     run_labels = [path.parent.name for path in run_files]
@@ -713,6 +727,196 @@ def render_overview(
         st.markdown(f"- {note}")
 
 
+def render_model_landscape(dataset: dict[str, Any]) -> None:
+    st.subheader("Model Landscape")
+    st.write(
+        "Compare all available full-corpus resultsets across quality, cost, latency, "
+        "throughput, and reliability. Each point is one model's best full run."
+    )
+
+    table = model_landscape_table(dataset)
+    if table.empty:
+        st.warning("No full-corpus resultsets found under runs/*/results/*.json.")
+        return
+
+    metric_options = {
+        "Avg. classification cost": "avg_cost_per_ok_call_usd",
+        "Total run cost": "total_success_cost_usd",
+        "Stable macro F1": "stable_macro_f1",
+        "All-class macro F1": "all_class_macro_f1",
+        "Evaluated accuracy": "evaluated_accuracy",
+        "End-to-end scored accuracy": "end_to_end_scored_accuracy",
+        "Bug recall": "bug_recall",
+        "Security recall": "security_recall",
+        "P95 latency ms": "p95_latency_ms",
+        "Requests per second": "requests_per_second",
+        "Error rate": "error_rate",
+    }
+    col_x, col_y, col_filter = st.columns([1.4, 1.4, 1])
+    x_label = col_x.selectbox("X axis", list(metric_options), index=0)
+    y_label = col_y.selectbox("Y axis", list(metric_options), index=2)
+    show_only_viable = col_filter.checkbox("Hide failed models", value=True)
+
+    x_metric = metric_options[x_label]
+    y_metric = metric_options[y_label]
+    plot_df = table.copy()
+    if show_only_viable:
+        plot_df = plot_df[plot_df["calls_ok"].fillna(0) > 0]
+
+    chart_df = plot_df.dropna(subset=[x_metric, y_metric]).copy()
+    missing_axis_df = plot_df[plot_df[x_metric].isna() | plot_df[y_metric].isna()].copy()
+    if chart_df.empty:
+        st.warning("No models have both selected axis values.")
+    else:
+        st.altair_chart(model_landscape_chart(chart_df, x_metric, y_metric, x_label, y_label), width="stretch")
+        st.caption(
+            "Each label is the model ID. Color shows model/risk group: normal, high latency, high error, or router. "
+            "Use the axis selectors to switch between quality, cost, latency, throughput, and reliability."
+        )
+
+    if not missing_axis_df.empty:
+        st.info(
+            f"{len(missing_axis_df)} full-run model(s) are not shown in the chart because one selected axis is unavailable."
+        )
+        dataframe(
+            missing_axis_df[
+                [
+                    "model_id",
+                    "stable_macro_f1",
+                    "avg_cost_per_ok_call_usd",
+                    "p95_latency_ms",
+                    "calls_ok",
+                    "calls_error",
+                    "error_rate",
+                    "resultset_path",
+                ]
+            ]
+        )
+
+    st.subheader("Full-run Metrics Table")
+    dataframe(
+        table[
+            [
+                "model_id",
+                "stable_macro_f1",
+                "all_class_macro_f1",
+                "evaluated_accuracy",
+                "end_to_end_scored_accuracy",
+                "bug_recall",
+                "security_recall",
+                "total_success_cost_usd",
+                "avg_cost_per_ok_call_usd",
+                "cost_per_correct_usd",
+                "p95_latency_ms",
+                "requests_per_second",
+                "calls_ok",
+                "calls_error",
+                "error_rate",
+                "resultset_path",
+            ]
+        ]
+    )
+
+
+def model_landscape_table(dataset: dict[str, Any]) -> pd.DataFrame:
+    scored = certified_issues(dataset)
+    rows: list[dict[str, Any]] = []
+    for model_id, path in best_full_resultsets_by_model(ROOT / "runs").items():
+        resultset = cached_resultset(str(path))
+        metrics = model_scored_metrics(resultset, scored)
+        operational = resultset.get("operational_summary", {})
+        latency = operational.get("latency_ms", {})
+        throughput = operational.get("throughput", {})
+        cost = operational.get("cost", {})
+        row = {
+            "model_id": model_id,
+            "resultset_path": str(path.relative_to(ROOT)),
+            "calls_total": operational.get("calls_total"),
+            "calls_ok": operational.get("calls_ok"),
+            "calls_error": operational.get("calls_error"),
+            "error_rate": operational.get("error_rate"),
+            "stable_macro_f1": stable_macro_f1(metrics),
+            "all_class_macro_f1": all_class_macro_f1(metrics),
+            "evaluated_accuracy": metrics.get("accuracy"),
+            "end_to_end_scored_accuracy": end_to_end_accuracy(metrics),
+            "bug_recall": (metrics.get("per_class", {}).get("bug") or {}).get("recall"),
+            "security_recall": (metrics.get("per_class", {}).get("security") or {}).get("recall"),
+            "total_success_cost_usd": cost.get("total_cost_usd"),
+            "avg_cost_per_ok_call_usd": cost.get("avg_cost_per_ok_call_usd"),
+            "cost_per_correct_usd": metrics.get("cost", {}).get("cost_per_correct_classification_usd"),
+            "p50_latency_ms": latency.get("p50"),
+            "p95_latency_ms": latency.get("p95"),
+            "requests_per_second": throughput.get("requests_per_second"),
+        }
+        row["risk_group"] = landscape_risk_group(row)
+        row["plot_label"] = model_plot_label(model_id)
+        rows.append(row)
+    if not rows:
+        return pd.DataFrame()
+    return pd.DataFrame(rows).sort_values(
+        by=["stable_macro_f1", "total_success_cost_usd"],
+        ascending=[False, True],
+        na_position="last",
+    )
+
+
+def model_landscape_chart(df: pd.DataFrame, x_metric: str, y_metric: str, x_label: str, y_label: str) -> alt.Chart:
+    color_scale = alt.Scale(
+        domain=["normal", "p95 > 5s", "error > 5%", "router"],
+        range=["#0073ea", "#f59e0b", "#dc2626", "#7c3aed"],
+    )
+    base = alt.Chart(df).encode(
+        x=alt.X(f"{x_metric}:Q", title=x_label, scale=alt.Scale(zero=False, nice=True)),
+        y=alt.Y(f"{y_metric}:Q", title=y_label, scale=alt.Scale(zero=False, nice=True)),
+        color=alt.Color("risk_group:N", title="Model group / risk", scale=color_scale),
+        tooltip=[
+            alt.Tooltip("model_id:N", title="Model"),
+            alt.Tooltip("stable_macro_f1:Q", title="Stable macro F1", format=".4f"),
+            alt.Tooltip("avg_cost_per_ok_call_usd:Q", title="Avg. classification cost", format="$.6f"),
+            alt.Tooltip("total_success_cost_usd:Q", title="Total run cost", format="$.4f"),
+            alt.Tooltip("p95_latency_ms:Q", title="P95 latency ms", format=",.1f"),
+            alt.Tooltip("requests_per_second:Q", title="Requests/sec", format=".3f"),
+            alt.Tooltip("error_rate:Q", title="Error rate", format=".2%"),
+            alt.Tooltip("resultset_path:N", title="Resultset"),
+        ],
+    )
+    points = base.mark_circle(size=120, opacity=0.85, stroke="#111827", strokeWidth=0.6)
+    labels = base.mark_text(
+        align="left",
+        baseline="middle",
+        dx=9,
+        fontSize=12,
+        color="#182033",
+    ).encode(text="plot_label:N")
+    return (points + labels).properties(height=520)
+
+
+def landscape_risk_group(row: dict[str, Any]) -> str:
+    if str(row.get("model_id", "")).startswith("router:"):
+        return "router"
+    if (row.get("error_rate") or 0) > 0.05:
+        return "error > 5%"
+    if row.get("p95_latency_ms") is not None and float(row["p95_latency_ms"]) > 5000:
+        return "p95 > 5s"
+    return "normal"
+
+
+def model_plot_label(model_id: str) -> str:
+    replacements = {
+        "openai-gpt-oss-20b": "gpt-oss-20b",
+        "openai-gpt-oss-120b": "gpt-oss-120b",
+        "mistral-3-14B": "mistral-14B",
+        "llama-4-maverick": "llama-maverick",
+        "deepseek-4-flash": "deepseek-flash",
+        "arcee-trinity-large-thinking": "arcee-thinking",
+        "router:general": "router-general",
+        "router:knowledge-base-document": "router-kb-doc",
+        "router:software-engineering": "router-swe",
+        "router:writing": "router-writing",
+    }
+    return replacements.get(model_id, model_id)
+
+
 def compact_label_distribution(distribution: pd.DataFrame) -> str:
     parts = [
         f"`{row['label']}` {int(row['count'])}"
@@ -758,7 +962,7 @@ def focused_executive_table(executive: pd.DataFrame) -> pd.DataFrame:
         ("Security recall", "security_recall", True, False, "%"),
         ("Strict output valid rate", "strict_output_valid_rate", True, False, "%"),
         ("Total run cost", "total_run_cost_usd", False, True, ""),
-        ("Cost per correct", "cost_per_correct_usd", False, True, ""),
+        ("Cost per correct scored item", "cost_per_correct_usd", False, True, ""),
         ("p95 latency", "p95_latency_ms", False, False, "ms"),
         ("Error rate", "error_rate", False, False, "%"),
     ]

@@ -118,9 +118,9 @@ def write_svg(path: Path, rows: list[dict[str, Any]]) -> None:
     left, right, top, bottom = 90, 260, 70, 100
     plot_w = width - left - right
     plot_h = height - top - bottom
-    known = [row for row in rows if is_number(row.get("total_success_cost_usd")) and is_number(row.get("stable_macro_f1"))]
+    known = [row for row in rows if is_number(row.get("avg_cost_per_ok_call_usd")) and is_number(row.get("stable_macro_f1"))]
     unknown = [row for row in rows if row not in known and is_number(row.get("stable_macro_f1"))]
-    max_cost = max([float(row["total_success_cost_usd"]) for row in known] or [1.0])
+    max_cost = max([float(row["avg_cost_per_ok_call_usd"]) for row in known] or [1.0])
     max_cost *= 1.1
 
     def x(cost: float) -> float:
@@ -143,8 +143,8 @@ def write_svg(path: Path, rows: list[dict[str, Any]]) -> None:
     lines = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#f6f7fb"/>',
-        '<text x="40" y="38" font-family="Arial" font-size="24" font-weight="700" fill="#182033">Full-run model tradeoff: quality vs successful-call cost</text>',
-        '<text x="40" y="60" font-family="Arial" font-size="13" fill="#667085">Y = stable macro F1 on scored set. X = total cost over successful calls. Color flags latency/error risk; routers without pricing are shown separately.</text>',
+        '<text x="40" y="38" font-family="Arial" font-size="24" font-weight="700" fill="#182033">Full-run model tradeoff: quality vs average classification cost</text>',
+        '<text x="40" y="60" font-family="Arial" font-size="13" fill="#667085">Y = stable macro F1 on scored set. X = average cost per successful classification. Color flags latency/error risk; routers without pricing are shown separately.</text>',
     ]
     # axes
     lines += [
@@ -160,16 +160,16 @@ def write_svg(path: Path, rows: list[dict[str, Any]]) -> None:
         cost = max_cost * tick / 5
         xx = x(cost)
         lines.append(f'<line x1="{xx:.1f}" y1="{top + plot_h}" x2="{xx:.1f}" y2="{top + plot_h + 5}" stroke="#334155"/>')
-        lines.append(f'<text x="{xx:.1f}" y="{top + plot_h + 24}" text-anchor="middle" font-family="Arial" font-size="12" fill="#475467">${cost:.3f}</text>')
-    lines.append(f'<text x="{left + plot_w/2}" y="{height-35}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#182033">Total successful-call cost, USD</text>')
+        lines.append(f'<text x="{xx:.1f}" y="{top + plot_h + 24}" text-anchor="middle" font-family="Arial" font-size="12" fill="#475467">${cost:.6f}</text>')
+    lines.append(f'<text x="{left + plot_w/2}" y="{height-35}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#182033">Avg cost per classification, USD</text>')
     lines.append(f'<text x="24" y="{top + plot_h/2}" transform="rotate(-90 24 {top + plot_h/2})" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#182033">Stable macro F1</text>')
 
     for row in known:
-        xx = x(float(row["total_success_cost_usd"]))
+        xx = x(float(row["avg_cost_per_ok_call_usd"]))
         yy = y(float(row["stable_macro_f1"]))
         radius = 6 + min(float(row.get("p95_latency_ms") or 0) / 3000, 8)
         label = html.escape(str(row["model_id"]))
-        lines.append(f'<circle cx="{xx:.1f}" cy="{yy:.1f}" r="{radius:.1f}" fill="{color(row)}" fill-opacity="0.82" stroke="#111827" stroke-width="0.6"><title>{label}\\nF1={row["stable_macro_f1"]:.3f}\\nCost=${row["total_success_cost_usd"]:.4f}\\np95={row.get("p95_latency_ms")}</title></circle>')
+        lines.append(f'<circle cx="{xx:.1f}" cy="{yy:.1f}" r="{radius:.1f}" fill="{color(row)}" fill-opacity="0.82" stroke="#111827" stroke-width="0.6"><title>{label}\\nF1={row["stable_macro_f1"]:.3f}\\nAvg cost=${row["avg_cost_per_ok_call_usd"]:.6f}\\np95={row.get("p95_latency_ms")}</title></circle>')
         lines.append(f'<text x="{xx+9:.1f}" y="{yy-8:.1f}" font-family="Arial" font-size="11" fill="#111827">{label}</text>')
 
     # cost-unavailable lane
@@ -223,7 +223,7 @@ def main() -> int:
     for row in rows:
         print(
             f"{row['model_id']}: stable_f1={row['stable_macro_f1']} "
-            f"cost={row['total_success_cost_usd']} p95={row['p95_latency_ms']} "
+            f"avg_cost={row['avg_cost_per_ok_call_usd']} p95={row['p95_latency_ms']} "
             f"ok={row['calls_ok']}/{row['calls_total']}"
         )
     return 0
