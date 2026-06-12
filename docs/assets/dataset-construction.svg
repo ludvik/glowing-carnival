@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box { fill:#f8fafc; stroke:#94a3b8; stroke-width:1.6; rx:10; }
+      .decision { fill:#fff7ed; stroke:#fb923c; stroke-width:1.8; }
+      .out { fill:#ecfdf5; stroke:#34d399; stroke-width:1.6; rx:10; }
+      .review { fill:#eff6ff; stroke:#60a5fa; stroke-width:1.6; rx:10; }
+      .text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:18px; fill:#0f172a; }
+      .small { font-size:15px; fill:#475569; }
+      .edge { stroke:#334155; stroke-width:1.8; fill:none; marker-end:url(#arrow); }
+      .label { font-size:14px; fill:#334155; font-weight:600; }
+    </style>
+  </defs>
+
+  <rect class="box" x="40" y="210" width="170" height="70"/>
+  <text class="text" x="125" y="240" text-anchor="middle">530 doctl</text>
+  <text class="text" x="125" y="264" text-anchor="middle">GitHub issues</text>
+
+  <rect class="box" x="260" y="210" width="190" height="70"/>
+  <text class="text" x="355" y="240" text-anchor="middle">Build issue</text>
+  <text class="text" x="355" y="264" text-anchor="middle">records</text>
+
+  <rect class="box" x="500" y="110" width="210" height="70"/>
+  <text class="text" x="605" y="140" text-anchor="middle">Weak maintainer</text>
+  <text class="text" x="605" y="164" text-anchor="middle">label mapping</text>
+
+  <rect class="box" x="500" y="210" width="210" height="70"/>
+  <text class="text" x="605" y="240" text-anchor="middle">Text heuristics</text>
+  <text class="text" x="605" y="264" text-anchor="middle">and regex signals</text>
+
+  <rect class="box" x="500" y="310" width="210" height="70"/>
+  <text class="text" x="605" y="340" text-anchor="middle">Manual overrides</text>
+  <text class="small" x="605" y="362" text-anchor="middle">for inspected cases</text>
+
+  <rect class="box" x="760" y="210" width="190" height="70"/>
+  <text class="text" x="855" y="240" text-anchor="middle">Candidate label</text>
+  <text class="text" x="855" y="264" text-anchor="middle">+ confidence</text>
+
+  <polygon class="decision" points="855,315 960,370 855,425 750,370"/>
+  <text class="text" x="855" y="363" text-anchor="middle">High confidence</text>
+  <text class="text" x="855" y="387" text-anchor="middle">and no conflict?</text>
+
+  <rect class="out" x="535" y="520" width="170" height="60"/>
+  <text class="text" x="620" y="556" text-anchor="middle">Scored set</text>
+
+  <rect class="box" x="790" y="520" width="190" height="60"/>
+  <text class="text" x="885" y="544" text-anchor="middle">Unscored /</text>
+  <text class="text" x="885" y="568" text-anchor="middle">needs review</text>
+
+  <path class="edge" d="M210 245 H260"/>
+  <path class="edge" d="M450 245 H500"/>
+  <path class="edge" d="M450 245 C475 245 475 145 500 145"/>
+  <path class="edge" d="M450 245 C475 245 475 345 500 345"/>
+  <path class="edge" d="M710 145 C740 145 730 245 760 245"/>
+  <path class="edge" d="M710 245 H760"/>
+  <path class="edge" d="M710 345 C740 345 730 245 760 245"/>
+  <path class="edge" d="M855 280 V315"/>
+  <path class="edge" d="M795 410 V470 H620 V520"/>
+  <path class="edge" d="M915 410 V470 H885 V520"/>
+
+  <text class="label" x="665" y="465" text-anchor="middle">yes</text>
+  <text class="label" x="875" y="465" text-anchor="middle">no / ambiguous</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box { fill:#f8fafc; stroke:#94a3b8; stroke-width:1.7; rx:12; }
+      .green { fill:#ecfdf5; stroke:#34d399; stroke-width:1.8; rx:12; }
+      .blue { fill:#eff6ff; stroke:#60a5fa; stroke-width:1.7; rx:12; }
+      .gray { fill:#f1f5f9; stroke:#94a3b8; stroke-width:1.5; rx:12; }
+      .diamond { fill:#fff7ed; stroke:#fb923c; stroke-width:1.9; }
+      .text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:18px; fill:#0f172a; }
+      .small { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:14px; fill:#475569; }
+      .num { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:28px; font-weight:700; fill:#0f172a; }
+      .edge { stroke:#334155; stroke-width:2; fill:none; marker-end:url(#arrow); }
+      .label { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:14px; fill:#334155; font-weight:600; }
+    </style>
+  </defs>
+
+  <rect class="box" x="390" y="30" width="220" height="70"/>
+  <text class="num" x="500" y="62" text-anchor="middle">68</text>
+  <text class="text" x="500" y="88" text-anchor="middle">visible DO SI models</text>
+
+  <polygon class="diamond" points="500,135 655,210 500,285 345,210"/>
+  <text class="text" x="500" y="203" text-anchor="middle">Text/chat model</text>
+  <text class="text" x="500" y="227" text-anchor="middle">for classification?</text>
+
+  <rect class="gray" x="60" y="175" width="230" height="70"/>
+  <text class="text" x="175" y="203" text-anchor="middle">Exclude</text>
+  <text class="small" x="175" y="226" text-anchor="middle">embedding, rerank, image,</text>
+  <text class="small" x="175" y="246" text-anchor="middle">audio, video, async generation</text>
+
+  <rect class="box" x="390" y="320" width="220" height="70"/>
+  <text class="num" x="500" y="352" text-anchor="middle">51</text>
+  <text class="text" x="500" y="378" text-anchor="middle">text/chat candidates</text>
+
+  <polygon class="diamond" points="500,425 655,500 500,575 345,500"/>
+  <text class="text" x="500" y="492" text-anchor="middle">Distinct tradeoff</text>
+  <text class="text" x="500" y="516" text-anchor="middle">and runnable now?</text>
+
+  <rect class="gray" x="710" y="465" width="230" height="70"/>
+  <text class="text" x="825" y="494" text-anchor="middle">Defer</text>
+  <text class="small" x="825" y="517" text-anchor="middle">near duplicate, missing pricing,</text>
+  <text class="small" x="825" y="537" text-anchor="middle">or not a distinct tradeoff</text>
+
+  <rect class="blue" x="60" y="465" width="230" height="70"/>
+  <text class="text" x="175" y="494" text-anchor="middle">Router path</text>
+  <text class="small" x="175" y="517" text-anchor="middle">evaluate as routing-policy</text>
+  <text class="small" x="175" y="537" text-anchor="middle">candidates, not priced default</text>
+
+  <rect class="green" x="390" y="610" width="220" height="70"/>
+  <text class="num" x="500" y="638" text-anchor="middle">20</text>
+  <text class="text" x="500" y="662" text-anchor="middle">screening pool</text>
+  <text class="small" x="500" y="681" text-anchor="middle">16 priced models + 4 routers</text>
+
+  <rect class="box" x="710" y="610" width="230" height="70"/>
+  <text class="text" x="825" y="637" text-anchor="middle">Screening gates</text>
+  <text class="small" x="825" y="660" text-anchor="middle">access, JSON, cost trace,</text>
+  <text class="small" x="825" y="680" text-anchor="middle">latency, errors</text>
+
+  <rect class="box" x="390" y="710" width="220" height="45"/>
+  <text class="num" x="455" y="741" text-anchor="middle">10</text>
+  <text class="text" x="535" y="741" text-anchor="middle">full runs</text>
+
+  <rect class="green" x="710" y="710" width="230" height="45"/>
+  <text class="text" x="825" y="739" text-anchor="middle">production recommendation</text>
+
+  <path class="edge" d="M500 100 V135"/>
+  <path class="edge" d="M345 210 H290"/>
+  <path class="edge" d="M500 285 V320"/>
+  <path class="edge" d="M500 390 V425"/>
+  <path class="edge" d="M655 500 H710"/>
+  <path class="edge" d="M345 500 H290"/>
+  <path class="edge" d="M500 575 V610"/>
+  <path class="edge" d="M610 645 H710"/>
+  <path class="edge" d="M500 680 V710"/>
+  <path class="edge" d="M610 733 H710"/>
+
+  <text class="label" x="318" y="202" text-anchor="middle">no</text>
+  <text class="label" x="526" y="306" text-anchor="middle">yes</text>
+  <text class="label" x="682" y="492" text-anchor="middle">defer</text>
+  <text class="label" x="318" y="492" text-anchor="middle">router</text>
+  <text class="label" x="526" y="597" text-anchor="middle">yes</text>
+</svg>

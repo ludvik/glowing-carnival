@@ -73,22 +73,7 @@ agreement, and qualitative behavior analysis, but not for accuracy claims.
 
 ### 3. Dataset Construction
 
-```mermaid
-flowchart LR
-    A[530 doctl GitHub issues] --> B[Normalize issue fields]
-    B --> C[Weak maintainer-label mapping]
-    B --> D[Text heuristics and regex signals]
-    C --> E[Candidate ground truth]
-    D --> E
-    E --> F{High confidence and no conflict?}
-    F -->|yes| G[Scored set]
-    F -->|ambiguous| H[Review queue]
-    F -->|not certified| I[Unscored set]
-    J[Manual overrides] --> G
-    J --> H
-    G --> K[Quality metrics]
-    I --> L[Unscored behavior analysis]
-```
+![Dataset construction flow](docs/assets/dataset-construction.svg)
 
 Every certified label has a recorded source and rationale, so disputed cases can
 be checked directly.
@@ -125,25 +110,16 @@ The remaining 51 models are the empirical model universe for this assignment.
 The shortlist samples that universe across cost-efficient, balanced, larger,
 reference, reasoning, and router-style candidates.
 
+The 51-to-20 step is not a quality cut. It selects models that are distinct
+enough to teach me something in screening: 16 priced single-model candidates
+plus 4 router candidates. Near-duplicates, missing-pricing models, and models
+without a clear additional tradeoff are deferred rather than rejected.
+
 ---
 
 ### 5. Model Selection Funnel
 
-```mermaid
-flowchart TD
-    A[68 visible DO SI models] --> B{Text/chat classification capable?}
-    B -->|no: embedding/rerank/image/audio/video| X[Exclude from this task]
-    B -->|yes| C[51 text/chat candidates]
-    C --> D{Representative and evaluable now?}
-    D -->|pricing available + tradeoff coverage| E[16 priced single-model candidates]
-    D -->|router-policy candidate| R[4 router candidates]
-    D -->|pricing missing or near-duplicate| Y[Defer, not rejected]
-    E --> F[Screening: callability, JSON contract, usage, latency, errors]
-    R --> F
-    F --> G[Full-run shortlist]
-    G --> H[Model landscape: quality, cost, p95, reliability]
-    H --> I[Production recommendation]
-```
+![Model selection funnel](docs/assets/model-selection-funnel.svg)
 
 The broad inventory stays visible, but full-corpus runs are reserved for models
 that are plausible production candidates.
@@ -195,7 +171,6 @@ The final comparison uses full 530-issue resultsets and production metrics.
 | deepseek-4-flash | 0.9130 | $0.000096 | 15642ms | 530 / 530 |
 | openai-gpt-oss-20b | 0.8963 | $0.000095 | 2660ms | 524 / 530 |
 | llama-4-maverick | 0.8711 | $0.000172 | 780ms | 526 / 530 |
-| arcee-trinity-large-thinking | N/A | N/A | N/A | 0 / 530 |
 
 Average classification cost is calculated from completed calls with returned
 token usage. `N/A` means the run did not return billable usage, usually because
@@ -280,47 +255,59 @@ policy candidate, or human review.
 
 ### 11. Production Handling
 
-The fallback path should be triggered by detectable risk, not by a generic
-"second-best model" rule.
+The production setup should keep the normal path simple: call `mistral-3-14B`
+for every issue, and use the backup model only when it has a clear operational
+purpose.
 
-**Recommended operating pattern**
+**When to use the backup model**
 
-| Situation | Detection | Handling |
-|---|---|---|
-| Normal issue | default model returns valid label with normal latency | Use `mistral-3-14B` result |
-| Transient infrastructure failure | rate limit, timeout, retryable provider error | Retry with backoff; keep retry count visible |
-| Output contract failure | empty output, invalid JSON, invalid label | Retry once with stricter prompt; then route away |
-| Cost-sensitive eligible issue | no security keywords, not predicted `security`/`other`, no parser error, no bug/security disagreement, and category has strong measured recall | Consider cheaper path such as `openai-gpt-oss-20b` if quality loss is acceptable |
-| Security-sensitive issue | CVE/token/credential/auth-leak keywords or predicted `security` | Route to stronger/routing candidate or human review |
-| Ambiguous result | default predicts `other`, low confidence signal, or model disagreement on bug/security | Route to human review or a stronger/routing candidate |
+1. API failure on the default model: for timeout, rate limit, or retryable
+   provider error, retry `mistral-3-14B` with exponential backoff 1-2 times. If
+   it still fails, call `openai-gpt-oss-20b` and mark the result as
+   fallback-produced.
+2. Output contract failure: for empty output, invalid JSON, or invalid label,
+   retry once with a stricter prompt. If the default still fails the contract,
+   call `openai-gpt-oss-20b`. If the backup also fails, route the issue to
+   manual review.
+3. Online monitoring: run `openai-gpt-oss-20b` on a small sample of successful
+   production requests. Track disagreement rate and disagreement by label. If
+   the disagreement rate moves materially away from the baseline, review the
+   sampled cases before changing the model choice or routing policy.
 
-This is how the two-model recommendation connects to production. `mistral-3-14B`
-is the default because it has the best quality/latency evidence. A second model
-is useful only when it serves a specific role: cheaper degraded path,
-quality/escalation path, or router-policy path. Otherwise human review is the
-right fallback for high-risk ambiguity.
+This makes the second model useful without pretending it is equally safe as the
+default. It is an operational fallback and monitoring signal, not a blanket
+replacement for the stronger model.
 
 ---
 
 ### 12. Closing Summary
 
-**Implementation delivered**
+**What the tradeoff screen showed**
 
-- deterministic ground-truth pipeline
-- persisted full-corpus classification corpus
-- DO SI model inventory snapshot
-- screening and full-run evaluation harness
-- per-call latency, cost, usage, headers, retries, and errors
-- Dockerized UI for pairwise and multi-model analysis
+- Small/cheap did not automatically win: `openai-gpt-oss-20b` and
+  `deepseek-4-flash` were cheaper, but both gave up too much quality or latency
+  for the default path.
+- Larger did not automatically win: `openai-gpt-oss-120b` was stronger than the
+  20B model, but still below `mistral-3-14B` while costing about the same.
+- Reasoning/thinking behavior was not helpful for this strict classification
+  task. Several models spent too many tokens reasoning, increased latency/cost,
+  or needed larger output budgets just to return the final JSON.
+- Coding/routing-style candidates were worth testing. `router:writing` looked
+  promising on quality, but router pricing and attribution are not clean enough
+  for the final costed pair yet.
 
 **Final position**
 
-- The default should be `mistral-3-14B`.
-- `openai-gpt-oss-20b` is a useful cheap baseline but not a quality fallback.
-- Router models are promising, especially `router:writing`, but need pricing
-  confirmation before a final costed recommendation.
-- The production system should route detectable failures and critical cases,
-  rather than blindly using a single happy-path model call.
+The recommended high/low pair is:
+
+- `mistral-3-14B` as the high-quality production default.
+- `openai-gpt-oss-20b` as the low-cost constrained path for traffic that passes
+  explicit safety/ambiguity checks.
+
+This is not a simple "model A primary, model B fallback" recommendation. The
+production wrapper should retry transient failures, avoid cheap fallback for
+security or ambiguous bug/security cases, and route high-risk ambiguity to a
+stronger policy candidate or human review.
 
 **Open follow-up**
 
