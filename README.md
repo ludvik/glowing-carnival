@@ -1,6 +1,6 @@
 # Issue Classification Model Evaluator
 
-This repo contains a runnable evaluation app for comparing DigitalOcean
+This repo contains a runnable evaluation app for comparing 
 Serverless Inference models on GitHub issue classification.
 
 The submitted package includes the application code, Docker setup, labeled
